@@ -10,6 +10,10 @@ if [[ `git status --short --porcelain | grep -v 'docs/'` ]]; then
     exit 1
 fi
 
+cd notes
+make github
+cd ..
+
 # Commit all changes in the docs directory
 git add docs/
 CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
