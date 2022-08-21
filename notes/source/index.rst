@@ -10,6 +10,7 @@ Welcome to Notes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Contents/mlflow.rst
 
 
 Indices and tables
