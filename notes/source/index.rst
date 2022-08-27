@@ -10,6 +10,8 @@ Welcome to Notes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Contents/bash.rst
+
 
 
 Indices and tables
