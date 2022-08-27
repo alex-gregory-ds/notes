@@ -1,0 +1,101 @@
+=====
+Shell
+=====
+
+Quick reference for Bash scripting.
+
+^^^^^^^^^
+Variables
+^^^^^^^^^
+
+.. code-block:: bash
+
+   STRING="Hello"  # String
+   NUMBER=7        # Integer
+   BOOL=true       # Boolean
+   ARRAY=(1 2 3)   # Array
+
+^^^^^^^^^^
+Arithmetic
+^^^^^^^^^^
+
+Expressions written inside :code:`(())` are evaluated as mathematical expressions.
+
+.. code-block:: bash
+
+    echo $((2 + 3))  # 5
+
+Without :code:`(())`, bash will usually interpret most variables and arguments as strings.
+
+.. code-block:: bash
+
+    echo 2 + 3    # 2 + 3
+    echo "2 + 3"  # 2 + 3
+
+    X=2
+    Y=3
+    echo $X + $Y  # 2 + 3
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Square Brackets (The Test Command)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Square brackets are referred to as the test command and are used to test if the statement within the brackets are true are true of false.
+
+.. code-block:: bash
+
+    if [ "a" = "a" ]; then echo "True"; else echo "False"; fi    # True
+    if [ "a" = "b" ]; then echo "True"; else echo "False"; fi    # False
+    if [ "aa" = "aa" ]; then echo "True"; else echo "False"; fi  # False
+
+    X=3
+    Y=5
+
+    # Less than or equal to
+    if [ $X -le $Y ]; then echo "True"; else echo "False"; fi    # True
+
+    # Greater than or equal to
+    if [ $X -ge $Y ]; then echo "True"; else echo "False"; fi    # False
+
+    # Less than
+    if [ $X -lt $Y ]; then echo "True"; else echo "False"; fi    # True
+
+    # Greater than
+    if [ $X -gt $Y ]; then echo "True"; else echo "False"; fi    # False
+
+^^^^^^^^^
+For Loops
+^^^^^^^^^
+
+For loops can be defined over a list of items.
+
+.. code-block:: bash
+
+    # Integer items
+    for i in 1 2 3
+    do
+        echo "This is element $i"
+    done
+
+    # String items
+    for item in "item 1" "item 2" "item 3"
+    do
+        echo "$item"
+    done
+
+Braces can be used to define ranges, :code:`{x..y}`. Note that ranges are inclusive so :code:`x` and :code:`y` are included in the range.
+
+.. code-block:: bash
+
+    # 0, 1, 2, 3, 4, 4
+    for i in {0..5}
+    do
+        echo "Item $i"
+    done
+
+    # 0, 2, 4, 6, 8
+    for i in {0..10..2}
+    do
+        echo "Item $i"
+    done
+
