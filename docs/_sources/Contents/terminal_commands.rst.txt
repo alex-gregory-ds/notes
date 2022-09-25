@@ -24,3 +24,8 @@ Terminal Commands
 
     **TIP:** In most cases use :bash:`-i` to avoid overwriting unintended existing files.
 
+---------------------------------------
+
+:bash:`su <username>`
+    Switch the current user to :bash:`<username>`.
+
