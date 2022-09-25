@@ -72,6 +72,9 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
+# This title defaults to 'Notes documentation'. Since this project is not a
+# documentation per, set it to an empty string.
+html_title = ""
 
 # -- Options for HTML output -------------------------------------------------
 
