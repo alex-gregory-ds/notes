@@ -11,6 +11,7 @@ Welcome to Notes's documentation!
    :caption: Contents:
 
    Contents/bash.rst
+   Contents/terminal_commands.rst
 
 
 
