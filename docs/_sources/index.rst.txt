@@ -13,6 +13,7 @@ Notes
    Contents/bash.rst
    Contents/terminal_commands.rst
    Contents/decorators.rst
+   Contents/regular_expressions.rst
 
 
 
