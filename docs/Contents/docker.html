@@ -333,13 +333,61 @@
 </div>
 <p>We give <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> flags <code class="code docutils literal notranslate"><span class="pre">-it</span></code> which, like before, runs the command interactively with a pseudo TTY. We then give the ID of the container we want the command to be executed in and finally the command <code class="code docutils literal notranslate"><span class="pre">/bin/bash</span></code> itself. This starts an interactive bash shell that we can use for development.</p>
 <p>When we exit the shell, the container will still be running in the background. To stop the container, use the <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span></code> command.</p>
+</section>
+</section>
+<section id="volumes">
+<h2>Volumes<a class="headerlink" href="#volumes" title="Permalink to this heading">#</a></h2>
+<p>Suppose you are are starting a project and you want to do your development inside a docker container. You could create a container like in the previous section and do everything inside the container. In particular you could store the files for your project inside the docker container. However, getting the files from the container onto the host machine can be tricky.</p>
+<p>Alternatively, you could attach your project files to the container using a volume. Think of this as sharing files and data between the host machine and the container. This means any changes made to the volume files inside the container will be reflected in the files on the host machine. Also, if the container is stopped or deleted, the files still exist on the host machine so no data will be lost.</p>
+<p>Suppose we have a simple project on our system with one file <code class="code docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">pwd</span>
+<span class="go">/home/user/my_project</span>
+<span class="gp">$ </span>ls
+<span class="go">main.py</span>
+</pre></div>
+</div>
+<p>The file <code class="code docutils literal notranslate"><span class="pre">main.py</span></code> is a simple script that prints some text.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># main.py</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is main.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us create a python docker container and attach the <code class="code docutils literal notranslate"><span class="pre">my_project</span></code> directory to the container. This is done with the <code class="code docutils literal notranslate"><span class="pre">-v</span></code> flag.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run -itd -v /home/user/my_project:/my_project python:3.10-slim-buster
+<span class="go">1f181219691a3837f1830db590e88d8f1644be251b5915687db523096dff93fc</span>
+</pre></div>
+</div>
+<p>The argument passed to <code class="code docutils literal notranslate"><span class="pre">-v</span></code> contains two paths. The first path before the colon is the path to the directory (or file) on the host machine that we want to attach to the container. The second path after the colon is the path to the location where we want the directory (or file) to be stored in the docker container.</p>
+<p>Now, if we execute bash in the container, we should be able to navigate to our <code class="code docutils literal notranslate"><span class="pre">main.py</span></code> file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker <span class="nb">exec</span> -it 1f18 /bin/bash
+<span class="gp">root@1f181219691a:/# </span><span class="nb">cd</span> /my_project
+<span class="gp">root@1f181219691a:/my_project# </span>ls
+<span class="go">main.py</span>
+<span class="gp">root@1f181219691a:/my_project# </span>python main.py
+<span class="go">This is main.py</span>
+<span class="gp">root@1f181219691a:/my_project# </span>touch created_in_container.py
+<span class="gp">root@1f181219691a:/my_project# </span>ls
+<span class="go">created_in_container.py  main.py</span>
+<span class="gp">root@1f181219691a:/my_project# </span><span class="nb">exit</span>
+<span class="gp">$ </span>docker stop 1f18
+<span class="go">1f18</span>
+<span class="gp">$ </span>docker rm 1f18
+<span class="go">1f18</span>
+</pre></div>
+</div>
+<p>Above, we navigate to the <code class="code docutils literal notranslate"><span class="pre">/my_project</span></code> directory and run the <code class="code docutils literal notranslate"><span class="pre">main.py</span></code> script. We also create a new file called <code class="code docutils literal notranslate"><span class="pre">created_in_container.py</span></code> from within the container and exit the container. Finally we stop and delete the container.</p>
+<p>Since we attached the <code class="code docutils literal notranslate"><span class="pre">my_project</span></code> directory to the container using volumes, the <code class="code docutils literal notranslate"><span class="pre">created_in_container.py</span></code> file will exist on the host machine.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> /home/user/my_project
+<span class="gp">$ </span>ls
+<span class="go">created_in_container.py  main.py</span>
+</pre></div>
+</div>
+<p>Despite having stopped and deleted the container used to create <code class="code docutils literal notranslate"><span class="pre">created_in_container.py</span></code>, the file still exists on the host machine. One can use volumes to attached many files to a container such that changes made inside the container are reflected on the host machine.</p>
 <div role="list" class="citation-list">
 <div class="citation" id="drun" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">DRUN</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://docs.docker.com/engine/reference/commandline/run/">https://docs.docker.com/engine/reference/commandline/run/</a></p>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -401,6 +449,7 @@
 <li><a class="reference internal" href="#exlore-detached-mode">Exlore Detached Mode</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#volumes">Volumes</a></li>
 </ul>
 </li>
 </ul>
