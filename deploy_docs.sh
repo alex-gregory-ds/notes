@@ -1,5 +1,5 @@
 # Exit if not on the main branch
-if [[ `git branch --show-current` != "main" ]]; then
+if [[ `git rev-parse --abbrev-ref HEAD` != "main" ]]; then
     echo "Must be on the main branch."
     exit 1
 fi
