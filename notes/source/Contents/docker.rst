@@ -174,5 +174,69 @@ We give :code:`docker exec` flags :code:`-it` which, like before, runs the comma
 
 When we exit the shell, the container will still be running in the background. To stop the container, use the :code:`docker stop` command.
 
+Volumes
+-------
+
+Suppose you are are starting a project and you want to do your development inside a docker container. You could create a container like in the previous section and do everything inside the container. In particular you could store the files for your project inside the docker container. However, getting the files from the container onto the host machine can be tricky.
+
+Alternatively, you could attach your project files to the container using a volume. Think of this as sharing files and data between the host machine and the container. This means any changes made to the volume files inside the container will be reflected in the files on the host machine. Also, if the container is stopped or deleted, the files still exist on the host machine so no data will be lost. 
+
+Suppose we have a simple project on our system with one file :code:`main.py`.
+
+.. code-block:: console
+
+   $ pwd
+   /home/user/my_project
+   $ ls
+   main.py
+
+The file :code:`main.py` is a simple script that prints some text.
+
+.. code-block:: python
+
+   # main.py
+   print("This is main.py")
+
+Let us create a python docker container and attach the :code:`my_project` directory to the container. This is done with the :code:`-v` flag.
+
+
+.. code-block:: console
+
+   $ docker run -itd -v /home/user/my_project:/my_project python:3.10-slim-buster
+   1f181219691a3837f1830db590e88d8f1644be251b5915687db523096dff93fc
+
+The argument passed to :code:`-v` contains two paths. The first path before the colon is the path to the directory (or file) on the host machine that we want to attach to the container. The second path after the colon is the path to the location where we want the directory (or file) to be stored in the docker container.
+
+Now, if we execute bash in the container, we should be able to navigate to our :code:`main.py` file.
+
+.. code-block:: console
+
+   $ docker exec -it 1f18 /bin/bash
+   root@1f181219691a:/# cd /my_project
+   root@1f181219691a:/my_project# ls
+   main.py
+   root@1f181219691a:/my_project# python main.py
+   This is main.py
+   root@1f181219691a:/my_project# touch created_in_container.py
+   root@1f181219691a:/my_project# ls
+   created_in_container.py  main.py
+   root@1f181219691a:/my_project# exit
+   $ docker stop 1f18
+   1f18
+   $ docker rm 1f18 
+   1f18
+
+Above, we navigate to the :code:`/my_project` directory and run the :code:`main.py` script. We also create a new file called :code:`created_in_container.py` from within the container and exit the container. Finally we stop and delete the container.
+
+Since we attached the :code:`my_project` directory to the container using volumes, the :code:`created_in_container.py` file will exist on the host machine.
+
+.. code-block:: console
+
+   $ cd /home/user/my_project
+   $ ls
+   created_in_container.py  main.py
+
+Despite having stopped and deleted the container used to create :code:`created_in_container.py`, the file still exists on the host machine. One can use volumes to attached many files to a container such that changes made inside the container are reflected on the host machine.
+
 .. [DRUN] https://docs.docker.com/engine/reference/commandline/run/
 
