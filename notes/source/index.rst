@@ -14,6 +14,7 @@ Notes
    Contents/terminal_commands.rst
    Contents/decorators.rst
    Contents/regular_expressions.rst
+   Contents/docker.rst
 
 
 
