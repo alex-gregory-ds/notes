@@ -15,7 +15,7 @@ Notes
    Contents/decorators.rst
    Contents/regular_expressions.rst
    Contents/docker.rst
-
+   Contents/dockerfile.rst
 
 
 Indices and tables
