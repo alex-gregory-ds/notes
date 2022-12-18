@@ -4,37 +4,26 @@ Bash
 
 Quick reference for Bash scripting.
 
-^^^^^^^^^
-Variables
-^^^^^^^^^
-
-.. code-block:: bash
-
-   STRING="Hello"  # String
-   NUMBER=7        # Integer
-   BOOL=true       # Boolean
-   ARRAY=(1 2 3)   # Array
-
 ^^^^^^^^^^
-Arithmetic
+Data Types
 ^^^^^^^^^^
 
-Expressions written inside :code:`(())` are evaluated as mathematical expressions.
+By default, bash treats all variables as character strings. Depending on the context in which the variables are used affects whether bash interprets the variables as integers, strings, booleans, or arrays.
 
-.. code-block:: bash
+.. code-block:: console
 
-    echo $((2 + 3))  # 5
+   $ A="1"; B="2"
+   $ X="Hello"; Y="World"
+   $ echo "${A} ${B}"
+   1 2
+   $ echo "${X} ${Y}"
+   Hello World
+   $ echo $((${A} + ${B}))
+   3
+   $ echo $((${X} + ${Y}))
+   0
 
-Without :code:`(())`, bash will usually interpret most variables and arguments as strings.
-
-.. code-block:: bash
-
-    echo 2 + 3    # 2 + 3
-    echo "2 + 3"  # 2 + 3
-
-    X=2
-    Y=3
-    echo $X + $Y  # 2 + 3
+Expressions written inside :code:`(())` are evaluated as mathematical expressions. Note that adding the strings :code:`"Hello"` and :code:`World` returns :code:`0`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Square Brackets (The Test Command)
@@ -98,4 +87,43 @@ Braces can be used to define ranges, :code:`{x..y}`. Note that ranges are inclus
     do
         echo "Item $i"
     done
+
+^^^^^^^^^^^^^^^^^^^
+Parameter Expansion
+^^^^^^^^^^^^^^^^^^^
+
+In shell scripts, the value of a parameter can be substituted into into a string using the :code:`${variable_name}` syntax.
+
+.. code:: console
+
+   $ X="Hello this is some text."
+   $ echo "${X}"
+   Hello this is some text.
+
+Parameter expansions allows us to add characters inside the curly braces to change value that is substituted.
+
+:code:`${parameter:-word}`
+    If parameter is unset or null, substitute :code:`word` instead.
+
+    .. code:: console
+
+       $ X="Hello"
+       $ echo "${X:-"Word"}"
+       Hello
+       $ echo "${Y:-"Word"}"
+       Word
+       $ X=
+       $ echo "${X:-"Word"}"
+       Word
+
+:code:`${parameter:offset:length}`
+    Expands the substring of the value of :code:`parameter` that starts at :code:`offset` and has length `length`:
+
+    .. code:: console
+
+       $ X="Hello"
+       $ echo "${X:1:3}"
+       ell
+       $ echo "${X:1}"
+       ello
 
