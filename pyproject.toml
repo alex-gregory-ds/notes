@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notes"
+authors = [
+    {name = "Alex Gregory"},
+]
+description = "My personal notes"
+readme = "README.md"
+dependencies = [
+    "sphinx",
+    "sphinx-book-theme",
+]
+version = "0.0.1"
