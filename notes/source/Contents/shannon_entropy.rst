@@ -136,6 +136,8 @@ So every term in :math:`H` is zero so :math:`H = 0`.
 Property B
 ^^^^^^^^^^
 
+This proof is taken from here https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function.
+
 Using Jensen's Inequality,
 
 .. math::
@@ -156,6 +158,8 @@ Which is the upper bound.
 ^^^^^^^^^
 Propery C
 ^^^^^^^^^
+
+This proof is taken from https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro.
 
 Shannon entropy is,
 
