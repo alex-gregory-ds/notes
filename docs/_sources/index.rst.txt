@@ -16,6 +16,7 @@ Notes
    Contents/regular_expressions.rst
    Contents/docker.rst
    Contents/dockerfile.rst
+   Contents/public_private_encryption.rst
 
 
 Indices and tables

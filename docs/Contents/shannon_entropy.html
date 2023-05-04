@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Shannon Entropy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/shannon_entropy';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Dockerfile" href="dockerfile.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title"></p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminal_commands.html">Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regular_expressions.html">Regular Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Dockerfile</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Shannon Entropy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Contents/shannon_entropy.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Shannon Entropy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">Intuitive Explanation of Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-for-entropy">Formula for Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">Axioms Use to Derive Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-entropy">Properties of Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-entropy-property-proofs">Appendix: Entropy Property Proofs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-a">Property A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-b">Property B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propery-c">Propery C</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="shannon-entropy">
+<h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Permalink to this heading">#</a></h1>
+<p>Shannon entropy can be used to measure the uncertainty in a probability distribution.</p>
+<p>From this should on whenever we refer to <em>entropy</em> we are referring to <em>shannon entropy</em> unless stated otherwise.</p>
+<section id="intuitive-explanation-of-uncertainty">
+<h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have three random variables,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    X_1 = &amp; \{ A, A, A, A, A, A, A, A \}, \\
+    X_2 = &amp; \{ A, A, A, A, B, B, B, B \}, \\
+    X_3 = &amp; \{ A, A, B, B, C, C, D, D \}. \\
+\end{align}\end{split}\]</div>
+<p>Suppose we sample a random character <span class="math notranslate nohighlight">\(x_i\)</span> from the random variable <span class="math notranslate nohighlight">\(X_i\)</span></p>
+<ul class="simple">
+<li><p>Since <span class="math notranslate nohighlight">\(X_1\)</span> only contain ‘A’, we are certain <span class="math notranslate nohighlight">\(x_i\)</span> is ‘A’.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_2\)</span> contains ‘A’s and ‘B’s so we cannot be certain whether <span class="math notranslate nohighlight">\(x_2\)</span> is an ‘A’ or a ‘B’. So, we are less certain about <span class="math notranslate nohighlight">\(x_2\)</span> than we are about <span class="math notranslate nohighlight">\(x_3\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_3\)</span> contains ‘A’s, ‘B’s, ‘C’s, and ‘D’s so we less certain about <span class="math notranslate nohighlight">\(x_3\)</span> than <span class="math notranslate nohighlight">\(X_2\)</span>.</p></li>
+</ul>
+<p>Entropy is a way of quantifying this uncertainty.</p>
+</section>
+<section id="formula-for-entropy">
+<h2>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{ x_1, x_2, \dots, x_n \}\)</span> where <span class="math notranslate nohighlight">\(P(X = x_i) = p_i\)</span>. The shannon entropy of <span class="math notranslate nohighlight">\(X\)</span> is,</p>
+<div class="math notranslate nohighlight">
+\[H(X) = \sum_{i = 0}^{n} p_i \log p_i.\]</div>
+</section>
+<section id="axioms-use-to-derive-entropy">
+<h2>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Permalink to this heading">#</a></h2>
+<p>In Shannon’s paper, presents three axioms that a measure of a uncertainty should follow and then shows the only function that satisfies these axioms is the function above. The axioms are as follows:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(H\)</span> should be continuous on the probabilities <span class="math notranslate nohighlight">\(p_i\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H\)</span> should me monotonically increasing.</p></li>
+<li><p>If an event can be broken down into multiple choices, the entropy of the event should be equal to the weighted sum of the entropy of its component choices.</p></li>
+</ol>
+<p>Axiom 3 is not as obvious as the other two so it is worth looking at it a little more closely. Suppose we have a random variable <span class="math notranslate nohighlight">\(X = {A, A, A, B, B, C}\)</span>. If we were the pick a character at random from <span class="math notranslate nohighlight">\(X\)</span> the entropy of this system would be,</p>
+<div class="math notranslate nohighlight">
+\[H(\frac{1}{3}, \frac{1}{3}, \frac{1}{6})\]</div>
+<p>Suppose that the character we pick depends on the previous character in the list. The choices and probabilities are shown in the figure below.</p>
+<img alt="../_images/choices.png" class="align-center" src="../_images/choices.png" />
+<p>Axiom 3 means,</p>
+<div class="math notranslate nohighlight">
+\[H(\frac{1}{3}, \frac{1}{3}, \frac{1}{6}) = H(\frac{3}{5}, \frac{2}{5}) + \frac{3}{5} H(\frac{2}{3}, \frac{1}{3}) + \frac{2}{5} H(\frac{1}{2}, \frac{1}{2})\]</div>
+</section>
+<section id="properties-of-entropy">
+<h2>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Permalink to this heading">#</a></h2>
+<p>Shannon derives a number of properties, some are listed here.</p>
+<ol class="loweralpha simple">
+<li><p><span class="math notranslate nohighlight">\(H = 0\)</span> if and only if <span class="math notranslate nohighlight">\(p_i = 1\)</span> and all other probabilities are <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+<li><p>Suppose we have a random variable with <span class="math notranslate nohighlight">\(n\)</span> possibilities, the maximum of <span class="math notranslate nohighlight">\(H\)</span> will be when <span class="math notranslate nohighlight">\(p_i = \frac{1}{n}\)</span> for <span class="math notranslate nohighlight">\(n \in \{ 0, 1, \dots, n - 1 \}\)</span>.</p></li>
+<li><p>Suppose we have two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> which have <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> possibilities respectively. Let <span class="math notranslate nohighlight">\(P(X=x_i, Y=y_i) = p_{i, j}\)</span>. The entropy of this joint event is,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H(X, Y) = - \sum_{i, j} p_{i, j} \log p_{i, j}.\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H(X) = - \sum_{i, j} p_{i, j} \log \sum_{j} p_{i, j}, \\
+H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
+<p>It can also be shown that,</p>
+<div class="math notranslate nohighlight">
+\[H(X, Y) \leq H(X) + H(Y)\]</div>
+<ol class="loweralpha simple" start="4">
+<li><p>Suppose we have two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> that are not necessarily independent. The conditional probability is defined as,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[P(Y=y_i \vert X=x_i) = p_{y_i \vert x_i} = \frac{p_{x_i, y_j}}{\sum_{j} p_{x_i, y_j}}.\]</div>
+<p>The conditional entropy is defined as,</p>
+<div class="math notranslate nohighlight">
+\[H_{x_i}(Y) = - \sum_{i, j} p_{x_i, y_j} \log p_{y_i \vert x_i}\]</div>
+</section>
+<section id="appendix-entropy-property-proofs">
+<h2>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Permalink to this heading">#</a></h2>
+<p>Proofs of the properties defined above.</p>
+<section id="property-a">
+<h3>Property A<a class="headerlink" href="#property-a" title="Permalink to this heading">#</a></h3>
+<p>Suppose we probabilities <span class="math notranslate nohighlight">\(p = {p_0, p_1, \dots, p_{n_1}}\)</span> where <span class="math notranslate nohighlight">\(p_i = 1\)</span> and the rest of the probabilities are <span class="math notranslate nohighlight">\(0\)</span>. For <span class="math notranslate nohighlight">\(i\)</span> we have,</p>
+<div class="math notranslate nohighlight">
+\[p_i \log p_i = \log 1 = 0.\]</div>
+<p>For <span class="math notranslate nohighlight">\(j\)</span> where <span class="math notranslate nohighlight">\(j \neq i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[p_j \log p_j = 0 \log 0 = 0.\]</div>
+<p>So every term in <span class="math notranslate nohighlight">\(H\)</span> is zero so <span class="math notranslate nohighlight">\(H = 0\)</span>.</p>
+</section>
+<section id="property-b">
+<h3>Property B<a class="headerlink" href="#property-b" title="Permalink to this heading">#</a></h3>
+<p>Using Jensen’s Inequality,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H(X) = &amp; - \sum_{i} p_i \log p_i \\
+     = &amp; \sum_{i} p_i \log \frac{1}{p_i} \\
+  \leq &amp; \log \sum_{i} p_i \frac{1}{p_i} \\
+     = &amp; \log n.\end{split}\]</div>
+<p>By substituting in <span class="math notranslate nohighlight">\(p_i = \frac{1}{n}\)</span> to the entropy formula we get,</p>
+<div class="math notranslate nohighlight">
+\[H(x) = - \sum_{i} \frac{1}{n} \log \frac{1}{n} = \log n\]</div>
+<p>Which is the upper bound.</p>
+</section>
+<section id="propery-c">
+<h3>Propery C<a class="headerlink" href="#propery-c" title="Permalink to this heading">#</a></h3>
+<p>Shannon entropy is,</p>
+<div class="math notranslate nohighlight">
+\[H(x) = - \sum_{i} p_i \log p_i.\]</div>
+<p>Since we have joint probabilities we have <span class="math notranslate nohighlight">\(p_i = \sum_{j} p_{i, j}\)</span>. Substituting this into the entropy formula, we get,</p>
+<div class="math notranslate nohighlight">
+\[H(x) = - \sum_{i, j} p_{i, j} \log \sum_j p_{i, j}.\]</div>
+<p>Finally, again using Jensen’s inequality,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    H(X, Y) - H(X) - H(Y) &amp;    = - \sum_{i, j} p_{i, j} \log p_{i, j} + \sum_{i, j} p_{i, j} \log \sum_k p_{i, k} + \sum_{i, j} p_{i, j} \log \sum_k p_{k, j} \\
+                          &amp;    = \sum_{i, j} p_{i, j} \log \frac{\sum_k p_{i, k} \sum_k p_{k, j}}{p_{i, j}} \\
+                          &amp; \leq \log \sum_{i, j} p_{i, j} \frac{\sum_k p_{i, k} \sum_k p_{k, j}}{p_{i, j}} \\
+                          &amp;    = \log \sum_{i, j} \sum_k p_{i, k} \sum_k p_{k, j} \\
+                          &amp;    = \log 1 = 0
+\end{align}\end{split}\]</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dockerfile.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dockerfile</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">Intuitive Explanation of Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-for-entropy">Formula for Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">Axioms Use to Derive Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-entropy">Properties of Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-entropy-property-proofs">Appendix: Entropy Property Proofs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-a">Property A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-b">Property B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propery-c">Propery C</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alex Gregory
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022, Alex Gregory.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
