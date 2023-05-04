@@ -16,6 +16,7 @@ Notes
    Contents/regular_expressions.rst
    Contents/docker.rst
    Contents/dockerfile.rst
+   Contents/shannon_entropy.rst
 
 
 Indices and tables
