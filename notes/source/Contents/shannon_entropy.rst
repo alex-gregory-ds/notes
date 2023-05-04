@@ -6,6 +6,8 @@ Shannon entropy can be used to measure the uncertainty in a probability distribu
 
 From this should on whenever we refer to *entropy* we are referring to *shannon entropy* unless stated otherwise.
 
+Shannon introduced this concept of entropy in his paper *A Mathematical Theory of Communication* [Shan48]_
+
 ------------------------------------
 Intuitive Explanation of Uncertainty
 ------------------------------------

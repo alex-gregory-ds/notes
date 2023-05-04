@@ -17,6 +17,7 @@ Notes
    Contents/docker.rst
    Contents/dockerfile.rst
    Contents/shannon_entropy.rst
+   Contents/bibliography.rst
 
 
 Indices and tables
