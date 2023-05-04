@@ -5,7 +5,7 @@ if [[ `git rev-parse --abbrev-ref HEAD` != "main" ]]; then
 fi
 
 # Exit if there are uncommitted changes outside the docs/ directory
-if [[ `git status --short --porcelain | grep -v 'docs/'` ]]; then
+if [[ `git status --short --porcelain --untracked-files=no | grep -v 'docs/'` ]]; then
     echo "Docs cannot be deployed if there are uncommited changes outside the docs/ directory."
     exit 1
 fi
