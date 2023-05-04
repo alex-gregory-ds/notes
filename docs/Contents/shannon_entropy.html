@@ -43,6 +43,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/shannon_entropy';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
     <link rel="prev" title="Dockerfile" href="dockerfile.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -129,6 +130,7 @@
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Dockerfile</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Shannon Entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
@@ -300,6 +302,7 @@ document.write(`
 <h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Permalink to this heading">#</a></h1>
 <p>Shannon entropy can be used to measure the uncertainty in a probability distribution.</p>
 <p>From this should on whenever we refer to <em>entropy</em> we are referring to <em>shannon entropy</em> unless stated otherwise.</p>
+<p>Shannon introduced this concept of entropy in his paper <em>A Mathematical Theory of Communication</em> <a class="reference internal" href="bibliography.html#shan48" id="id1"><span>[Shan48]</span></a></p>
 <section id="intuitive-explanation-of-uncertainty">
 <h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have three random variables,</p>
@@ -381,6 +384,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 </section>
 <section id="property-b">
 <h3>Property B<a class="headerlink" href="#property-b" title="Permalink to this heading">#</a></h3>
+<p>This proof is taken from here <a class="reference external" href="https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function">https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function</a>.</p>
 <p>Using Jensen’s Inequality,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}H(X) = &amp; - \sum_{i} p_i \log p_i \\
@@ -394,6 +398,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 </section>
 <section id="propery-c">
 <h3>Propery C<a class="headerlink" href="#propery-c" title="Permalink to this heading">#</a></h3>
+<p>This proof is taken from <a class="reference external" href="https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro">https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro</a>.</p>
 <p>Shannon entropy is,</p>
 <div class="math notranslate nohighlight">
 \[H(x) = - \sum_{i} p_i \log p_i.\]</div>
@@ -433,6 +438,15 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Dockerfile</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
