@@ -166,3 +166,81 @@ Regex can be used to match more complicated patterns. The list below describes s
        >>> bool(re.match(r"(a|bc)", "d"))
        False
 
+^^^^
+Grep
+^^^^
+
+Grep is a program common on most Unix-like systems. It is used for finding patterns in text. Suppose the file :code:`text.txt` contains the follow text.
+
+.. code-block:: console
+
+   Line 1
+   Line 2
+   This is the final line
+
+Here are some examples of how to use grep.
+
+.. code-block:: console
+
+   $ grep This text.txt
+   Line 1
+   Line 2
+   $ grep --invert-match This text.txt
+   This is the final line
+   $ grep --ignore-case this text.text
+   This is the final line
+   $ grep --file=text.txt --regexp=Line
+   Line 1
+   Line 2
+   $ grep --count Line text.txt
+   2
+   $ grep ^Line (1|2) file1.txt
+   zsh: no matches found: (1|2)
+   $ grep "^Line (1|2)" file1.txt
+   $ grep -E "^Line (1|2)" file1.txt
+   Line 1
+   Line 2
+
+-------------------
+Grep Multiple Files
+-------------------
+
+Suppose we have the following directory structure.
+
+.. code-block:: console
+
+   directory
+      file1.txt
+      file2.txt
+
+Suppose :code:`directory/file1.txt` has the following text.
+
+.. code-block:: console
+
+   Line 1 in file1
+   Line 2 in file1
+   This is the final line in file 1
+
+And :code:`directory/file2.txt` has the following text.
+
+.. code-block:: console
+
+   Line 1 in file2
+   Line 2 in file2
+   This is the final line in file 2
+
+We can grep patterns in multiple files.
+
+.. code-block:: console
+
+   $ grep Line directory/*.txt
+   file1.txt:Line 1 in file1
+   file1.txt:Line 2 in file1
+   file2.txt:Line 1 in file2
+   file2.txt:Line 2 in file2
+   $ grep Line --recursive directory
+   file1.txt:Line 1 in file1
+   file1.txt:Line 2 in file1
+   file2.txt:Line 1 in file2
+   file2.txt:Line 2 in file2
+
