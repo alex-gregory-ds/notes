@@ -277,6 +277,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">Regex in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">Grep</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">Grep Multiple Files</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -427,6 +431,70 @@ document.write(`
 </dd>
 </dl>
 </section>
+<section id="grep">
+<h2>Grep<a class="headerlink" href="#grep" title="Permalink to this heading">#</a></h2>
+<p>Grep is a program common on most Unix-like systems. It is used for finding patterns in text. Suppose the file <code class="code docutils literal notranslate"><span class="pre">text.txt</span></code> contains the follow text.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Line 1</span>
+<span class="go">Line 2</span>
+<span class="go">This is the final line</span>
+</pre></div>
+</div>
+<p>Here are some examples of how to use grep.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>grep<span class="w"> </span>This<span class="w"> </span>text.txt
+<span class="go">Line 1</span>
+<span class="go">Line 2</span>
+<span class="gp">$ </span>grep<span class="w"> </span>--invert-match<span class="w"> </span>This<span class="w"> </span>text.txt
+<span class="go">This is the final line</span>
+<span class="gp">$ </span>grep<span class="w"> </span>--ignore-case<span class="w"> </span>this<span class="w"> </span>text.text
+<span class="go">This is the final line</span>
+<span class="gp">$ </span>grep<span class="w"> </span>--file<span class="o">=</span>text.txt<span class="w"> </span>--regexp<span class="o">=</span>Line
+<span class="go">Line 1</span>
+<span class="go">Line 2</span>
+<span class="gp">$ </span>grep<span class="w"> </span>--count<span class="w"> </span>Line<span class="w"> </span>text.txt
+<span class="go">2</span>
+<span class="gp">$ </span>grep<span class="w"> </span>^Line<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="p">|</span><span class="m">2</span><span class="o">)</span><span class="w"> </span>file1.txt
+<span class="go">zsh: no matches found: (1|2)</span>
+<span class="gp">$ </span>grep<span class="w"> </span><span class="s2">&quot;^Line (1|2)&quot;</span><span class="w"> </span>file1.txt
+<span class="gp">$ </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;^Line (1|2)&quot;</span><span class="w"> </span>file1.txt
+<span class="go">Line 1</span>
+<span class="go">Line 2</span>
+</pre></div>
+</div>
+<section id="grep-multiple-files">
+<h3>Grep Multiple Files<a class="headerlink" href="#grep-multiple-files" title="Permalink to this heading">#</a></h3>
+<p>Suppose we have the following directory structure.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">directory</span>
+<span class="go">   file1.txt</span>
+<span class="go">   file2.txt</span>
+</pre></div>
+</div>
+<p>Suppose <code class="code docutils literal notranslate"><span class="pre">directory/file1.txt</span></code> has the following text.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Line 1 in file1</span>
+<span class="go">Line 2 in file1</span>
+<span class="go">This is the final line in file 1</span>
+</pre></div>
+</div>
+<p>And <code class="code docutils literal notranslate"><span class="pre">directory/file2.txt</span></code> has the following text.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Line 1 in file2</span>
+<span class="go">Line 2 in file2</span>
+<span class="go">This is the final line in file 2</span>
+</pre></div>
+</div>
+<p>We can grep patterns in multiple files.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>grep<span class="w"> </span>Line<span class="w"> </span>directory/*.txt
+<span class="go">file1.txt:Line 1 in file1</span>
+<span class="go">file1.txt:Line 2 in file1</span>
+<span class="go">file2.txt:Line 1 in file2</span>
+<span class="go">file2.txt:Line 2 in file2</span>
+<span class="gp">$ </span>grep<span class="w"> </span>Line<span class="w"> </span>--recursive<span class="w"> </span>directory
+<span class="go">file1.txt:Line 1 in file1</span>
+<span class="go">file1.txt:Line 2 in file1</span>
+<span class="go">file2.txt:Line 1 in file2</span>
+<span class="go">file2.txt:Line 2 in file2</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -478,6 +546,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">Regex in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">Grep</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">Grep Multiple Files</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
