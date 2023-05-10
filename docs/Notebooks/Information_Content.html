@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Terminal Commands</title>
+    <title>Information Content</title>
   
   
   
@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -41,11 +42,11 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/terminal_commands';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Information_Content';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Decorators" href="decorators.html" />
-    <link rel="prev" title="Bash" href="bash.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,15 +124,15 @@
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bash.html">Bash</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Terminal Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regular_expressions.html">Regular Expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Dockerfile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shannon_entropy.html">Shannon Entropy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Contents/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/terminal_commands.html">Terminal Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/regular_expressions.html">Regular Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/dockerfile.html">Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/shannon_entropy.html">Shannon Entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contents/bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
@@ -186,7 +187,7 @@
       
       
       
-      <li><a href="../_sources/Contents/terminal_commands.rst" target="_blank"
+      <li><a href="../_sources/Notebooks/Information_Content.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -196,7 +197,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -266,7 +267,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Terminal Commands</h1>
+    <h1>Information Content</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -280,31 +281,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="terminal-commands">
-<h1>Terminal Commands<a class="headerlink" href="#terminal-commands" title="Permalink to this heading">#</a></h1>
-<dl>
-<dt><code class="code highlight bash docutils literal highlight-bash">mv<span class="w"> </span>&lt;source&gt;<span class="w"> </span>&lt;destination&gt;</code></dt><dd><p>Move and optionally rename file or directory.</p>
-<dl class="simple">
-<dt><code class="code highlight bash docutils literal highlight-bash">-f,<span class="w"> </span>--force</code></dt><dd><p>Do not prompt before overwrite. Not safe so use carefully.</p>
-</dd>
-<dt><code class="code highlight bash docutils literal highlight-bash">-i,<span class="w"> </span>--interactive</code></dt><dd><p>Interactive mode. Prompt before overwrite.</p>
-</dd>
-<dt><code class="code highlight bash docutils literal highlight-bash">-n,<span class="w"> </span>--no-clobber</code></dt><dd><p>Do not overwrite an existing file. Do not prompt if a move has been skipped to avoid overwrite.</p>
-</dd>
-</dl>
-<p>If more than one of <code class="code highlight bash docutils literal highlight-bash">-f</code>, <code class="code highlight bash docutils literal highlight-bash">-i</code>, and <code class="code highlight bash docutils literal highlight-bash">-n</code> only the final one will take effect.</p>
-<dl class="simple">
-<dt><code class="code highlight bash docutils literal highlight-bash">mv<span class="w"> </span>&lt;source&gt;<span class="w"> </span>.</code></dt><dd><p>Move <code class="code highlight bash docutils literal highlight-bash">&lt;source&gt;</code> to current directory.</p>
-</dd>
-</dl>
-<p><strong>TIP:</strong> In most cases use <code class="code highlight bash docutils literal highlight-bash">-i</code> to avoid overwriting unintended existing files.</p>
-</dd>
-</dl>
-<hr class="docutils" />
-<dl class="simple">
-<dt><code class="code highlight bash docutils literal highlight-bash">su<span class="w"> </span>&lt;username&gt;</code></dt><dd><p>Switch the current user to <code class="code highlight bash docutils literal highlight-bash">&lt;username&gt;</code>.</p>
-</dd>
-</dl>
+  <section id="Information-Content">
+<h1>Information Content<a class="headerlink" href="#Information-Content" title="Permalink to this heading">#</a></h1>
+<p>Information content is a measure of the surprise associated with an event from a random variable.</p>
+<p>The formula for information content is as follows,</p>
+<div class="math notranslate nohighlight">
+\[I(x) = \log \frac{1}{P(X = x)}\]</div>
+<p>Let us build some intuition around why this is a good measure of surprise.</p>
+<p>Claude suggested that a good measure of information content should satisfy the following axioms:</p>
+<ol class="arabic simple">
+<li><p>Events that are more unlikely should results in more information.</p></li>
+<li><p>An event with 100% probability should results in zero information.</p></li>
+<li><p>If two events are measured, the total amount of information gained should be the sum of <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
+</ol>
+<p>Let us look at a simple example, suppose we flip a fair coin. The outcomes of this random variable, <span class="math notranslate nohighlight">\(X\)</span>, are either <span class="math notranslate nohighlight">\(H\)</span> or <span class="math notranslate nohighlight">\(T\)</span> each of which have 50% probability of occuring. What is the information content of these events?</p>
+<p>The examples present in this notebook are lifted from <em>Information Theory, Inference, and Learning Algorithms</em> by <em>David J.C. MacKay</em></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0
+</pre></div></div>
+</div>
+<p>The information we gain from this coin flip is 1 bit. We can encode the outcome of the coin flip using 1 bit of information so this makes sense.</p>
+<p>Now let us suppose we play a simple game of battleship on an 8 x 8 grid. Suppose that in this game we are trying to guess the position of one battleship that takes up one square in the grid.</p>
+<p>The probability we find the battleship is <span class="math notranslate nohighlight">\(\frac{1}{64}\)</span>. What is the information we gain from this event?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6.0
+</pre></div></div>
+</div>
+<p>We get 6 bits of information which is more that the coin flip. This is not surprising as finding the battleship is a rairer event.</p>
+<p>Suppose now we hit the battle ship on the 32-nd guess. The entropy for this event is as follows.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_information</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">):</span>
+    <span class="n">total_information</span> <span class="o">+=</span> <span class="n">entropy</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="n">total_information</span> <span class="o">+=</span> <span class="n">entropy</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">total_information</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6.0
+</pre></div></div>
+</div>
+<p>In fact no matter when we find the battleship, the total information will be 6 bits.</p>
+<div class="math notranslate nohighlight">
+\[\log \left( \frac{64}{63} \right) + \log \left( \frac{63}{62} \right) + \log \left( \frac{62}{61} \right) + \dots + \log \left(\frac{n+1}{n} \right) + \log \left(\frac{n}{1} \right) = \log(64) = 6\]</div>
+<p>Things are not as nice however when the number of squares in the grid is not a power of two. For example if we have 65 squares, the information we get from finding the ship of the first guess is,</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">65</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6.022367813028454
+</pre></div></div>
+</div>
+<p>We don’t get the nice round numbers we were seeing before. Therefore, information content should not be thought of as simply the number of bits needed to encode the events of a random variable.</p>
 </section>
 
 
@@ -319,24 +399,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="bash.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bash</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="decorators.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Decorators</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
