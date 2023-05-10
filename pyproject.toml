@@ -12,5 +12,11 @@ readme = "README.md"
 dependencies = [
     "sphinx",
     "sphinx-book-theme",
+    "nbsphinx",  # For rendering jupyter notebooks
+    "jupyterlab",
+    "jupyterlab-vim",
+    "numpy",
+    "matplotlib",
+
 ]
 version = "0.0.1"
