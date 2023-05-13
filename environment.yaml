@@ -1,0 +1,12 @@
+name: notes
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - python
+  - sphinx
+  - sphinx-book-theme
+  - nbsphinx
+  - jupyterlab
+  - pip:
+    - jupyterlab-vim
