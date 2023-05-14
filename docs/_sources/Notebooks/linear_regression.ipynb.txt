@@ -70,7 +70,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": null,
    "id": "6685b5eb-bf4c-431f-9f9c-bc93030c48c3",
    "metadata": {
     "tags": []
@@ -82,7 +82,7 @@
        "<matplotlib.collections.PathCollection at 0x7ff90fe36610>"
       ]
      },
-     "execution_count": 39,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -118,7 +118,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 56,
+   "execution_count": null,
    "id": "93f17e89-585d-488a-af07-5d7ea0ff828b",
    "metadata": {
     "tags": []
@@ -138,7 +138,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 59,
+   "execution_count": null,
    "id": "b0719490-d1ce-418e-9410-ec190d05cbb3",
    "metadata": {
     "tags": []
@@ -150,7 +150,7 @@
        "<matplotlib.legend.Legend at 0x7ff90fcdf510>"
       ]
      },
-     "execution_count": 59,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -185,7 +185,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": null,
    "id": "366b1ea7-92b6-4073-84a2-2461607a6b1f",
    "metadata": {
     "tags": []
@@ -197,7 +197,7 @@
        "array([0.98689721, 1.94516279])"
       ]
      },
-     "execution_count": 61,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -220,7 +220,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 73,
+   "execution_count": null,
    "id": "c0146fa6-ceb2-4d26-aa08-0e1bcbd0f771",
    "metadata": {
     "tags": []
@@ -232,7 +232,7 @@
        "<matplotlib.collections.PathCollection at 0x7ff90f70e610>"
       ]
      },
-     "execution_count": 73,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -261,7 +261,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 75,
+   "execution_count": null,
    "id": "49a2151c-6af7-47f5-b257-58edf7000e88",
    "metadata": {
     "tags": []
@@ -273,7 +273,7 @@
        "[<matplotlib.lines.Line2D at 0x7ff90f5c52d0>]"
       ]
      },
-     "execution_count": 75,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -306,7 +306,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 86,
+   "execution_count": null,
    "id": "239c370d-7632-4cf0-a0d4-cac383ed4e52",
    "metadata": {
     "tags": []
@@ -318,7 +318,7 @@
        "<matplotlib.legend.Legend at 0x7ff90ec6d990>"
       ]
      },
-     "execution_count": 86,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -386,7 +386,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 246,
+   "execution_count": null,
    "id": "beabe0cb-2c70-410b-ad15-ffe64795ad75",
    "metadata": {
     "tags": []
@@ -421,7 +421,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 247,
+   "execution_count": null,
    "id": "522bb28b-609d-4132-94f7-c80610fb7d7b",
    "metadata": {
     "tags": []
@@ -433,7 +433,7 @@
        "Text(0.5, 0, 'Iteration')"
       ]
      },
-     "execution_count": 247,
+     "execution_count": null,
      "metadata": {},
      "output_type": "execute_result"
     },

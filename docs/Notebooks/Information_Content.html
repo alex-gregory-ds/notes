@@ -217,7 +217,7 @@
 <p>Let us look at a simple example, suppose we flip a fair coin. The outcomes of this random variable, <span class="math notranslate nohighlight">\(X\)</span>, are either <span class="math notranslate nohighlight">\(H\)</span> or <span class="math notranslate nohighlight">\(T\)</span> each of which have 50% probability of occuring. What is the information content of these events?</p>
 <p>The examples present in this notebook are lifted from <em>Information Theory, Inference, and Learning Algorithms</em> by <em>David J.C. MacKay</em></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -241,7 +241,7 @@
 <p>Now let us suppose we play a simple game of battleship on an 8 x 8 grid. Suppose that in this game we are trying to guess the position of one battleship that takes up one square in the grid.</p>
 <p>The probability we find the battleship is <span class="math notranslate nohighlight">\(\frac{1}{64}\)</span>. What is the information we gain from this event?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)</span>
@@ -249,8 +249,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -260,7 +259,7 @@
 <p>We get 6 bits of information which is more that the coin flip. This is not surprising as finding the battleship is a rairer event.</p>
 <p>Suppose now we hit the battle ship on the 32-nd guess. The entropy for this event is as follows.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_information</span> <span class="o">=</span> <span class="mi">0</span>
@@ -275,8 +274,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -288,7 +286,7 @@
 \[\log \left( \frac{64}{63} \right) + \log \left( \frac{63}{62} \right) + \log \left( \frac{62}{61} \right) + \dots + \log \left(\frac{n+1}{n} \right) + \log \left(\frac{n}{1} \right) = \log(64) = 6\]</div>
 <p>Things are not as nice however when the number of squares in the grid is not a power of two. For example if we have 65 squares, the information we get from finding the ship of the first guess is,</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">65</span><span class="p">)</span>
@@ -296,8 +294,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
