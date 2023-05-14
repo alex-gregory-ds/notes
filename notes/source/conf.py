@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.jquery',  # Needed to prevent JQuery errors in browser
     'nbsphinx',
 ]
 
