@@ -16,7 +16,10 @@ Notes
    Contents/regular_expressions.rst
    Contents/docker.rst
    Contents/dockerfile.rst
-   Contents/public_private_encryption.rst
+   Contents/shannon_entropy.rst
+   Contents/bibliography.rst
+   Notebooks/Information_Content.ipynb
+   Notebooks/linear_regression.ipynb
 
 
 Indices and tables
