@@ -8,5 +8,6 @@ dependencies:
   - sphinx-book-theme
   - nbsphinx
   - jupyterlab
+  - pre-commit
   - pip:
     - jupyterlab-vim
