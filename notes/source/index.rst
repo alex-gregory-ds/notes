@@ -19,6 +19,7 @@ Notes
    Contents/shannon_entropy.rst
    Contents/bibliography.rst
    Notebooks/Information_Content.ipynb
+   Notebooks/linear_regression.ipynb
 
 
 Indices and tables
