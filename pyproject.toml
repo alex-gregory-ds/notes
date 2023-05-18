@@ -17,6 +17,6 @@ dependencies = [
     "jupyterlab-vim",
     "numpy",
     "matplotlib",
-
+    "pre-commit"
 ]
 version = "0.0.1"
