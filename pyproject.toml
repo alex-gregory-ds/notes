@@ -17,6 +17,7 @@ dependencies = [
     "jupyterlab-vim",
     "numpy",
     "matplotlib",
-    "pre-commit"
+    "pre-commit",
+    "sphinxcontrib-jquery"
 ]
 version = "0.0.1"
