@@ -20,6 +20,7 @@ Notes
    Contents/bibliography.rst
    Notebooks/Information_Content.ipynb
    Notebooks/linear_regression.ipynb
+   Notebooks/numpy_broadcasting.ipynb
 
 
 Indices and tables
