@@ -1,35 +1,39 @@
+
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Shannon Entropy</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" />
     <link rel="stylesheet" type="text/css" href="../_static/notebookstyle.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script src="../_static/jquery.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
@@ -37,231 +41,405 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/shannon_entropy';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="bibliography.html" />
     <link rel="prev" title="Dockerfile" href="dockerfile.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
   
   
-</a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent" role="heading">
- <span class="caption-text">
-  Contents:
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="bash.html">
-   Bash
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="terminal_commands.html">
-   Terminal Commands
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="decorators.html">
-   Decorators
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regular_expressions.html">
-   Regular Expressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="docker.html">
-   Docker
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dockerfile.html">
-   Dockerfile
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Shannon Entropy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bibliography.html">
-   Bibliography
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Notebooks/Information_Content.html">
-   Information Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Notebooks/linear_regression.html">
-   Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Notebooks/linear_regression.html#Simple-Linear-Example">
-   Simple Linear Example
-  </a>
- </li>
-</ul>
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+      <div class="navbar-item">
+  
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Contents/shannon_entropy.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">
-   Intuitive Explanation of Uncertainty
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#formula-for-entropy">
-   Formula for Entropy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">
-   Axioms Use to Derive Entropy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#properties-of-entropy">
-   Properties of Entropy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-entropy-property-proofs">
-   Appendix: Entropy Property Proofs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#property-a">
-     Property A
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#property-b">
-     Property B
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#propery-c">
-     Propery C
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-        </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title"></p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bash.html">
+                        Bash
+                      </a>
+                    </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="terminal_commands.html">
+                        Terminal Commands
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="regular_expressions.html">
+                        Regular Expressions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="dockerfile.html">
+                        Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Shannon Entropy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Notebooks/Information_Content.html">
+                        Information Content
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Notebooks/linear_regression.html">
+                        Linear Regression
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bash.html">
+                        Bash
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="terminal_commands.html">
+                        Terminal Commands
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="regular_expressions.html">
+                        Regular Expressions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="dockerfile.html">
+                        Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Shannon Entropy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Notebooks/Information_Content.html">
+                        Information Content
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Notebooks/linear_regression.html">
+                        Linear Regression
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Shannon Entropy</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="shannon-entropy">
-<h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Permalink to this heading">¶</a></h1>
+<h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Permalink to this heading">#</a></h1>
 <p>Shannon entropy can be used to measure the uncertainty in a probability distribution.</p>
 <p>From this should on whenever we refer to <em>entropy</em> we are referring to <em>shannon entropy</em> unless stated otherwise.</p>
 <p>Shannon introduced this concept of entropy in his paper <em>A Mathematical Theory of Communication</em> <a class="reference internal" href="bibliography.html#shan48" id="id1"><span>[Shan48]</span></a></p>
 <section id="intuitive-explanation-of-uncertainty">
-<h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Permalink to this heading">¶</a></h2>
+<h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have three random variables,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -278,13 +456,39 @@
 <p>Entropy is a way of quantifying this uncertainty.</p>
 </section>
 <section id="formula-for-entropy">
-<h2>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Permalink to this heading">¶</a></h2>
+<h2>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{ x_1, x_2, \dots, x_n \}\)</span> where <span class="math notranslate nohighlight">\(P(X = x_i) = p_i\)</span>. The shannon entropy of <span class="math notranslate nohighlight">\(X\)</span> is,</p>
 <div class="math notranslate nohighlight">
 \[H(X) = \sum_{i = 0}^{n} p_i \log p_i.\]</div>
 </section>
+<section id="example-coin-toss">
+<h2>Example: Coin Toss<a class="headerlink" href="#example-coin-toss" title="Permalink to this heading">#</a></h2>
+<p>Suppose we flip a coin. The probability of getting a heads is <span class="math notranslate nohighlight">\(0.5\)</span>. The entropy for this random variable is,</p>
+<div class="math notranslate nohighlight">
+\[H(X) = 0.5 * \log 0.5 + 0.5 * \log 0.5 = 1\]</div>
+<p>This corresponds to the number of bits needed to convey the outcome of the coin toss; 1 being heads and 0 being tails for example. However, we will see in the next example that this is not the best way to think about this. Instead consider we ask one binary questions: Is the coin heads. This is enough to encode all the outcomes of the experiment.</p>
+</section>
+<section id="example-a-random-variable-with-more-outcomes">
+<h2>Example: A random variable with more outcomes<a class="headerlink" href="#example-a-random-variable-with-more-outcomes" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{a, b, c, d\}\)</span> such that each event is equally likely to happen. In this case,</p>
+<div class="math notranslate nohighlight">
+\[H(X) = 4 \cdot 0.25 \cdot \log 0.25 = 2.\]</div>
+<p>Again, this corresponds to the number of bits needed to convey the outcome of the random variable: <span class="math notranslate nohighlight">\(00=a\)</span>, <span class="math notranslate nohighlight">\(01=b\)</span>, <span class="math notranslate nohighlight">\(10=c\)</span>, and <span class="math notranslate nohighlight">\(11=d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P_X(x)
+\begin{cases}
+    0.5 &amp; \text{if x} = a \\
+    0.25 &amp; \text{if x} = b \\
+    0.125 &amp; \text{if x} = c \\
+    0.125 &amp; \text{if x} = d \\
+\end{cases}\end{split}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(H(X) = \frac{7}{4}\)</span>. Why is the number of bits needed to convey the message less when the probability of each event was equal? Suppose we ask the binary questions: “Is <span class="math notranslate nohighlight">\(X = a\)</span>”, “Is <span class="math notranslate nohighlight">\(X = b\)</span>”, “Is <span class="math notranslate nohighlight">\(X = c\)</span>”. The expected number of binary questions we have to ask is,</p>
+<div class="math notranslate nohighlight">
+\[1 \cdot 0.5 + 2 \cdot 0.25 + 3 \cdot 0.125 = 1.75.\]</div>
+<p>Which is the same as the entropy. It can be shown that entropy is the minimum expected number of binary questions needed to determine <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</section>
 <section id="axioms-use-to-derive-entropy">
-<h2>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Permalink to this heading">¶</a></h2>
+<h2>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Permalink to this heading">#</a></h2>
 <p>In Shannon’s paper, presents three axioms that a measure of a uncertainty should follow and then shows the only function that satisfies these axioms is the function above. The axioms are as follows:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(H\)</span> should be continuous on the probabilities <span class="math notranslate nohighlight">\(p_i\)</span>.</p></li>
@@ -301,7 +505,7 @@
 \[H(\frac{1}{3}, \frac{1}{3}, \frac{1}{6}) = H(\frac{3}{5}, \frac{2}{5}) + \frac{3}{5} H(\frac{2}{3}, \frac{1}{3}) + \frac{2}{5} H(\frac{1}{2}, \frac{1}{2})\]</div>
 </section>
 <section id="properties-of-entropy">
-<h2>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Permalink to this heading">¶</a></h2>
+<h2>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Permalink to this heading">#</a></h2>
 <p>Shannon derives a number of properties, some are listed here.</p>
 <ol class="loweralpha simple">
 <li><p><span class="math notranslate nohighlight">\(H = 0\)</span> if and only if <span class="math notranslate nohighlight">\(p_i = 1\)</span> and all other probabilities are <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
@@ -327,10 +531,10 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 \[H_{x_i}(Y) = - \sum_{i, j} p_{x_i, y_j} \log p_{y_i \vert x_i}\]</div>
 </section>
 <section id="appendix-entropy-property-proofs">
-<h2>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Permalink to this heading">¶</a></h2>
+<h2>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Permalink to this heading">#</a></h2>
 <p>Proofs of the properties defined above.</p>
 <section id="property-a">
-<h3>Property A<a class="headerlink" href="#property-a" title="Permalink to this heading">¶</a></h3>
+<h3>Property A<a class="headerlink" href="#property-a" title="Permalink to this heading">#</a></h3>
 <p>Suppose we probabilities <span class="math notranslate nohighlight">\(p = {p_0, p_1, \dots, p_{n_1}}\)</span> where <span class="math notranslate nohighlight">\(p_i = 1\)</span> and the rest of the probabilities are <span class="math notranslate nohighlight">\(0\)</span>. For <span class="math notranslate nohighlight">\(i\)</span> we have,</p>
 <div class="math notranslate nohighlight">
 \[p_i \log p_i = \log 1 = 0.\]</div>
@@ -340,7 +544,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 <p>So every term in <span class="math notranslate nohighlight">\(H\)</span> is zero so <span class="math notranslate nohighlight">\(H = 0\)</span>.</p>
 </section>
 <section id="property-b">
-<h3>Property B<a class="headerlink" href="#property-b" title="Permalink to this heading">¶</a></h3>
+<h3>Property B<a class="headerlink" href="#property-b" title="Permalink to this heading">#</a></h3>
 <p>This proof is taken from here <a class="reference external" href="https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function">https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function</a>.</p>
 <p>Using Jensen’s Inequality,</p>
 <div class="math notranslate nohighlight">
@@ -354,7 +558,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 <p>Which is the upper bound.</p>
 </section>
 <section id="propery-c">
-<h3>Propery C<a class="headerlink" href="#propery-c" title="Permalink to this heading">¶</a></h3>
+<h3>Propery C<a class="headerlink" href="#propery-c" title="Permalink to this heading">#</a></h3>
 <p>This proof is taken from <a class="reference external" href="https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro">https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro</a>.</p>
 <p>Shannon entropy is,</p>
 <div class="math notranslate nohighlight">
@@ -376,38 +580,125 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 </section>
 
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="dockerfile.html" title="previous page">Dockerfile</a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="next page">Bibliography</a>
-
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Alex Gregory<br/>
-        
-            &copy; Copyright 2022, Alex Gregory.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dockerfile.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dockerfile</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">Intuitive Explanation of Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-for-entropy">Formula for Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-coin-toss">Example: Coin Toss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-random-variable-with-more-outcomes">Example: A random variable with more outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">Axioms Use to Derive Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-entropy">Properties of Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-entropy-property-proofs">Appendix: Entropy Property Proofs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-a">Property A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-b">Property B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propery-c">Propery C</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/Contents/shannon_entropy.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
+      © Copyright 2022, Alex Gregory.
+      <br/>
     
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
   </body>
 </html>
