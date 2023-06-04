@@ -40,6 +40,48 @@ Suppose we have a random variable :math:`X = \{ x_1, x_2, \dots, x_n \}` where :
 
     H(X) = \sum_{i = 0}^{n} p_i \log p_i.
 
+------------------
+Example: Coin Toss
+------------------
+
+Suppose we flip a coin. The probability of getting a heads is :math:`0.5`. The entropy for this random variable is,
+
+.. math::
+
+    H(X) = 0.5 * \log 0.5 + 0.5 * \log 0.5 = 1
+
+This corresponds to the number of bits needed to convey the outcome of the coin toss; 1 being heads and 0 being tails for example. However, we will see in the next example that this is not the best way to think about this. Instead consider we ask one binary questions: Is the coin heads. This is enough to encode all the outcomes of the experiment.
+
+---------------------------------------------
+Example: A random variable with more outcomes
+---------------------------------------------
+
+Suppose we have a random variable :math:`X = \{a, b, c, d\}` such that each event is equally likely to happen. In this case, 
+
+.. math::
+
+    H(X) = 4 \cdot 0.25 \cdot \log 0.25 = 2.
+
+Again, this corresponds to the number of bits needed to convey the outcome of the random variable: :math:`00=a`, :math:`01=b`, :math:`10=c`, and :math:`11=d`.
+
+.. math::
+
+    P_X(x)
+    \begin{cases}
+        0.5 & \text{if x} = a \\
+        0.25 & \text{if x} = b \\
+        0.125 & \text{if x} = c \\
+        0.125 & \text{if x} = d \\
+    \end{cases}
+
+Here, :math:`H(X) = \frac{7}{4}`. Why is the number of bits needed to convey the message less when the probability of each event was equal? Suppose we ask the binary questions: "Is :math:`X = a`", "Is :math:`X = b`", "Is :math:`X = c`". The expected number of binary questions we have to ask is,
+
+.. math::
+
+    1 \cdot 0.5 + 2 \cdot 0.25 + 3 \cdot 0.125 = 1.75.
+
+Which is the same as the entropy. It can be shown that entropy is the minimum expected number of binary questions needed to determine :math:`X`.
+
 ----------------------------
 Axioms Use to Derive Entropy
 ----------------------------
