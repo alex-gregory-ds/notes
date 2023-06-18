@@ -11,7 +11,7 @@ description = "My personal notes"
 readme = "README.md"
 dependencies = [
     "sphinx",
-    "sphinx-book-theme",
+    "pydata-sphinx-theme",
     "nbsphinx",  # For rendering jupyter notebooks
     "jupyterlab",
     "jupyterlab-vim",
