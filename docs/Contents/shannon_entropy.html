@@ -18,35 +18,36 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/notebookstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/notebookstyle.css?v=3b045b9e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/shannon_entropy';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="N-Queens" href="nqueens.html" />
     <link rel="prev" title="Dockerfile" href="dockerfile.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -58,6 +59,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -98,7 +108,8 @@
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
   
@@ -109,12 +120,12 @@
   
   
   
+  
     <p class="title logo__title"></p>
   
 </a></div>
     
   </div>
-  
   
   <div class="col-lg-9 navbar-header-items">
     
@@ -163,55 +174,62 @@
                       </a>
                     </li>
                 
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="dockerfile.html">
+                      <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
                         Shannon Entropy
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bibliography.html">
+                      <a class="nav-link dropdown-item nav-internal" href="nqueens.html">
+                        N-Queens
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="bibliography.html">
                         Bibliography
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/Information_Content.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/Information_Content.html">
                         Information Content
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/linear_regression.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/linear_regression.html">
                         Linear Regression
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/numpy_broadcasting.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/numpy_broadcasting.html">
                         Broadcasting in Numpy
                       </a>
                     </li>
                 
-                </div>
-            </div>
+                </ul>
+            </li>
             
   </ul>
 </nav></div>
@@ -223,23 +241,25 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -250,18 +270,20 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
@@ -324,55 +346,62 @@ document.write(`
                       </a>
                     </li>
                 
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="dockerfile.html">
+                      <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
                         Shannon Entropy
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bibliography.html">
+                      <a class="nav-link dropdown-item nav-internal" href="nqueens.html">
+                        N-Queens
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="bibliography.html">
                         Bibliography
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/Information_Content.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/Information_Content.html">
                         Information Content
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/linear_regression.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/linear_regression.html">
                         Linear Regression
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Notebooks/numpy_broadcasting.html">
+                      <a class="nav-link dropdown-item nav-internal" href="../Notebooks/numpy_broadcasting.html">
                         Broadcasting in Numpy
                       </a>
                     </li>
                 
-                </div>
-            </div>
+                </ul>
+            </li>
             
   </ul>
 </nav></div>
@@ -386,10 +415,10 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -422,8 +451,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -448,12 +477,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="shannon-entropy">
-<h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Permalink to this heading">#</a></h1>
+<h1>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Link to this heading">#</a></h1>
 <p>Shannon entropy can be used to measure the uncertainty in a probability distribution.</p>
 <p>From this should on whenever we refer to <em>entropy</em> we are referring to <em>shannon entropy</em> unless stated otherwise.</p>
 <p>Shannon introduced this concept of entropy in his paper <em>A Mathematical Theory of Communication</em> <a class="reference internal" href="bibliography.html#shan48" id="id1"><span>[Shan48]</span></a></p>
 <section id="intuitive-explanation-of-uncertainty">
-<h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Permalink to this heading">#</a></h2>
+<h2>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Link to this heading">#</a></h2>
 <p>Suppose we have three random variables,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -470,20 +499,20 @@ document.write(`
 <p>Entropy is a way of quantifying this uncertainty.</p>
 </section>
 <section id="formula-for-entropy">
-<h2>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Permalink to this heading">#</a></h2>
+<h2>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Link to this heading">#</a></h2>
 <p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{ x_1, x_2, \dots, x_n \}\)</span> where <span class="math notranslate nohighlight">\(P(X = x_i) = p_i\)</span>. The shannon entropy of <span class="math notranslate nohighlight">\(X\)</span> is,</p>
 <div class="math notranslate nohighlight">
 \[H(X) = \sum_{i = 0}^{n} p_i \log p_i.\]</div>
 </section>
 <section id="example-coin-toss">
-<h2>Example: Coin Toss<a class="headerlink" href="#example-coin-toss" title="Permalink to this heading">#</a></h2>
+<h2>Example: Coin Toss<a class="headerlink" href="#example-coin-toss" title="Link to this heading">#</a></h2>
 <p>Suppose we flip a coin. The probability of getting a heads is <span class="math notranslate nohighlight">\(0.5\)</span>. The entropy for this random variable is,</p>
 <div class="math notranslate nohighlight">
 \[H(X) = 0.5 * \log 0.5 + 0.5 * \log 0.5 = 1\]</div>
 <p>This corresponds to the number of bits needed to convey the outcome of the coin toss; 1 being heads and 0 being tails for example. However, we will see in the next example that this is not the best way to think about this. Instead consider we ask one binary questions: Is the coin heads. This is enough to encode all the outcomes of the experiment.</p>
 </section>
 <section id="example-a-random-variable-with-more-outcomes">
-<h2>Example: A random variable with more outcomes<a class="headerlink" href="#example-a-random-variable-with-more-outcomes" title="Permalink to this heading">#</a></h2>
+<h2>Example: A random variable with more outcomes<a class="headerlink" href="#example-a-random-variable-with-more-outcomes" title="Link to this heading">#</a></h2>
 <p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{a, b, c, d\}\)</span> such that each event is equally likely to happen. In this case,</p>
 <div class="math notranslate nohighlight">
 \[H(X) = 4 \cdot 0.25 \cdot \log 0.25 = 2.\]</div>
@@ -502,7 +531,7 @@ document.write(`
 <p>Which is the same as the entropy. It can be shown that entropy is the minimum expected number of binary questions needed to determine <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 <section id="axioms-use-to-derive-entropy">
-<h2>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Permalink to this heading">#</a></h2>
+<h2>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Link to this heading">#</a></h2>
 <p>In Shannon’s paper, presents three axioms that a measure of a uncertainty should follow and then shows the only function that satisfies these axioms is the function above. The axioms are as follows:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(H\)</span> should be continuous on the probabilities <span class="math notranslate nohighlight">\(p_i\)</span>.</p></li>
@@ -519,7 +548,7 @@ document.write(`
 \[H(\frac{1}{3}, \frac{1}{3}, \frac{1}{6}) = H(\frac{3}{5}, \frac{2}{5}) + \frac{3}{5} H(\frac{2}{3}, \frac{1}{3}) + \frac{2}{5} H(\frac{1}{2}, \frac{1}{2})\]</div>
 </section>
 <section id="properties-of-entropy">
-<h2>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Permalink to this heading">#</a></h2>
+<h2>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Link to this heading">#</a></h2>
 <p>Shannon derives a number of properties, some are listed here.</p>
 <ol class="loweralpha simple">
 <li><p><span class="math notranslate nohighlight">\(H = 0\)</span> if and only if <span class="math notranslate nohighlight">\(p_i = 1\)</span> and all other probabilities are <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
@@ -545,10 +574,10 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 \[H_{x_i}(Y) = - \sum_{i, j} p_{x_i, y_j} \log p_{y_i \vert x_i}\]</div>
 </section>
 <section id="appendix-entropy-property-proofs">
-<h2>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Permalink to this heading">#</a></h2>
+<h2>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Link to this heading">#</a></h2>
 <p>Proofs of the properties defined above.</p>
 <section id="property-a">
-<h3>Property A<a class="headerlink" href="#property-a" title="Permalink to this heading">#</a></h3>
+<h3>Property A<a class="headerlink" href="#property-a" title="Link to this heading">#</a></h3>
 <p>Suppose we probabilities <span class="math notranslate nohighlight">\(p = {p_0, p_1, \dots, p_{n_1}}\)</span> where <span class="math notranslate nohighlight">\(p_i = 1\)</span> and the rest of the probabilities are <span class="math notranslate nohighlight">\(0\)</span>. For <span class="math notranslate nohighlight">\(i\)</span> we have,</p>
 <div class="math notranslate nohighlight">
 \[p_i \log p_i = \log 1 = 0.\]</div>
@@ -558,7 +587,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 <p>So every term in <span class="math notranslate nohighlight">\(H\)</span> is zero so <span class="math notranslate nohighlight">\(H = 0\)</span>.</p>
 </section>
 <section id="property-b">
-<h3>Property B<a class="headerlink" href="#property-b" title="Permalink to this heading">#</a></h3>
+<h3>Property B<a class="headerlink" href="#property-b" title="Link to this heading">#</a></h3>
 <p>This proof is taken from here <a class="reference external" href="https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function">https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function</a>.</p>
 <p>Using Jensen’s Inequality,</p>
 <div class="math notranslate nohighlight">
@@ -572,7 +601,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
 <p>Which is the upper bound.</p>
 </section>
 <section id="propery-c">
-<h3>Propery C<a class="headerlink" href="#propery-c" title="Permalink to this heading">#</a></h3>
+<h3>Propery C<a class="headerlink" href="#propery-c" title="Link to this heading">#</a></h3>
 <p>This proof is taken from <a class="reference external" href="https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro">https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro</a>.</p>
 <p>Shannon entropy is,</p>
 <div class="math notranslate nohighlight">
@@ -598,11 +627,10 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
               
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="dockerfile.html"
@@ -614,18 +642,15 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
       </div>
     </a>
     <a class="right-next"
-       href="bibliography.html"
+       href="nqueens.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title">N-Queens</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -676,8 +701,8 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -695,7 +720,7 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>
@@ -703,10 +728,11 @@ H(Y) = - \sum_{i, j} p_{i, j} \log \sum_{i} p_{i, j}.\end{split}\]</div>
     </div>
   
   
+  
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
 </p></div>
       
     </div>

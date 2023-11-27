@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Broadcasting in Numpy</title>
+    <title>Binary operators</title>
   
   
   
@@ -45,10 +45,9 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/numpy_broadcasting';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/generators';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Linear Regression" href="linear_regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -222,8 +221,8 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link dropdown-item nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="numpy_broadcasting.html">
                         Broadcasting in Numpy
                       </a>
                     </li>
@@ -394,8 +393,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link dropdown-item nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="numpy_broadcasting.html">
                         Broadcasting in Numpy
                       </a>
                     </li>
@@ -459,7 +458,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Broadcasting...</li>
+    <li class="breadcrumb-item active" aria-current="page">Binary operators</li>
   </ul>
 </nav>
 </div>
@@ -476,80 +475,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="Broadcasting-in-Numpy">
-<h1>Broadcasting in Numpy<a class="headerlink" href="#Broadcasting-in-Numpy" title="Link to this heading">#</a></h1>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-
-<span class="n">root</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<section id="Taking-the-mean-from-each-row">
-<h2>Taking the mean from each row<a class="headerlink" href="#Taking-the-mean-from-each-row" title="Link to this heading">#</a></h2>
-<p>If mean have a matrix of shape (2, 3). Using <code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code>, we can get the mean of each row as a vector with shape (2). In number, we cannot take the vector from the matrix as the shapes are not broadcastable. Numpy checks it two arrays are broadcastable by looking from the right-most dimension to the left. The arrays are broadcastable if:</p>
-<ol class="arabic simple">
-<li><p>The dimensions are equal, or</p></li>
-<li><p>One of the dimensions is 1.</p></li>
-</ol>
-<p>In our example, the array and vector are not broadastable since the right-most dimensions, 3 and 2, are not broadcastable. We can make the arrays broadcastable by adding a dimension to the vector on the right. This means the matrix has shape (2, 3) and the vector has shape (2, 1): 2 is broadcastable to 2 and 3 is broadcastable to 1.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="n">mean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Array with shape (3,)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span>
-<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="n">mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># Array with shape (2, 1)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-operands could not be broadcast together with shapes (2,3) (2,)
-[[ 1.  0. -1.]
- [ 1.  0. -1.]]
-</pre></div></div>
-</div>
-</section>
-<section id="Taking-the-mean-from-each-column">
-<h2>Taking the mean from each column<a class="headerlink" href="#Taking-the-mean-from-each-column" title="Link to this heading">#</a></h2>
-<p>In this case, if we find the mean of column and store then in a vector with shape (3,), this is broadcastable with original array since the right most dimensions are the same.</p>
-<p>What about the first dimension?</p>
-<p>If there are not the same number of dimensions, you can think of numpy filling the missing dimensions with ones.</p>
+  <p>Python provides binary operators for working with integers.</p>
+<p>One can get the binary representation of an integer using an f-string.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="n">mean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Array with shape (2,)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">4</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">10</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -558,177 +492,100 @@ operands could not be broadcast together with shapes (2,3) (2,)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[-1. -1. -1.]
- [ 1.  1.  1.]]
-
-[[-1. -1. -1.]
- [ 1.  1.  1.]]
+1
+100
+1010
 </pre></div></div>
 </div>
-</section>
-<section id="Example-from-one-point-to-every-other-point">
-<h2>Example from one point to every other point<a class="headerlink" href="#Example-from-one-point-to-every-other-point" title="Link to this heading">#</a></h2>
-<p>Suppose we want to find the euclidean distance from one point to every other point.</p>
+<section id="Binary-operators">
+<h1>Binary operators<a class="headerlink" href="#Binary-operators" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> bitwise and: <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&amp;</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
-<span class="p">])</span>
-
-<span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a : </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;b : </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;and : a &amp; b : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;or  : a | b : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;xor : a ^ b : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a ^ b : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([0.        , 1.        , 1.41421356])
+a : 2 : 10
+b : 3 : 11
+and : a &amp; b : 2 : 10
+or  : a | b : 3 : 11
+xor : a ^ b : 1 : 1
+a ^ b : 1 : 1
 </pre></div></div>
 </div>
-<p>How to we work out the distance from every point in <span class="math notranslate nohighlight">\(y\)</span> to every other point in <span class="math notranslate nohighlight">\(y\)</span>? The non-trivial part is the substraction, this is where we take advantage of broadcasting. The solution is,</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
-    y[3 \times 1 \times 2] - y[1 \times 3 \times 2].
-\end{align}\]</div>
-<p>Why does this work? The final shape will be (3, 3, 2) which is what we want. To make it so the arrays can be taken away from one another. Think of the dimensions where the shape is 1 being stretched to match the other matrix. So the second dimension for the array on the left is stretched to have shape 3.</p>
-<p>What is put in the extra entries? The elements in the dimensions right of the one we are stretching are essentially copied. So, for the array on the left, since the second dimension is being stretched, the third dimension will be copied to fill in the gaps.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<section id="Queen">
+<h2>Queen<a class="headerlink" href="#Queen" title="Link to this heading">#</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[[ 0.,  0.],
-        [ 0., -1.],
-        [ 1.,  1.]],
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="k">class</span> <span class="nc">Queens</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="n">rangen</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-       [[ 0.,  1.],
-        [ 0.,  0.],
-        [ 1.,  2.]],
+        <span class="c1"># Assign a unique int to each column and diagonal.</span>
+        <span class="c1"># columns:  n of those, range(n).</span>
+        <span class="c1"># NW-SE diagonals: 2n-1 of these, i-j unique and invariant along</span>
+        <span class="c1"># each, smallest i-j is 0-(n-1) = 1-n, so add n-1 to shift to 0-</span>
+        <span class="c1"># based.</span>
+        <span class="c1"># NE-SW diagonals: 2n-1 of these, i+j unique and invariant along</span>
+        <span class="c1"># each, smallest i+j is 0, largest is 2n-2.</span>
 
-       [[-1., -1.],
-        [-1., -2.],
-        [ 0.,  0.]]])
-</pre></div></div>
-</div>
-<p>So the left matrix contains three (3, 2) matrix that only contain copies of one of the rows. The matrix on the right has the original (3, 2) matrix copied three times.</p>
-<p>Let us now calculate all the distances.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">y</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[0.        , 1.        , 1.41421356],
-       [1.        , 0.        , 2.23606798],
-       [1.41421356, 2.23606798, 0.        ]])
-</pre></div></div>
-</div>
-</section>
-<section id="Visual-example">
-<h2>Visual example<a class="headerlink" href="#Visual-example" title="Link to this heading">#</a></h2>
-<p>Here the goal is to end up with a matrix of zeros. Here is simple 2D example.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<span class="p">])</span>
+        <span class="c1"># For each square, compute a bit vector of the columns and</span>
+        <span class="c1"># diagonals it covers, and for each row compute a function that</span>
+        <span class="c1"># generates the possibilities for the columns in that row.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowgenerators</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rangen</span><span class="p">:</span>
+            <span class="n">rowuses</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">)</span> <span class="o">|</span>                  <span class="c1"># column ordinal</span>
+                       <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">+</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">|</span>    <span class="c1"># NW-SE ordinal</span>
+                       <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">))</span>    <span class="c1"># NE-SW ordinal</span>
+                            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">rangen</span><span class="p">]</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+            <span class="k">def</span> <span class="nf">rowgen</span><span class="p">(</span><span class="n">rowuses</span><span class="o">=</span><span class="n">rowuses</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">rangen</span><span class="p">:</span>
+                    <span class="n">uses</span> <span class="o">=</span> <span class="n">rowuses</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">uses</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">used</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">used</span> <span class="o">|=</span> <span class="n">uses</span>
+                        <span class="k">yield</span> <span class="n">j</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">used</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">uses</span>
 
-<span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[0, 0],
-       [0, 0]])
-</pre></div></div>
-</div>
-<p>Below is a visual representation of what is going on here. It is easy to see here what happend when the <code class="docutils literal notranslate"><span class="pre">y[:,</span> <span class="pre">None]</span></code> is stretched.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython</span>
-<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">&quot;Images&quot;</span> <span class="o">/</span> <span class="s2">&quot;2d_example.png&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/Notebooks_numpy_broadcasting_15_0.png" src="../_images/Notebooks_numpy_broadcasting_15_0.png" />
-</div>
-</div>
-<p>Lets us look at a more complicated 3d example.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
-    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
-<span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rowgenerators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rowgen</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[[0, 0],
-        [0, 0],
-        [0, 0]],
+    <span class="c1"># Generate solutions.</span>
+    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">used</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row2col</span> <span class="ow">in</span> <span class="n">conjoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rowgenerators</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">row2col</span>
 
-       [[0, 0],
-        [0, 0],
-        [0, 0]]])
-</pre></div></div>
+    <span class="k">def</span> <span class="nf">printsolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row2col</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+        <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">row2col</span><span class="p">)</span>
+        <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;+&quot;</span> <span class="o">+</span> <span class="s2">&quot;-+&quot;</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+            <span class="n">squares</span><span class="p">[</span><span class="n">row2col</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">&quot;Q&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -743,15 +600,6 @@ array([[[0, 0],
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="linear_regression.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linear Regression</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
@@ -767,16 +615,13 @@ array([[[0, 0],
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-row">Taking the mean from each row</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-column">Taking the mean from each column</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Example-from-one-point-to-every-other-point">Example from one point to every other point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Visual-example">Visual example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Queen">Queen</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/Notebooks/numpy_broadcasting.ipynb.txt">
+    <a href="../_sources/Notebooks/generators.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
