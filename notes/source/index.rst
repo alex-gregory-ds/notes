@@ -17,6 +17,7 @@ Notes
    Contents/docker.rst
    Contents/dockerfile.rst
    Contents/shannon_entropy.rst
+   Contents/nqueens.rst
    Contents/bibliography.rst
    Notebooks/Information_Content.ipynb
    Notebooks/linear_regression.ipynb
