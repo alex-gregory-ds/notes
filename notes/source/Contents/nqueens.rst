@@ -82,7 +82,6 @@ In the cpython testing suite, there is a class for solving the N-Queens problem 
                           (1 << (n + 2*n-1 + i+j))    # NE-SW ordinal
                                for j in rangen]
    
-               breakpoint()
                def rowgen(rowuses=rowuses):
                    for j in rangen:
                        uses = rowuses[j]
@@ -112,7 +111,11 @@ In the cpython testing suite, there is a class for solving the N-Queens problem 
 
 Let us talk through how this code works. The constructor has the argument :code:`n` which is the size of the board. A list called :code:`rowgenerators` is then created which stores the columns, and diagonals that are covered by each square. The columns/diagonals covered by each square are stored as a binary strings created in the :code:`rowuses` list comprehension.
 
-This list comprehension involves several binary operations. Let us look at the output for the first row when :code:`n` is 4.
+-----------------------------------------
+Representing the board in :code:`rowuses`
+-----------------------------------------
+
+The :code:`rowuses` variable is a list where each element represents the columns, NE-SW, and NW-SE diagonals that are covered by each square in the row. The coverage of each square is encoded in a binary string. Let us breakdown the operations that make these strings by first looking at an example. Let us look at the output for the first row when :code:`n` is 4.
 
 .. code::
 
@@ -242,3 +245,146 @@ Each NE-SW diagonal is represented by a unique integer. All these integers are p
 We still need to make sure we do not overwrite the :code:`1`'s from term 1 and term 2. This is done by adding :code:`n + 2*n-1` to :code:`i+j`. Similar to before :code:`n` ensures we do not overwrite the bits from term 1, but what about :code:`2*n-1`?
 
 From term 2, the maximum value of :code:`i-j + n-1` is :code:`n-1 - 0 + n-1 = 2*n-2`. So, adding :code:`2*n-1` ensures that we do not overwrite the :code:`1` from term 2.
+
+-------------------------
+The :code:`rowgen` Method
+-------------------------
+
+Recall the :code:`rowgen` method.
+
+.. code::
+
+   def rowgen(rowuses=rowuses):
+       for j in rangen:
+           uses = rowuses[j]
+           if uses & self.used == 0:
+               self.used |= uses
+               yield j
+               self.used &= ~uses
+
+The argument for :code:`rowgen` is :code:`rowuses` which is the list of integers integer that encode the columns, NW-SE diagonals, and NE-SW diagonals that each square in the row covers. The method is also a *generator function* since it uses the :code:`yield` keyword.
+
+This method changes the attribute :code:`self.used` which is uninitialised in :code:`__init__`. This variable is not initialised until :code:`solve` is called. The :code:`self.used` is another integer which encodes the columns, NE-SW, and NW-SE diagonals that are covered in the current solution.
+
+So what does this method do?
+
+1. Iterates through each square in the row. Squares are referred to by their column index :code:`j`.
+2. Checks if the square, :code:`j`, is covered by some other queen in the solution.
+3. If the square, :code:`j` is not covered, add a queen there and thus add the columns, NE-SW, and NW-SE diagonals covered by `j` to the covered squares in :code:`self.used`.
+4. Yield :code:`j`.
+5. After :code:`j` is yielded, remove the columns, NE-SW, and NW-SE diagonals covered by :code:`j` from the covered columns and diagonals in :code:`self.used`.
+6. Try the next square and see if a queen can be put in it.
+7. Repeat from step 2.
+
+The row generators for each row are stored in a list.
+
+---------------------
+Finding the Solutions
+---------------------
+
+Solutions are found in the :code:`solve` method. Recall the :code:`solve` method.
+
+.. code::
+
+   # Generate solutions.
+   def solve(self):
+       self.used = 0
+       for row2col in conjoin(self.rowgenerators):
+           yield row2col
+
+This method is very short. In fact it implements a backtracking method to find the solutions using the :code:`conjoin` method. In the same :code:`Lib/test/test_generators.py` script there is simplified :code:`conjoin` method. This method does the same thing as :code:`conjoin` but, as the name suggests, in a simpler way; so we will limit our discussion to :code:`simple_conjoin`.
+
+.. code::
+
+   def simple_conjoin(gs):
+
+       values = [None] * len(gs)
+   
+       def gen(i):
+           if i >= len(gs):
+               yield values
+           else:
+               for values[i] in gs[i]():
+                   for x in gen(i+1):
+                       yield x
+   
+       for x in gen(0):
+           yield x
+
+:code:`simple_conjoin` takes a list of generator functions as arguments. It then dynamically iterates through the iterators. We limit our discussion to just our N-queens problem. 
+
+So, :code:`gs` is our list of row generators which iterators through the columns of a row and yield :code:`j` if a queen can be put in the :code:`j`-th column given the current solution. For a 4x4 N-queens grid there will be 4 elements in :code:`gs` - one for each row.
+
+The variables :code:`values` is a list of :code:`n` integers, where :code:`n` is the number of number of rows in the grid.
+
+The :code:`gen` method recursively iterates through every row and tests every possible solution. The :code:`rowuses` generators will only return an integer if the queen can be put on the :code:`i`-th square without affecting the other solutions.
+
+Since :code:`values` stores, the current solution let's add a couple of print statements, and track the solutions.
+
+.. code::
+
+   def simple_conjoin(gs):
+
+       values = [None] * len(gs)
+   
+       def gen(i):
+           if i >= len(gs):
+               print("'values' when 'values' is yielded: ", values)
+               yield values
+           else:
+               for values[i] in gs[i]():
+                   for x in gen(i+1):
+                       print("'values' when 'x' is yielded: ", values)
+                       yield x
+   
+       for x in gen(0):
+           yield x
+
+And we replace :code:`conjoin` with :code:`simple_conjoin` in the :code:`solve` method. Let us calculate the case for :code:`n` is 4.
+
+.. code::
+
+   >>> [sol for sol in Queens(4).solve()]
+   'values' before 'x' is yielded:  [0, None, None, None]
+   'values' before 'x' is yielded:  [0, 2, None, None]
+   'values' before 'x' is yielded:  [0, 3, None, None]
+   'values' before 'x' is yielded:  [0, 3, 1, None]
+   'values' before 'x' is yielded:  [1, 3, 1, None]
+   'values' before 'x' is yielded:  [1, 3, 1, None]
+   'values' before 'x' is yielded:  [1, 3, 0, None]
+   'values' before 'x' is yielded:  [1, 3, 0, 2]
+   'values' when 'values' is yielded:  [1, 3, 0, 2]
+   'values' before 'x' is yielded:  [2, 3, 0, 2]
+   'values' before 'x' is yielded:  [2, 0, 0, 2]
+   'values' before 'x' is yielded:  [2, 0, 3, 2]
+   'values' before 'x' is yielded:  [2, 0, 3, 1]
+   'values' when 'values' is yielded:  [2, 0, 3, 1]
+   'values' before 'x' is yielded:  [3, 0, 3, 1]
+   'values' before 'x' is yielded:  [3, 0, 3, 1]
+   'values' before 'x' is yielded:  [3, 0, 2, 1]
+   'values' before 'x' is yielded:  [3, 1, 2, 1]
+   [[3, 1, 2, 1], [3, 1, 2, 1]]
+   >>>
+
+Let us walk through a few of these steps.
+
+.. code::
+
+   [0, None, None, None]  # Queen in top left corner
+   [0, 2, None, None]     # 1-st row queen in 2-nd column not 1-st due to diagonal
+   [0, 3, None, None]     # With [0, 2, None, None] cannot put queen on second row
+   [0, 3, 1, None]          
+   [1, 3, 1, None]        # No solution so move queen in 0-th column
+   [1, 3, 1, None]        # Conflict in 2-nd col so move it
+   [1, 3, 0, None]
+   [1, 3, 0, 2]
+   [1, 3, 0, 2]           # Solution!
+   [2, 3, 0, 2]           # Incremenet the first column so start next solution ...
+   [2, 0, 0, 2]
+   [2, 0, 3, 2]
+   [2, 0, 3, 1]
+   [2, 0, 3, 1]
+   [3, 0, 3, 1]
+   [3, 0, 3, 1]
+   [3, 0, 2, 1]
+   [3, 1, 2, 1]
