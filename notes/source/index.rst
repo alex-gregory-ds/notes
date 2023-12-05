@@ -19,6 +19,7 @@ Notes
    Contents/shannon_entropy.rst
    Contents/nqueens.rst
    Contents/bibliography.rst
+   Contents/generators_and_recursion.rst
    Notebooks/Information_Content.ipynb
    Notebooks/linear_regression.ipynb
    Notebooks/numpy_broadcasting.ipynb
