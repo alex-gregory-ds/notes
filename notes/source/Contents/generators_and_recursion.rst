@@ -117,3 +117,45 @@ Let us test out this code.
    [[0, 1, 2], [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4], [0, 3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
    >>> [i for i in combinations([0, 1, 2, 3, 4], 2)]
    [[0, 1], [0, 2], [0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+
+------------------------------------------
+Implementation in the python documentation
+------------------------------------------
+
+In the Python documentation (https://docs.python.org/3/library/itertools.html#itertools.combinations), they present a simplified version of their algorithm to generate combinations that does not use recursion. I have added a few extra comments to make it easier for me to understand.
+
+.. code::
+
+   def combinations(iterable, r):
+       # combinations('ABCD', 2) --> AB AC AD BC BD CD
+       # combinations(range(4), 3) --> 012 013 023 123
+       pool = tuple(iterable)
+       n = len(pool)
+       if r > n:
+           return
+   
+       # This method generates combinations of the indices [0, 1, 2, ..., n]
+       indices = list(range(r))
+   
+       # The first element yielded is from the indices [0, 1, 2, ..., r - 1]
+       yield tuple(pool[i] for i in indices)
+       while True:
+           for i in reversed(range(r)):
+               # Check if the i-th element is at its maximum value
+               if indices[i] != i + n - r:
+                   break
+           else:
+               # If all elements are at their maximum value return, since all combinations
+               # have been generated
+               return
+           # The i-th element is not at its maximum value so increment by 1
+           indices[i] += 1
+           for j in range(i+1, r):
+               # Set the elements to the right of the i-th element to their minimum
+               # possible value.
+               indices[j] = indices[j-1] + 1
+           yield tuple(pool[i] for i in indices)
+
+The main ideas behind the implementation are very similar to the implementation above. To avoid recursion, they find the :code:`i`-th element in the :code:`indices` list that is not at its maximum value. Than element is then incremented by 1, and every element to the right of the :code:`i`-th element is 1 above their left neighbour. Then it repeats the process.
+
+Avoiding recursion makes the implementation much simpler and I suspect much quicker. I especially like using :code:`reversed(range(r))` instead of something like :code:`range(r - 1, -1, -1)`. The former is much easier to read.
