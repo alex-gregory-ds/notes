@@ -581,6 +581,43 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="implementation-in-the-python-documentation">
+<h2>Implementation in the python documentation<a class="headerlink" href="#implementation-in-the-python-documentation" title="Link to this heading">#</a></h2>
+<p>In the Python documentation (<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations">https://docs.python.org/3/library/itertools.html#itertools.combinations</a>), they present a simplified version of their algorithm to generate combinations that does not use recursion. I have added a few extra comments to make it easier for me to understand.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combinations</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="c1"># combinations(&#39;ABCD&#39;, 2) --&gt; AB AC AD BC BD CD</span>
+    <span class="c1"># combinations(range(4), 3) --&gt; 012 013 023 123</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1"># This method generates combinations of the indices [0, 1, 2, ..., n]</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+
+    <span class="c1"># The first element yielded is from the indices [0, 1, 2, ..., r - 1]</span>
+    <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">pool</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+            <span class="c1"># Check if the i-th element is at its maximum value</span>
+            <span class="k">if</span> <span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="n">r</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If all elements are at their maximum value return, since all combinations</span>
+            <span class="c1"># have been generated</span>
+            <span class="k">return</span>
+        <span class="c1"># The i-th element is not at its maximum value so increment by 1</span>
+        <span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+            <span class="c1"># Set the elements to the right of the i-th element to their minimum</span>
+            <span class="c1"># possible value.</span>
+            <span class="n">indices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">pool</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The main ideas behind the implementation are very similar to the implementation above. To avoid recursion, they find the <code class="code docutils literal notranslate"><span class="pre">i</span></code>-th element in the <code class="code docutils literal notranslate"><span class="pre">indices</span></code> list that is not at its maximum value. Than element is then incremented by 1, and every element to the right of the <code class="code docutils literal notranslate"><span class="pre">i</span></code>-th element is 1 above their left neighbour. Then it repeats the process.</p>
+<p>Avoiding recursion makes the implementation much simpler and I suspect much quicker. I especially like using <code class="code docutils literal notranslate"><span class="pre">reversed(range(r))</span></code> instead of something like <code class="code docutils literal notranslate"><span class="pre">range(r</span> <span class="pre">-</span> <span class="pre">1,</span> <span class="pre">-1,</span> <span class="pre">-1)</span></code>. The former is much easier to read.</p>
+</section>
 </section>
 
 
@@ -627,6 +664,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-combinations-of-length-3">Generating combinations of length 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-the-python-documentation">Implementation in the python documentation</a></li>
 </ul>
   </nav></div>
 
