@@ -159,3 +159,127 @@ In the Python documentation (https://docs.python.org/3/library/itertools.html#it
 The main ideas behind the implementation are very similar to the implementation above. To avoid recursion, they find the :code:`i`-th element in the :code:`indices` list that is not at its maximum value. Than element is then incremented by 1, and every element to the right of the :code:`i`-th element is 1 above their left neighbour. Then it repeats the process.
 
 Avoiding recursion makes the implementation much simpler and I suspect much quicker. I especially like using :code:`reversed(range(r))` instead of something like :code:`range(r - 1, -1, -1)`. The former is much easier to read.
+
+--------------
+Solving Sudoku
+--------------
+
+Here is an algorithm for solving sudoku that is inspired by the python implementation of combinations in that it does not use recursive functions.
+
+.. code::
+
+   # main.py
+   import csv
+
+
+   class Board:
+       def __init__(self, board):
+           self.board = board
+
+       @classmethod
+       def from_csv(cls, path):
+           board = []
+           with open(path) as csvfile:
+               reader = csv.reader(csvfile, delimiter=',')
+               for row in reader:
+                   board += [int(item) for item in row]
+           return cls(board)
+
+       def to_str(self, board):
+           board_str = ""
+           for i in range(9):
+               row = [str(item) for item in board[i * 9: i * 9 + 9]]
+               board_str += " ".join(row) + "\n"
+           return board_str
+
+       def get_square(self, i, board):
+           row_index, col_index = divmod(i, 9)
+           top_left_row_index = row_index // 3 * 3
+           top_left_col_index = col_index // 3 * 3
+           top_left_index = top_left_row_index * 9 + top_left_col_index
+           square = (
+               board[top_left_index:top_left_index + 3]
+               + board[top_left_index + 9:top_left_index + 9 + 3]
+               + board[top_left_index + 18:top_left_index + 18 + 3]
+           )
+           return square
+
+       def is_in_row(self, value, i, board):
+           row_index = i // 9
+           row = board[row_index * 9: row_index * 9 + 9]
+           return value in row
+
+       def is_in_col(self, value, i, board):
+           col_index = i % 9
+           col = board[col_index: 9 * 9: 9]
+           return value in col
+
+       def is_in_square(self, value, i, board):
+           square = self.get_square(i, board)
+           return value in square
+
+       def index_of_previous_unoccupied_cell(self, i):
+           if i == 0:
+               raise RuntimeError("There are no cells before the first cell.")
+           index = i - 1
+           while True:
+               if self.board[index] == 0:
+                   return index
+               else:
+                   index -= 1
+
+       def value_causes_conflict(self, value, i, solution) -> bool:
+           return (
+               self.is_in_row(value, i, solution)
+               or self.is_in_col(value, i, solution)
+               or self.is_in_square(value, i, solution)
+           )
+
+       def solve(self):
+           solution = self.board.copy()
+           i = 0
+           while True:
+               if i >= 81:
+                   return solution
+               elif self.board[i] != 0:
+                   i += 1
+                   continue
+               for value in range(solution[i] + 1, 9 + 1):
+                   if self.value_causes_conflict(value, i, solution) is False:
+                       solution[i] = value
+                       i += 1
+                       break
+               else:
+                   solution[i] = 0
+                   i = self.index_of_previous_unoccupied_cell(i)
+
+
+   if __name__ == "__main__":
+       board = Board([
+           0, 0, 0, 2, 6, 0, 7, 0, 1,
+           6, 8, 0, 0, 7, 0, 0, 9, 0,
+           1, 9, 0, 0, 0, 4, 5, 0, 0,
+           8, 2, 0, 1, 0, 0, 0, 4, 0,
+           0, 0, 4, 6, 0, 2, 9, 0, 0,
+           0, 5, 0, 0, 0, 3, 0, 2, 8,
+           0, 0, 9, 3, 0, 0, 0, 7, 4,
+           0, 4, 0, 0, 5, 0, 0, 3, 6,
+           7, 0, 3, 0, 1, 8, 0, 0, 0,
+       ])
+       sol = board.solve()
+       print(board.to_str(sol))
+
+Running the file, we get the following.
+
+.. code::
+
+   $ python3 main.py
+   4 3 5 2 6 9 7 8 1
+   6 8 2 5 7 1 4 9 3
+   1 9 7 8 3 4 5 6 2
+   8 2 6 1 9 5 3 4 7
+   3 7 4 6 8 2 9 1 5
+   9 5 1 7 4 3 6 2 8
+   5 1 9 3 2 6 8 7 4
+   2 4 8 9 5 7 1 3 6
+   7 6 3 4 1 8 2 5 9
