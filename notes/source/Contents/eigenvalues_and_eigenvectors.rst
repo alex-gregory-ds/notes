@@ -31,6 +31,51 @@ Properties of Eigenvalues and Eigenvectors
 
 Several properties of eigenvalues and eigenvectors.
 
+* Squaring a square matrix :math:`A` squares its eigenvalues but its eigenvectors remain the same.
+* The eigenvectors of a symmetric matrix are orthogonal. 
+
+Properties of Eigenvalues and Eigenvectors (Proofs)
+---------------------------------------------------
+
+* Squaring a square matrix :math:`A` squares its eigenvalues but its eigenvectors remain the same.
+
+Suppose :math:`\mathbf{A}` has the eigenvector :math:`\mathbf{x}_i` and eigenvalue :math:`\lambda_i`.
+
+.. math::
+
+   \mathbf{A} \mathbf{x}_i = \lambda_i \mathbf{x}_i \\
+   \mathbf{A} \mathbf{A} \mathbf{x}_i = \lambda_i \mathbf{A} \mathbf{x}_i \\
+   \mathbf{A}^2 \mathbf{x}_i = \lambda_i^2 \mathbf{\mathbf{x}}_i. \\
+   
+Thus, :math:`\mathbf{x}_i` is an eigenvector of :math:`\mathbf{A}` and :math:`\mathbf{A}^2`. And :math:`\lambda_i` is an eigenvalue of :math:`\mathbf{A}` but :math:`\lambda_i^2` is an eigenvalue of :math:`\mathbf{A}^2`.
+
+* The eigenvectors of a symmetric matrix are orthogonal. 
+
+Suppose :math:`\mathbf{A}` is a two dimensional matrix with two eigenvectors and two distinct eigenvalues.
+
+.. math::
+
+   A x_1 & = \lambda_1 x_1, \\
+   x_2^T A x_1 & = \lambda_1 x_2^T x_1. \\
+
+And,
+
+.. math::
+
+   A x_2 & = \lambda_2 x_2, & \\
+   x_1^T A x_2 & = \lambda_2 x_1^T x_2, & \\
+   x_2^T A^T x_1 & = \lambda_2 x_2^T x_1. & \\
+   x_2^T A x_1 & = \lambda_2 x_2^T x_1. & \quad \text{(Symmetric)}\\
+
+Taking both equations from each other, we get,
+
+.. math::
+
+   x_2^T A x_1 - x_2^T A x_1 & = (\lambda_2 - \lambda_1) x_2^T x_1^T \\
+   0 & = (\lambda_2 - \lambda_1) x_2^T x_1^T
+
+Since :math:`\lambda_1` and :math:`\lambda_2` are distinct, :math:`(\lambda_2 - \lambda_1)` is non-zero, therefore, :math:`x_2^T x_1^T` must be zero. Thus, :math:`x_2` and :math:`x_1` are orthogonal.
+
 The determinant of :math:`A` is the product of its eigenvalues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -75,3 +120,23 @@ Therefore,
 .. math::
 
    \lambda_1 + \lambda_2 = a + d
+
+:math:`Ax = 0` has a non-trivial solution IFF the columns of :math:`A` are linearly independent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Suppose the columns of :math:`A` are linearly independent. Let the vectors :math:`v_1, v_2, \dots, v_n` be the columns of :math:`A`.
+
+.. math::
+
+   \mathbf{A} \mathbf{x} = \mathbf{0} \implies \begin{pmatrix}\mathbf{v}_1 & \mathbf{v}_2 & \dots & \mathbf{v}_n\end{pmatrix} \mathbf{x} = \mathbf{0}.
+
+This can be rewritten as,
+
+.. math::
+
+   x_1 \mathbf{v}_1 + x_2 \mathbf{v}_2 + \dots + x_n \mathbf{v}_n = \mathbf{0}.
+
+Since the columns of :math:`A` are linearly independent, some column :math:`v_i` can be expressed as a combination of the other columns. Therefore, there must be solution to the equation above where some of the scalars :math:`x_1, x_2, \dots, x_n` are non-zero.
+
+:math:`Ax = 0` has a non-trivial solution IFF :math:`A` is invertible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
