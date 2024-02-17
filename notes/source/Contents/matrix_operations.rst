@@ -11,6 +11,7 @@ Suppose :math:`\mathbf{A}` and :math:`\mathbf{B}` are matrices and :math:`\mathb
 * :math:`(\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T`
 * :math:`(\mathbf{A}^T)^T = \mathbf{A}`
 * :math:`(\mathbf{A x})^T = \mathbf{x}^T \mathbf{A}^T`
+* :math:`(\mathbf{x}_1^T \mathbf{A} \mathbf{x}_2)^T` = :math:`\mathbf{x}_1^T \mathbf{A}^T \mathbf{x}_2`
 
 Transpose Proofs
 ----------------
@@ -144,3 +145,56 @@ And,
    \end{bmatrix}
 
 End of proof.
+
+* :math:`\mathbf{x}_1^T \mathbf{A} \mathbf{x}_2` = :math:`\mathbf{x}_2^T \mathbf{A} \mathbf{x}_1`
+
+Let :math:`\mathbf{A}_i` be the :math:`i`-th row of :math:`\mathbf{A}`.
+
+.. math::
+
+   \begin{bmatrix}
+       \horzbar & \mathbf{x}_1 & \horzbar 
+   \end{bmatrix}
+   \begin{bmatrix}
+       \horzbar       & \mathbf{A}_1   & \horzbar \\
+       \horzbar       & \mathbf{A}_2   & \horzbar \\
+       \vdots         & \vdots         & \vdots   \\
+       \horzbar       & \mathbf{A}_n   & \horzbar \\
+   \end{bmatrix}
+   \begin{bmatrix}
+       \vertbar \\ \mathbf{x}_2 \\ \vertbar 
+   \end{bmatrix}
+   & = 
+   \begin{bmatrix}
+       \horzbar & \mathbf{x}_1 & \horzbar 
+   \end{bmatrix}
+   \begin{bmatrix}
+       \mathbf{A}_1 \mathbf{x_2} \\
+       \mathbf{A}_2 \mathbf{x_2} \\
+       \vdots       \\
+       \mathbf{A}_n \mathbf{x_2} \\
+   \end{bmatrix} \\
+   & =
+   \begin{bmatrix}
+       \mathbf{A}_1 \mathbf{x_2} &
+       \mathbf{A}_2 \mathbf{x_2} &
+       \dots       &
+       \mathbf{A}_n \mathbf{x_2} &
+   \end{bmatrix}
+   \begin{bmatrix}
+       \vertbar \\ \mathbf{x}_1 \\ \vertbar 
+   \end{bmatrix} \\
+   & =
+   \begin{bmatrix}
+       \horzbar & \mathbf{x}_2 & \horzbar 
+   \end{bmatrix}
+   \begin{bmatrix}
+       \vertbar       & \vertbar       & \dots & \vertbar       \\
+       \mathbf{A}_1   & \mathbf{A}_2   & \dots & \mathbf{A}_n   \\
+       \vertbar       & \vertbar       & \dots & \vertbar       \\
+   \end{bmatrix}
+   \begin{bmatrix}
+       \vertbar \\ \mathbf{x}_1 \\ \vertbar 
+   \end{bmatrix} \\
+   & =
+   \mathbf{x}_2^T \mathbf{A} \mathbf{x}_1
