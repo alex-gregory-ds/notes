@@ -22,6 +22,7 @@ Notes
    Contents/arithmetic_series.rst
    Contents/generators_and_recursion.rst
    Contents/eigenvalues_and_eigenvectors.rst
+   Contents/matrix_operations.rst
    Notebooks/Information_Content.ipynb
    Notebooks/linear_regression.ipynb
    Notebooks/numpy_broadcasting.ipynb
