@@ -172,3 +172,33 @@ Since the columns of :math:`A` are linearly independent, some column :math:`v_i`
       \end{bmatrix}
 
    Since the columns of :math:`A` are linearly independent, :math:`\mathbf{AB}_i = \mathbf{e}_i` has a unique solution. Thus we can find each column :math:`\mathbf{B}_i` thus :math:`\mathbf{A}` is invertible.
+
+.. topic:: Theorem
+
+   A symmetric matrix :math:`\mathbf{A}` with distinct eigenvalues has orthogonal eigenvectors.
+
+   **Proof**
+
+   We only prove for the :math:`2 \times 2` case where :math:`\mathbf{A}` has two eigenvectors.
+
+   .. math::
+
+      \mathbf{A} \mathbf{x}_1 & = \lambda_1 \mathbf{x}_1 \\
+      \mathbf{x}_2^T \mathbf{A} \mathbf{x}_1 & = \lambda_1 \mathbf{x}_2^T \mathbf{x}_1 \\
+
+   And,
+
+   .. math::
+
+      \mathbf{A x}_2 & = \lambda_2 \mathbf{x}_2 \\
+      \mathbf{x}_1^T \mathbf{A x}_2 & = \lambda_2 \mathbf{x}_1^T \mathbf{x}_2 \\
+      \mathbf{x}_2^T \mathbf{A x}_1 & = \lambda_2 \mathbf{x}_2^T \mathbf{x}_1 \\
+
+   Taking these away from each other, we have,
+
+   .. math::
+
+      \mathbf{x}_2^T \mathbf{A x}_1 - \mathbf{x}_2^T \mathbf{A x}_1 & = (\lambda_1 - \lambda_2) \mathbf{x}_2^T \mathbf{x}_1 \\
+      0 & = (\lambda_1 - \lambda_2) \mathbf{x}_2^T \mathbf{x}_1
+
+   Since :math:`\lambda_1` and :math:`\lambda_2` are distinct, their difference is non-zero. Therefore, :math:`\mathbf{x}_2^T \mathbf{x}_1` must be :math:`0`.
