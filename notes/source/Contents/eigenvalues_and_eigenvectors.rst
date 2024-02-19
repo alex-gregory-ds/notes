@@ -33,6 +33,7 @@ Several properties of eigenvalues and eigenvectors.
 
 * Squaring a square matrix :math:`A` squares its eigenvalues but its eigenvectors remain the same.
 * The eigenvectors of a symmetric matrix are orthogonal. 
+* A square matrix :math:`\mathbf{A}` is invertible IFF its columns are linearly independent.
 
 Properties of Eigenvalues and Eigenvectors (Proofs)
 ---------------------------------------------------
@@ -140,3 +141,32 @@ Since the columns of :math:`A` are linearly independent, some column :math:`v_i`
 
 :math:`Ax = 0` has a non-trivial solution IFF :math:`A` is invertible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Theorem
+
+   A square matrix :math:`\mathbf{A}` is invertible IFF its columns are linearly independent.
+
+   **Proof**
+
+   *Step 1*. Suppose that :math:`\mathbf{A}` is invertible. By definition, the columns of :math:`\mathbf{A}` are linearly independent if :math:`\mathbf{A x} = \mathbf{0}` only when :math:`\mathbf{x} = \mathbf{0}`. Since :math:`A` has an inverse,
+
+   .. math::
+      \mathbf{A}^{-1} \mathbf{A x} = \mathbf{0} \implies \mathbf{x} = \mathbf{0}
+
+   *Step 2*. If the columns of :math:`\mathbf{A}` are linearly independent, then :math:`\mathbf{A} \mathbf{x} = \mathbf{b}` has a unique solution. If :math:`\mathbf{A}` has an inverse then there exists a matrix :math:`\mathbf{B}` such that :math:`\mathbf{B A} = \mathbf{I}`. Suppose that :math:`e_i` represents the :math:`i`-th column of :math:`\mathbf{I}` such that the :math:`i`-th element of :math:`\mathbf{e}_i` is 1.
+
+   .. math::
+      \mathbf{AB} = 
+      \begin{bmatrix}
+          | & | & \dots & | \\
+          \mathbf{AB}_1 & \mathbf{AB}_2 & \dots & \mathbf{AB}_n \\
+          | & | & \dots & | \\
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+          | & | & \dots & | \\
+          \mathbf{e}_1 & \mathbf{e}_2 & \dots & \mathbf{e}_n \\
+          | & | & \dots & | \\
+      \end{bmatrix}
+
+   Since the columns of :math:`A` are linearly independent, :math:`\mathbf{AB}_i = \mathbf{e}_i` has a unique solution. Thus we can find each column :math:`\mathbf{B}_i` thus :math:`\mathbf{A}` is invertible.
