@@ -554,6 +554,7 @@ document.write(`
 <ul class="simple">
 <li><p>Squaring a square matrix <span class="math notranslate nohighlight">\(A\)</span> squares its eigenvalues but its eigenvectors remain the same.</p></li>
 <li><p>The eigenvectors of a symmetric matrix are orthogonal.</p></li>
+<li><p>A square matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible IFF its columns are linearly independent.</p></li>
 </ul>
 </section>
 <section id="properties-of-eigenvalues-and-eigenvectors-proofs">
@@ -624,6 +625,29 @@ x_2^T A x_1 &amp; = \lambda_2 x_2^T x_1. &amp; \quad \text{(Symmetric)}\\\end{sp
 </section>
 <section id="ax-0-has-a-non-trivial-solution-iff-a-is-invertible">
 <h3><span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF <span class="math notranslate nohighlight">\(A\)</span> is invertible<a class="headerlink" href="#ax-0-has-a-non-trivial-solution-iff-a-is-invertible" title="Link to this heading">#</a></h3>
+<aside class="topic">
+<p class="topic-title">Theorem</p>
+<p>A square matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible IFF its columns are linearly independent.</p>
+<p><strong>Proof</strong></p>
+<p><em>Step 1</em>. Suppose that <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible. By definition, the columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are linearly independent if <span class="math notranslate nohighlight">\(\mathbf{A x} = \mathbf{0}\)</span> only when <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{0}\)</span>. Since <span class="math notranslate nohighlight">\(A\)</span> has an inverse,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}^{-1} \mathbf{A x} = \mathbf{0} \implies \mathbf{x} = \mathbf{0}\]</div>
+<p><em>Step 2</em>. If the columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are linearly independent, then <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{x} = \mathbf{b}\)</span> has a unique solution. If <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> has an inverse then there exists a matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> such that <span class="math notranslate nohighlight">\(\mathbf{B A} = \mathbf{I}\)</span>. Suppose that <span class="math notranslate nohighlight">\(e_i\)</span> represents the <span class="math notranslate nohighlight">\(i\)</span>-th column of <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> such that the <span class="math notranslate nohighlight">\(i\)</span>-th element of <span class="math notranslate nohighlight">\(\mathbf{e}_i\)</span> is 1.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{AB} =
+\begin{bmatrix}
+    | &amp; | &amp; \dots &amp; | \\
+    \mathbf{AB}_1 &amp; \mathbf{AB}_2 &amp; \dots &amp; \mathbf{AB}_n \\
+    | &amp; | &amp; \dots &amp; | \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    | &amp; | &amp; \dots &amp; | \\
+    \mathbf{e}_1 &amp; \mathbf{e}_2 &amp; \dots &amp; \mathbf{e}_n \\
+    | &amp; | &amp; \dots &amp; | \\
+\end{bmatrix}\end{split}\]</div>
+<p>Since the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent, <span class="math notranslate nohighlight">\(\mathbf{AB}_i = \mathbf{e}_i\)</span> has a unique solution. Thus we can find each column <span class="math notranslate nohighlight">\(\mathbf{B}_i\)</span> thus <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible.</p>
+</aside>
 </section>
 </section>
 </section>
