@@ -649,6 +649,25 @@ x_2^T A x_1 &amp; = \lambda_2 x_2^T x_1. &amp; \quad \text{(Symmetric)}\\\end{sp
 \end{bmatrix}\end{split}\]</div>
 <p>Since the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent, <span class="math notranslate nohighlight">\(\mathbf{AB}_i = \mathbf{e}_i\)</span> has a unique solution. Thus we can find each column <span class="math notranslate nohighlight">\(\mathbf{B}_i\)</span> thus <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible.</p>
 </aside>
+<aside class="topic">
+<p class="topic-title">Theorem</p>
+<p>A symmetric matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> with distinct eigenvalues has orthogonal eigenvectors.</p>
+<p><strong>Proof</strong></p>
+<p>We only prove for the <span class="math notranslate nohighlight">\(2 \times 2\)</span> case where <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> has two eigenvectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} \mathbf{x}_1 &amp; = \lambda_1 \mathbf{x}_1 \\
+\mathbf{x}_2^T \mathbf{A} \mathbf{x}_1 &amp; = \lambda_1 \mathbf{x}_2^T \mathbf{x}_1 \\\end{split}\]</div>
+<p>And,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A x}_2 &amp; = \lambda_2 \mathbf{x}_2 \\
+\mathbf{x}_1^T \mathbf{A x}_2 &amp; = \lambda_2 \mathbf{x}_1^T \mathbf{x}_2 \\
+\mathbf{x}_2^T \mathbf{A x}_1 &amp; = \lambda_2 \mathbf{x}_2^T \mathbf{x}_1 \\\end{split}\]</div>
+<p>Taking these away from each other, we have,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x}_2^T \mathbf{A x}_1 - \mathbf{x}_2^T \mathbf{A x}_1 &amp; = (\lambda_1 - \lambda_2) \mathbf{x}_2^T \mathbf{x}_1 \\
+0 &amp; = (\lambda_1 - \lambda_2) \mathbf{x}_2^T \mathbf{x}_1\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are distinct, their difference is non-zero. Therefore, <span class="math notranslate nohighlight">\(\mathbf{x}_2^T \mathbf{x}_1\)</span> must be <span class="math notranslate nohighlight">\(0\)</span>.</p>
+</aside>
 </section>
 </section>
 </section>
