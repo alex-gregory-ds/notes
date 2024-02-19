@@ -148,6 +148,8 @@ Since the columns of :math:`A` are linearly independent, some column :math:`v_i`
 
    **Proof**
 
+   This proof is taken from https://sparse-plex.readthedocs.io/en/latest/book/matrices/invertible_matrices.html.
+
    *Step 1*. Suppose that :math:`\mathbf{A}` is invertible. By definition, the columns of :math:`\mathbf{A}` are linearly independent if :math:`\mathbf{A x} = \mathbf{0}` only when :math:`\mathbf{x} = \mathbf{0}`. Since :math:`A` has an inverse,
 
    .. math::
