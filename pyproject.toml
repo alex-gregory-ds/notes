@@ -13,11 +13,15 @@ dependencies = [
     "sphinx",
     "pydata-sphinx-theme",
     "nbsphinx",  # For rendering jupyter notebooks
+    "pre-commit",
+    "sphinxcontrib-jquery",
+]
+version = "0.0.1"
+
+[project.optional-dependencies]
+dev = [
     "jupyterlab",
     "jupyterlab-vim",
     "numpy",
     "matplotlib",
-    "pre-commit",
-    "sphinxcontrib-jquery"
 ]
-version = "0.0.1"
