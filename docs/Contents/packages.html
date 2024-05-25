@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Matrix Operations</title>
+    <title>The Python Import System</title>
   
   
   
@@ -42,13 +42,11 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/matrix_operations';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/packages';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Information Content" href="../Notebooks/Information_Content.html" />
-    <link rel="prev" title="1 Eigenvalues and Eigenvectors" href="eigenvalues_and_eigenvectors.html" />
+    <link rel="prev" title="Matrix Operations" href="matrix_operations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -224,9 +222,16 @@
                     </li>
                 
 
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="matrix_operations.html">
+                        Matrix Operations
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link dropdown-item nav-internal" href="#">
-                        Matrix Operations
+                        The Python Import System
                       </a>
                     </li>
                 
@@ -425,9 +430,16 @@ document.write(`
                     </li>
                 
 
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="matrix_operations.html">
+                        Matrix Operations
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link dropdown-item nav-internal" href="#">
-                        Matrix Operations
+                        The Python Import System
                       </a>
                     </li>
                 
@@ -521,7 +533,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Matrix Operations</li>
+    <li class="breadcrumb-item active" aria-current="page">The Python...</li>
   </ul>
 </nav>
 </div>
@@ -538,189 +550,157 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="matrix-operations">
-<h1>Matrix Operations<a class="headerlink" href="#matrix-operations" title="Link to this heading">#</a></h1>
-<p>A short summary of the properties of some matrix operations.</p>
-<section id="transpose">
-<h2>Transpose<a class="headerlink" href="#transpose" title="Link to this heading">#</a></h2>
-<p>Suppose <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> are matrices and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is a vector.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A}^T)^T = \mathbf{A}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A x})^T = \mathbf{x}^T \mathbf{A}^T\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{x}_1^T \mathbf{A} \mathbf{x}_2)^T\)</span> = <span class="math notranslate nohighlight">\(\mathbf{x}_1^T \mathbf{A}^T \mathbf{x}_2\)</span></p></li>
-</ul>
-</section>
-<section id="transpose-proofs">
-<h2>Transpose Proofs<a class="headerlink" href="#transpose-proofs" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T\)</span></p></li>
-</ul>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}_i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}_i\)</span> be the <span class="math notranslate nohighlight">\(i\)</span>-th column of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> respectively.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\newcommand{\vertbar}{\rule[-1ex]{1pt}{2.5ex}}
-\newcommand{\horzbar}{\rule[.5ex]{2.5ex}{1pt}}
-(\mathbf{A} + \mathbf{B})^T
-= &amp;
-\left(
-\begin{bmatrix}
-    \vertbar     &amp; \vertbar     &amp; \dots &amp; \vertbar     \\
-    \mathbf{A}_1 &amp; \mathbf{A}_2 &amp; \dots &amp; \mathbf{A}_n \\
-    \vertbar     &amp; \vertbar     &amp; \dots &amp; \vertbar     \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-    \vertbar     &amp; \vertbar     &amp;\dots  &amp; \vertbar     \\
-    \mathbf{B}_1 &amp; \mathbf{B}_2 &amp; \dots &amp; \mathbf{B}_n \\
-    \vertbar     &amp; \vertbar     &amp; \dots &amp; \vertbar     \\
-\end{bmatrix}
-\right)^T \\
-= &amp;
-\begin{bmatrix}
-    \vertbar  &amp; \vertbar  &amp; \dots &amp; \vertbar  \\
-    \mathbf{A}_1 + \mathbf{B}_1 &amp; \mathbf{A}_2 + \mathbf{B}_2 &amp; \dots &amp; \mathbf{A}_n + \mathbf{B}_n \\
-    \vertbar  &amp; \vertbar  &amp; \dots &amp; \vertbar  \\
-\end{bmatrix}^T \\
-= &amp;
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{A}_1 + \mathbf{B}_1 &amp; \horzbar \\
-    \horzbar &amp; \mathbf{A}_2 + \mathbf{B}_2 &amp; \horzbar \\
-    \vdots   &amp; \vdots    &amp; \vdots   \\
-    \horzbar &amp; \mathbf{A}_n + \mathbf{B}_n &amp; \horzbar \\
-\end{bmatrix}^T.\end{split}\]</div>
-<p>And,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{A}^T + \mathbf{B}^T
-= &amp;
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{A}_1    &amp; \horzbar \\
-    \horzbar &amp; \mathbf{A}_2    &amp; \horzbar \\
-    \vdots   &amp; \vdots &amp; \vdots   \\
-    \horzbar &amp; \mathbf{A}_n    &amp; \horzbar \\
-\end{bmatrix}^T.
-+
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{B}_1    &amp; \horzbar \\
-    \horzbar &amp; \mathbf{B}_2    &amp; \horzbar \\
-    \vdots   &amp; \vdots &amp; \vdots   \\
-    \horzbar &amp; \mathbf{B}_n    &amp; \horzbar \\
-\end{bmatrix}^T.
-=
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{A}_1 + \mathbf{B}_1 &amp; \horzbar \\
-    \horzbar &amp; \mathbf{A}_2 + \mathbf{B}_2 &amp; \horzbar \\
-    \vdots   &amp; \vdots &amp; \vdots   \\
-    \horzbar &amp; \mathbf{A}_n + \mathbf{B}_n &amp; \horzbar \\
-\end{bmatrix}^T.\end{split}\]</div>
-<p>End of proof.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A}^T)^T = \mathbf{A}\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}(A^T)^T =
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{A}_1    &amp; \horzbar \\
-    \horzbar &amp; \mathbf{A}_2    &amp; \horzbar \\
-    \vdots  &amp; \vdots  &amp; \vdots   \\
-    \horzbar &amp; \mathbf{A}_n    &amp; \horzbar \\
-\end{bmatrix}^T
-=
-\begin{bmatrix}
-    \vertbar     &amp; \vertbar     &amp; \dots &amp; \vertbar     \\
-    \mathbf{A}_1 &amp; \mathbf{A}_2 &amp; \dots &amp; \mathbf{A}_n \\
-    \vertbar     &amp; \vertbar     &amp; \dots &amp; \vertbar     \\
-\end{bmatrix}
-= \mathbf{A}\end{split}\]</div>
-<p>End of proof.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A} \mathbf{x})^T = \mathbf{x}^T \mathbf{A}^T\)</span></p></li>
-</ul>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}_i\)</span> be the <span class="math notranslate nohighlight">\(i\)</span>-th row.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}(\mathbf{A} \mathbf{x})^T
-=
-\begin{bmatrix}
-    \mathbf{A}_1 \mathbf{x} \\
-    \mathbf{A}_2 \mathbf{x} \\
-    \vdots \\
-    \mathbf{A}_n \mathbf{x} \\
-\end{bmatrix}^T
-=
-\begin{bmatrix}
-    \mathbf{A}_1 \mathbf{x} &amp;
-    \mathbf{A}_2 \mathbf{x} &amp;
-    \dots &amp;
-    \mathbf{A}_n \mathbf{x}
-\end{bmatrix}\end{split}\]</div>
-<p>And,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{x}^T \mathbf{A}^T
-=
-\mathbf{x}^T
-\begin{bmatrix}
-    \vertbar       &amp; \vertbar       &amp; \dots &amp; \vertbar       \\
-    \mathbf{A}_1   &amp; \mathbf{A}_2   &amp; \dots &amp; \mathbf{A}_n   \\
-    \vertbar       &amp; \vertbar       &amp; \dots &amp; \vertbar       \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-    \mathbf{A}_1 \mathbf{x} &amp;
-    \mathbf{A}_2 \mathbf{x} &amp;
-    \dots &amp;
-    \mathbf{A}_n \mathbf{x}
-\end{bmatrix}\end{split}\]</div>
-<p>End of proof.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_1^T \mathbf{A} \mathbf{x}_2\)</span> = <span class="math notranslate nohighlight">\(\mathbf{x}_2^T \mathbf{A} \mathbf{x}_1\)</span></p></li>
-</ul>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}_i\)</span> be the <span class="math notranslate nohighlight">\(i\)</span>-th row of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}
-    \horzbar &amp; \mathbf{x}_1 &amp; \horzbar
-\end{bmatrix}
-\begin{bmatrix}
-    \horzbar       &amp; \mathbf{A}_1   &amp; \horzbar \\
-    \horzbar       &amp; \mathbf{A}_2   &amp; \horzbar \\
-    \vdots         &amp; \vdots         &amp; \vdots   \\
-    \horzbar       &amp; \mathbf{A}_n   &amp; \horzbar \\
-\end{bmatrix}
-\begin{bmatrix}
-    \vertbar \\ \mathbf{x}_2 \\ \vertbar
-\end{bmatrix}
-&amp; =
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{x}_1 &amp; \horzbar
-\end{bmatrix}
-\begin{bmatrix}
-    \mathbf{A}_1 \mathbf{x_2} \\
-    \mathbf{A}_2 \mathbf{x_2} \\
-    \vdots       \\
-    \mathbf{A}_n \mathbf{x_2} \\
-\end{bmatrix} \\
-&amp; =
-\begin{bmatrix}
-    \mathbf{A}_1 \mathbf{x_2} &amp;
-    \mathbf{A}_2 \mathbf{x_2} &amp;
-    \dots       &amp;
-    \mathbf{A}_n \mathbf{x_2} &amp;
-\end{bmatrix}
-\begin{bmatrix}
-    \vertbar \\ \mathbf{x}_1 \\ \vertbar
-\end{bmatrix} \\
-&amp; =
-\begin{bmatrix}
-    \horzbar &amp; \mathbf{x}_2 &amp; \horzbar
-\end{bmatrix}
-\begin{bmatrix}
-    \vertbar       &amp; \vertbar       &amp; \dots &amp; \vertbar       \\
-    \mathbf{A}_1   &amp; \mathbf{A}_2   &amp; \dots &amp; \mathbf{A}_n   \\
-    \vertbar       &amp; \vertbar       &amp; \dots &amp; \vertbar       \\
-\end{bmatrix}
-\begin{bmatrix}
-    \vertbar \\ \mathbf{x}_1 \\ \vertbar
-\end{bmatrix} \\
-&amp; =
-\mathbf{x}_2^T \mathbf{A} \mathbf{x}_1\end{split}\]</div>
+  <section id="the-python-import-system">
+<h1>The Python Import System<a class="headerlink" href="#the-python-import-system" title="Link to this heading">#</a></h1>
+<p>When importing a package or module, python searches for it on its <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code>. Suppose we have the following project structure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root
+└── package
+    ├── module.py
+    └── script.py
+</pre></div>
+</div>
+<p>Where <code class="code docutils literal notranslate"><span class="pre">module.py</span></code> contains the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_module</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Print from module.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> has the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">package.directory</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Executing <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> from <code class="code docutils literal notranslate"><span class="pre">root</span></code> gives us an import error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 package/script.py
+Traceback (most recent call last):
+  File &quot;/home/alex/root/package/script.py&quot;, line 1, in &lt;module&gt;
+    from package.directory import module
+ModuleNotFoundError: No module named &#39;package&#39;
+</pre></div>
+</div>
+<p>Even though we are running the code from the <code class="code docutils literal notranslate"><span class="pre">root</span></code> directory which contains <code class="code docutils literal notranslate"><span class="pre">package</span></code>, we cannot import <code class="code docutils literal notranslate"><span class="pre">module</span></code> into <code class="code docutils literal notranslate"><span class="pre">script.py</span></code>. Let us print <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code> at the top of <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> and rerun the script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script.py</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Running <code class="code docutils literal notranslate"><span class="pre">script.py</span></code>, we get.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 package/script.py
+[&#39;/home/alex/root/package&#39;, &#39;/usr/lib/python310.zip&#39;, &#39;/usr/lib/python3.10&#39;, &#39;/usr/lib/python3.10/lib-dynload&#39;, &#39;/home/alex/documents/notes/.venv/lib/python3.10/site-packages&#39;]
+Traceback (most recent call last):
+  File &quot;/home/alex/root/package/script.py&quot;, line 2, in &lt;module&gt;
+    from package.directory import module
+ModuleNotFoundError: No module named &#39;package&#39;
+</pre></div>
+</div>
+<p>The first element in the list points to our <code class="code docutils literal notranslate"><span class="pre">package</span></code> directory. This means that python will look for <code class="code docutils literal notranslate"><span class="pre">package</span></code> within the <code class="code docutils literal notranslate"><span class="pre">package</span></code> directory. We want it to look for <code class="code docutils literal notranslate"><span class="pre">package</span></code> for the <code class="code docutils literal notranslate"><span class="pre">root</span></code> directory.</p>
+<p>This import error can also be solved by removing <code class="code docutils literal notranslate"><span class="pre">package</span></code> from the import path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script.py</span>
+<span class="kn">import</span> <span class="nn">module</span>
+
+<span class="n">module</span><span class="o">.</span><span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The code now runs successfully from <code class="code docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 package/script.py
+Print from module.py
+</pre></div>
+</div>
+<p>However, if we move <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> into <code class="code docutils literal notranslate"><span class="pre">root</span></code> we will get the same import error again. For clarity, moving <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> into <code class="code docutils literal notranslate"><span class="pre">root</span></code> means our file structure now looks like this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root
+├── script.py
+└── package
+    └── module.py
+</pre></div>
+</div>
+<p>Executing <code class="code docutils literal notranslate"><span class="pre">script.py</span></code> results in the import error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 script.py
+Traceback (most recent call last):
+  File &quot;/home/alex/root/script.py&quot;, line 1, in &lt;module&gt;
+    import module
+ModuleNotFoundError: No module named &#39;module&#39;
+</pre></div>
+</div>
+<p>To get the script to run successfully, we would have to change our import from <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">module</span></code> to <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code>.</p>
+<p>For simplicity, I want to be able to import <code class="code docutils literal notranslate"><span class="pre">package.module</span></code> into a script no matter where the script is in the <code class="code docutils literal notranslate"><span class="pre">root</span></code> directory. We will discuss three ways of doing this but first let us change our project structure slightly to include <code class="code docutils literal notranslate"><span class="pre">script1.py</span></code> and <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root
+├── script1.py
+└── package
+    ├── script2.py
+    └── module.py
+</pre></div>
+</div>
+<p>Where <code class="code docutils literal notranslate"><span class="pre">script1.py</span></code> and <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code> have just about the same code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script1.py</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">module</span><span class="o">.</span><span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script2.py</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">module</span><span class="o">.</span><span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The first script, <code class="code docutils literal notranslate"><span class="pre">script1.py</span></code>, runs successfully but <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code> does not.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 script1.py
+Print from module.py
+$ python3 package/script2.py
+python3: can&#39;t open file &#39;/home/alex/root/script2.py&#39;: [Errno 2] No such file or directory
+</pre></div>
+</div>
+<p>Now we will run through three ways of solving this issue.</p>
+<section id="running-scripts-and-modules">
+<h2>Running Scripts and Modules<a class="headerlink" href="#running-scripts-and-modules" title="Link to this heading">#</a></h2>
+<p>The <code class="code docutils literal notranslate"><span class="pre">-m</span></code> flag can be used to run our program as a module instead of a script. This will make both of <code class="code docutils literal notranslate"><span class="pre">script1.py</span></code> and <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code> work.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m script1
+Print from module.py
+$ python3 -m module.script2
+Print from module.py
+</pre></div>
+</div>
+<p>Let us run this experiment again but print <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code> at the start of the scripts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script1.py</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">module</span><span class="o">.</span><span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># script2.py</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">module</span>
+
+<span class="n">module</span><span class="o">.</span><span class="n">print_module</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Running the scripts gives us the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m package.script2
+[&#39;/home/alex/root&#39;, &#39;/usr/lib/python310.zip&#39;, &#39;/usr/lib/python3.10&#39;, &#39;/usr/lib/python3.10/lib-dynload&#39;, &#39;/home/alex/documents/notes/.venv/lib/python3.10/site-packages&#39;]
+Print from module.py
+$ python3 -m script1
+[&#39;/home/alex/root&#39;, &#39;/usr/lib/python310.zip&#39;, &#39;/usr/lib/python3.10&#39;, &#39;/usr/lib/python3.10/lib-dynload&#39;, &#39;/home/alex/documents/notes/.venv/lib/python3.10/site-packages&#39;]
+Print from module.py
+</pre></div>
+</div>
+<p>Running the scripts with <code class="code docutils literal notranslate"><span class="pre">-m</span></code> flag adds the <code class="code docutils literal notranslate"><span class="pre">root</span></code> directory to <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code>. If we <code class="code docutils literal notranslate"><span class="pre">cd</span></code> into <code class="code docutils literal notranslate"><span class="pre">package</span></code> and run <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code> we get the familiar import error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd package
+$ python3 -m script2
+[&#39;/home/alex/root/package&#39;, &#39;/usr/lib/python310.zip&#39;, &#39;/usr/lib/python3.10&#39;, &#39;/usr/lib/python3.10/lib-dynload&#39;, &#39;/home/alex/documents/notes/.venv/lib/python3.10/site-packages&#39;]
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3.10/runpy.py&quot;, line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;/usr/lib/python3.10/runpy.py&quot;, line 86, in _run_code
+    exec(code, run_globals)
+  File &quot;/home/alex/root/package/script2.py&quot;, line 2, in &lt;module&gt;
+    from package import module
+ModuleNotFoundError: No module named &#39;package&#39;
+</pre></div>
+</div>
+<p>So, as long as we run our scripts from <code class="code docutils literal notranslate"><span class="pre">root</span></code> with the <code class="code docutils literal notranslate"><span class="pre">-m</span></code> flag, we should be able to import <code class="code docutils literal notranslate"><span class="pre">package.module</span></code> since <code class="code docutils literal notranslate"><span class="pre">root</span></code> has been added to <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code>.</p>
 </section>
 </section>
 
@@ -735,12 +715,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="eigenvalues_and_eigenvectors.html"
+       href="matrix_operations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="sectnum">1 </span>Eigenvalues and Eigenvectors</p>
+        <p class="prev-next-title">Matrix Operations</p>
       </div>
     </a>
     <a class="right-next"
@@ -770,15 +750,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose">Transpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose-proofs">Transpose Proofs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-scripts-and-modules">Running Scripts and Modules</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/Contents/matrix_operations.rst.txt">
+    <a href="../_sources/Contents/packages.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
