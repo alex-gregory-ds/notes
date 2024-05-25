@@ -1,6 +1,12 @@
 The Python Import System
 ========================
 
+    Main takeaways:
+
+    * Suppose we have a directory called :code:`root` with the following files: :code:`package/module.py`, and :code:`package/script.py`.
+    * From inside :code:`root`, running :code:`python3 package/script.py` will add :code:`package` to :code:`sys.path` meaning :code:`from package import module` will raise an import error in :code:`script.py`.
+    * From inside :code:`root`, running :code:`python3 -m package.script` will add :code:`root` to :code:`sys.path` meaning :code:`from package import module` will not raise an import error in :code:`script.py`
+
 When importing a package or module, python searches for it on its :code:`sys.path`. Suppose we have the following project structure.
 
 .. code::

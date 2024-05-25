@@ -217,7 +217,7 @@
 
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="eigenvalues_and_eigenvectors.html">
-                        1   Eigenvalues and Eigenvectors
+                        Eigenvalues and Eigenvectors
                       </a>
                     </li>
                 
@@ -425,7 +425,7 @@ document.write(`
 
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="eigenvalues_and_eigenvectors.html">
-                        1   Eigenvalues and Eigenvectors
+                        Eigenvalues and Eigenvectors
                       </a>
                     </li>
                 
@@ -552,6 +552,14 @@ document.write(`
                   
   <section id="the-python-import-system">
 <h1>The Python Import System<a class="headerlink" href="#the-python-import-system" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Main takeaways:</p>
+<ul class="simple">
+<li><p>Suppose we have a directory called <code class="code docutils literal notranslate"><span class="pre">root</span></code> with the following files: <code class="code docutils literal notranslate"><span class="pre">package/module.py</span></code>, and <code class="code docutils literal notranslate"><span class="pre">package/script.py</span></code>.</p></li>
+<li><p>From inside <code class="code docutils literal notranslate"><span class="pre">root</span></code>, running <code class="code docutils literal notranslate"><span class="pre">python3</span> <span class="pre">package/script.py</span></code> will add <code class="code docutils literal notranslate"><span class="pre">package</span></code> to <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code> meaning <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code> will raise an import error in <code class="code docutils literal notranslate"><span class="pre">script.py</span></code>.</p></li>
+<li><p>From inside <code class="code docutils literal notranslate"><span class="pre">root</span></code>, running <code class="code docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">package.script</span></code> will add <code class="code docutils literal notranslate"><span class="pre">root</span></code> to <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code> meaning <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code> will not raise an import error in <code class="code docutils literal notranslate"><span class="pre">script.py</span></code></p></li>
+</ul>
+</div></blockquote>
 <p>When importing a package or module, python searches for it on its <code class="code docutils literal notranslate"><span class="pre">sys.path</span></code>. Suppose we have the following project structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root
 └── package
