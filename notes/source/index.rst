@@ -27,6 +27,7 @@ Notes
    Notebooks/Information_Content.ipynb
    Notebooks/linear_regression.ipynb
    Notebooks/numpy_broadcasting.ipynb
+   Notebooks/f1_score.ipynb
 
 
 Indices and tables
