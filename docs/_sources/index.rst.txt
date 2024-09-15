@@ -8,28 +8,12 @@ Notes
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Table of Contents
+   :numbered:
+   :glob:
 
-   Contents/bash.rst
-   Contents/terminal_commands.rst
-   Contents/decorators.rst
-   Contents/regular_expressions.rst
-   Contents/docker.rst
-   Contents/dockerfile.rst
-   Contents/shannon_entropy.rst
-   Contents/nqueens.rst
-   Contents/bibliography.rst
-   Contents/arithmetic_series.rst
-   Contents/generators_and_recursion.rst
-   Contents/eigenvalues_and_eigenvectors.rst
-   Contents/matrix_operations.rst
-   Contents/import_system.rst
-   Contents/monads.rst
-   Notebooks/Information_Content.ipynb
-   Notebooks/linear_regression.ipynb
-   Notebooks/numpy_broadcasting.ipynb
-   Notebooks/f1_score.ipynb
-
+   Contents/*
+   Notebooks/*
 
 Indices and tables
 ==================
