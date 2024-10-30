@@ -8,7 +8,8 @@ A :code:`Dockerfile` must start with a :code:`FROM` instruction
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-Environment variables are declared with the :code:`ENV` statement. Environment variables are initialised and referred to using the following syntax.
+Environment variables are declared with the :code:`ENV` statement. Environment
+variables are initialised and referred to using the following syntax.
 
 .. code:: docker
 
@@ -21,7 +22,9 @@ Curly braces are optional when referring to an environment variable.
 Creating Users
 ~~~~~~~~~~~~~~
 
-Usually, it is recommended to execute commands in a docker container as the root user. Creating and managing users can differ between operating systems, so for the time being, we limit ourselves to Linux.
+Usually, it is recommended to execute commands in a docker container as the
+root user. Creating and managing users can differ between operating systems, so
+for the time being, we limit ourselves to Linux.
 
 To create a new user in Linux, we use the :code:`useradd` command.
 

@@ -4,7 +4,9 @@ Generators and Recursion
 
 Write a function to generate the length 2 combinations for the elements of a list.  
 
-One way to think about this is as a matrix. Suppose we have a list :math:`[i_0, i_1, \dots, i_{n-1}]`. Write out each permutation of pairs (with replacement) as a matrix.
+One way to think about this is as a matrix. Suppose we have a list
+:math:`[i_0, i_1, \dots, i_{n-1}]`. Write out each permutation of pairs (with
+replacement) as a matrix.
 
 .. math::
 
@@ -15,9 +17,17 @@ One way to think about this is as a matrix. Suppose we have a list :math:`[i_0, 
        (i_{n-1}, i_0) & (i_{n-1}, i_1) & \dots & (i_{n-1}, i_{n-1}) \\
    \end{matrix}
 
-The matrix contains all possible permutations (with replacement). The matrix is symmetric meaning for each pair :math:`(i_a, i_b)` below the diagonal, the pair :math:`(i_b, i_a)` is above the diagonal. This means the set of combination pairs for our list is above the diagonal. Therefore, we only have to generate the pairs above the diagonal.
+The matrix contains all possible permutations (with replacement). The matrix is
+symmetric meaning for each pair :math:`(i_a, i_b)` below the diagonal, the pair
+:math:`(i_b, i_a)` is above the diagonal. This means the set of combination
+pairs for our list is above the diagonal. Therefore, we only have to generate
+the pairs above the diagonal.
 
-Here is another way of saying this. Suppose again we have a list :math:`i = [i_0, i_1, \dots, i_{n-1}]`. Suppose we generate all the permutations that start with :math:`i_a` for :math:`a=0, 1, \dots, b - 1` where :math:`b \leq n - 1`. Then, for the list of permutations that start with :math:`i_b`, then :math:`(i_j, i_b)` has already been generated if :math:`j < b`.
+Here is another way of saying this. Suppose again we have a list
+:math:`i = [i_0, i_1, \dots, i_{n-1}]`. Suppose we generate all the
+permutations that start with :math:`i_a` for :math:`a=0, 1, \dots, b - 1` where
+:math:`b \leq n - 1`. Then, for the list of permutations that start with
+:math:`i_b`, then :math:`(i_j, i_b)` has already been generated if :math:`j < b`.
 
 Let us write our function to generate combinations.
 
@@ -30,7 +40,8 @@ Let us write our function to generate combinations.
    >>> [i for i in combinations([1, 2, 3, 4, 5])]
    >>> [(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
 
-What about the case where :math:`r=3`. Let us try extending the rule we defined above and used it for the case where :math:`r=3`.
+What about the case where :math:`r=3`. Let us try extending the rule we defined
+above and used it for the case where :math:`r=3`.
 
 .. code::
 
@@ -42,17 +53,30 @@ What about the case where :math:`r=3`. Let us try extending the rule we defined 
    >>> [i for i in combinations([1, 2, 3, 4, 5])]
    >>> [(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
 
-The nested for loops are already getting quite deep. This will only get worse as we increase :code:`r`. One way to deal with this is by using recursion. We will talk about this later but for now we will discuss how we arrived at a solution for :code:`r=3` and potentially any value :code:`r`.
+The nested for loops are already getting quite deep. This will only get worse
+as we increase :code:`r`. One way to deal with this is by using recursion. We
+will talk about this later but for now we will discuss how we arrived at a
+solution for :code:`r=3` and potentially any value :code:`r`.
 
 -----------------------------------
 Generating combinations of length 3
 -----------------------------------
 
-For generating the combinations of length 2, we were able to create a matrix of permutations and see that everything along the diagonal could be ignored and any combination below the diagonal was repeated above the diagonal. This let us limit our generating to only the upper diagonal elements making our life a little easier. For the case where :code:`r=3` creating a matrix is not as simple.
+For generating the combinations of length 2, we were able to create a matrix of
+permutations and see that everything along the diagonal could be ignored and
+any combination below the diagonal was repeated above the diagonal. This let us
+limit our generating to only the upper diagonal elements making our life a
+little easier. For the case where :code:`r=3` creating a matrix is not as
+simple.
 
-For the :code:`r=2` case, the rows of the matrix represented the index of the first element and the columns represented the rows of the second element in the combinations. We may be able to use a similar matrix representation using a 3D starts getting complicated; The complexity only increases as :code:`r` increases?
+For the :code:`r=2` case, the rows of the matrix represented the index of the
+first element and the columns represented the rows of the second element in the
+combinations. We may be able to use a similar matrix representation using a 3D
+starts getting complicated; The complexity only increases as :code:`r`
+increases?
 
-What can we gain from the matrix representation for :code:`r=2` that could be applied to :code:`r=3`? First recall the matrix representation for :code:`r=2`.
+What can we gain from the matrix representation for :code:`r=2` that could be
+applied to :code:`r=3`? First recall the matrix representation for :code:`r=2`.
 
 .. math::
 
@@ -63,11 +87,23 @@ What can we gain from the matrix representation for :code:`r=2` that could be ap
        (i_{n-1}, i_0) & (i_{n-1}, i_1) & \dots & (i_{n-1}, i_{n-1}) \\
    \end{matrix}
 
-Clearly, the combinations below the diagonal are repeated since the matrix is symmetric. Another way of expressing this is the set length 2 combinations is the set of combinations :math:`(i_a, i_b)` where :math:`b < a`.
+Clearly, the combinations below the diagonal are repeated since the matrix is
+symmetric. Another way of expressing this is the set length 2 combinations is
+the set of combinations :math:`(i_a, i_b)` where :math:`b < a`.
 
-Extending this to the length 3 case, we can say the set of length 3 combinations is the set of permutations :math:`(i_a, i_b, i_c)` where :math:`a < b < c`. We can prove this by contradiction. Suppose we have the set of all combinations, :math:`(i_a, i_b, i_c)`, where :math:`i_a < i_b < i_c`. Suppose there is another combination :math:`(i_{a^*}, i_{b^*}, i_{c^*})` that is not in our existing list of ordered combinations. We can reorder `(i_{a^*}, i_{b^*}, i_{c^*})` to make it satisfy the inequality and by our initial assumption, `(i_{a^*}, i_{b^*}, i_{c^*})` is already in our list of combinations.
+Extending this to the length 3 case, we can say the set of length 3
+combinations is the set of permutations :math:`(i_a, i_b, i_c)` where
+:math:`a < b < c`. We can prove this by contradiction. Suppose we have the set
+of all combinations, :math:`(i_a, i_b, i_c)`, where :math:`i_a < i_b < i_c`.
+Suppose there is another combination :math:`(i_{a^*}, i_{b^*}, i_{c^*})` that
+is not in our existing list of ordered combinations. We can reorder
+`(i_{a^*}, i_{b^*}, i_{c^*})` to make it satisfy the inequality and by our
+initial assumption, `(i_{a^*}, i_{b^*}, i_{c^*})` is already in our list of
+combinations.
 
-So, we can represent every combination of length 3 as a tuple, :math:`(i_a, i_b, i_c)`, such that :math:`i_a < i_b < i_c`. Keeping that in mind, let us generate the length three combinations of :math:`[1, 2, 3, 4]`.
+So, we can represent every combination of length 3 as a tuple,
+:math:`(i_a, i_b, i_c)`, such that :math:`i_a < i_b < i_c`. Keeping that in
+mind, let us generate the length three combinations of :math:`[1, 2, 3, 4]`.
 
 .. code::
 
@@ -76,9 +112,13 @@ So, we can represent every combination of length 3 as a tuple, :math:`(i_a, i_b,
    [1, 3, 4]
    [2, 3, 4]
 
-The above combinations all satisfy :math:`i_a < i_b < i_c`. The combinations were generated by starting with the *minimum* combination, :code:`[1, 2, 3]` then incrementing the item furthest on the right until it hits the maximum value.
+The above combinations all satisfy :math:`i_a < i_b < i_c`. The combinations
+were generated by starting with the *minimum* combination, :code:`[1, 2, 3]`
+then incrementing the item furthest on the right until it hits the maximum
+value.
 
-We now have a basic outline for an algorithm for generating the combinations. Let us write some code using recursion to perform this algorithm.
+We now have a basic outline for an algorithm for generating the combinations.
+Let us write some code using recursion to perform this algorithm.
 
 .. code::
 
@@ -103,11 +143,21 @@ We now have a basic outline for an algorithm for generating the combinations. Le
 
 Some notes on how this algorithm works.
 
-* :code:`combination_store` is a list that stores the current combination. Initialised with :code:`None`'s.
-* :code:`gen_combination` is the recursive function that yields the indexes of the combinations.
-* :code:`gen_combination` takes two arguments :code:`i` and :code:`start_value`. :code:`i` is the item in :code:`combination_store` that will be incremented. :code:`start_value` is the value start from when iterating through the possible values for the :code:`i`-th element of :code:`combination_store`.
-* For the :code:`i`-th element of :code:`combination_store`, the fore loop iterates through the possible values of that particular item. Each iteration it recursively calls :code:`gen_combination` to generate the possible values of the :code:`i + 1`-th element of :code:`combination_store`.
-* If `i` is greater than `r - 1` that means a combination has been generated and so :code:`combination_store` is yielded.
+* :code:`combination_store` is a list that stores the current combination.
+  Initialised with :code:`None`'s.
+* :code:`gen_combination` is the recursive function that yields the indexes of
+  the combinations.
+* :code:`gen_combination` takes two arguments :code:`i` and
+  :code:`start_value`. :code:`i` is the item in :code:`combination_store` that
+  will be incremented. :code:`start_value` is the value start from when
+  iterating through the possible values for the :code:`i`-th element of
+  :code:`combination_store`.
+* For the :code:`i`-th element of :code:`combination_store`, the fore loop
+  iterates through the possible values of that particular item. Each iteration
+  it recursively calls :code:`gen_combination` to generate the possible values
+  of the :code:`i + 1`-th element of :code:`combination_store`.
+* If `i` is greater than `r - 1` that means a combination has been generated
+  and so :code:`combination_store` is yielded.
 
 Let us test out this code.
 
@@ -122,7 +172,11 @@ Let us test out this code.
 Implementation in the python documentation
 ------------------------------------------
 
-In the Python documentation (https://docs.python.org/3/library/itertools.html#itertools.combinations), they present a simplified version of their algorithm to generate combinations that does not use recursion. I have added a few extra comments to make it easier for me to understand.
+In the Python documentation
+(https://docs.python.org/3/library/itertools.html#itertools.combinations), they
+present a simplified version of their algorithm to generate combinations that
+does not use recursion. I have added a few extra comments to make it easier for
+me to understand.
 
 .. code::
 
@@ -156,15 +210,22 @@ In the Python documentation (https://docs.python.org/3/library/itertools.html#it
                indices[j] = indices[j-1] + 1
            yield tuple(pool[i] for i in indices)
 
-The main ideas behind the implementation are very similar to the implementation above. To avoid recursion, they find the :code:`i`-th element in the :code:`indices` list that is not at its maximum value. Than element is then incremented by 1, and every element to the right of the :code:`i`-th element is 1 above their left neighbour. Then it repeats the process.
+The main ideas behind the implementation are very similar to the implementation
+above. To avoid recursion, they find the :code:`i`-th element in the
+:code:`indices` list that is not at its maximum value. Than element is then
+incremented by 1, and every element to the right of the :code:`i`-th element is
+1 above their left neighbour. Then it repeats the process.
 
-Avoiding recursion makes the implementation much simpler and I suspect much quicker. I especially like using :code:`reversed(range(r))` instead of something like :code:`range(r - 1, -1, -1)`. The former is much easier to read.
+Avoiding recursion makes the implementation much simpler and I suspect much
+quicker. I especially like using :code:`reversed(range(r))` instead of
+something like :code:`range(r - 1, -1, -1)`. The former is much easier to read.
 
 --------------
 Solving Sudoku
 --------------
 
-Here is an algorithm for solving sudoku that is inspired by the python implementation of combinations in that it does not use recursive functions.
+Here is an algorithm for solving sudoku that is inspired by the python
+implementation of combinations in that it does not use recursive functions.
 
 .. code::
 

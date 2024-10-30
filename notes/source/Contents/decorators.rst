@@ -2,7 +2,9 @@
 Decorators
 ==========
 
-Decorators allow you to modify the behaviour of a callable. Decorators are themselves a callable that takes a callable as an input and return a callable. Let us build some decorator intuition through some simple examples.
+Decorators allow you to modify the behaviour of a callable. Decorators are
+themselves a callable that takes a callable as an input and return a callable.
+Let us build some decorator intuition through some simple examples.
 
 Suppose we have a function that prints a string.
 
@@ -16,7 +18,8 @@ Suppose we have a function that prints a string.
    >>>my_func()
    My function
 
-Python treats functions as objects mean we can create another function that accepts :code:`my_func` as an argument.
+Python treats functions as objects mean we can create another function that
+accepts :code:`my_func` as an argument.
 
 .. code-block:: python
 
@@ -27,7 +30,10 @@ Python treats functions as objects mean we can create another function that acce
    def my_func():
        print("Function")
 
-Above, we created a new function called :code:`wrapper` which accepts a function as an argument, prints :code:`Decorator` then returns the function. Remember functions are objects so we can assign the function returned from :code:`wrapper` to a new variable.
+Above, we created a new function called :code:`wrapper` which accepts a
+function as an argument, prints :code:`Decorator` then returns the function.
+Remember functions are objects so we can assign the function returned from
+:code:`wrapper` to a new variable.
 
 .. code-block::
 
@@ -36,9 +42,14 @@ Above, we created a new function called :code:`wrapper` which accepts a function
    Decorator
    Function
 
-Above, we assign the callable object to the variable :code:`new_func` then we call :code:`new_func`. This first prints :code:`Decorator` which is from the :code:`wrapper` function, then it prints :code:`Function` which is from the :code:`my_func` function. So we have used :code:`wrapper` to modify the behaviour of :code:`my_func` without modifying :code:`my_func` itself.
+Above, we assign the callable object to the variable :code:`new_func` then we
+call :code:`new_func`. This first prints :code:`Decorator` which is from the
+:code:`wrapper` function, then it prints :code:`Function` which is from the
+:code:`my_func` function. So we have used :code:`wrapper` to modify the
+behaviour of :code:`my_func` without modifying :code:`my_func` itself.
 
-Decorators essentially give us some syntax sugar to do this exact thing. In fact :code:`wrapper` is a valid decorator.
+Decorators essentially give us some syntax sugar to do this exact thing. In
+fact :code:`wrapper` is a valid decorator.
 
 .. code-block:: python
 
@@ -63,7 +74,10 @@ We have now decorated :code:`my_func` with the :code:`wrapper` decorator.
 Passing Arguments to Decorators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The arguments of decorated functions can be passed to the decorator. One reason you may want to do this is to validate the arguments passed to a function before the function is executed. Let us create a simple addition function and use a decorator to check the input arguments are integers.
+The arguments of decorated functions can be passed to the decorator. One reason
+you may want to do this is to validate the arguments passed to a function
+before the function is executed. Let us create a simple addition function and
+use a decorator to check the input arguments are integers.
 
 .. code-block:: python
 
@@ -79,7 +93,9 @@ The arguments of decorated functions can be passed to the decorator. One reason 
    def add_integers(a: int, b: int) -> int:
        return a + b
 
-The decorator function :code:`check_arguments` contains a nested function :code:`inner` takes the arguments from function being decorated. The function :code:`check_arguments` then returns the callable :code:`inner`.
+The decorator function :code:`check_arguments` contains a nested function
+:code:`inner` takes the arguments from function being decorated. The function
+:code:`check_arguments` then returns the callable :code:`inner`.
 
 .. code-block::
 
@@ -99,7 +115,8 @@ Here are some simple example decorators.
 Check Dictionary Keys
 ---------------------
 
-Suppose we have a function that takes a dictionary as an argument. We can create a decorator that makes sure the dictionary has the correct keys.
+Suppose we have a function that takes a dictionary as an argument. We can
+create a decorator that makes sure the dictionary has the correct keys.
 
 .. code-block:: python
 
@@ -133,7 +150,9 @@ Suppose we have a function that takes a dictionary as an argument. We can create
             total += value
         return total
 
-We have created a decorator called :code:`CheckDictKeys` that will check if a named dictionary contains the allowed keys. If any of the allowed keys are missing, a :code:`RuntimeError` is raised.
+We have created a decorator called :code:`CheckDictKeys` that will check if a
+named dictionary contains the allowed keys. If any of the allowed keys are
+missing, a :code:`RuntimeError` is raised.
 
 .. code-block::
 

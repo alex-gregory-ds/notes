@@ -8,7 +8,9 @@ Quick reference for Bash scripting.
 Data Types
 ^^^^^^^^^^
 
-By default, bash treats all variables as character strings. Depending on the context in which the variables are used affects whether bash interprets the variables as integers, strings, booleans, or arrays.
+By default, bash treats all variables as character strings. Depending on the
+context in which the variables are used affects whether bash interprets the
+variables as integers, strings, booleans, or arrays.
 
 .. code-block:: console
 
@@ -23,13 +25,16 @@ By default, bash treats all variables as character strings. Depending on the con
    $ echo $((${X} + ${Y}))
    0
 
-Expressions written inside :code:`(())` are evaluated as mathematical expressions. Note that adding the strings :code:`"Hello"` and :code:`World` returns :code:`0`.
+Expressions written inside :code:`(())` are evaluated as mathematical
+expressions. Note that adding the strings :code:`"Hello"` and :code:`World`
+returns :code:`0`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Square Brackets (The Test Command)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Square brackets are referred to as the test command and are used to test if the statement within the brackets are true are true of false.
+Square brackets are referred to as the test command and are used to test if the
+statement within the brackets are true are true of false.
 
 .. code-block:: bash
 
@@ -72,7 +77,8 @@ For loops can be defined over a list of items.
         echo "$item"
     done
 
-Braces can be used to define ranges, :code:`{x..y}`. Note that ranges are inclusive so :code:`x` and :code:`y` are included in the range.
+Braces can be used to define ranges, :code:`{x..y}`. Note that ranges are
+inclusive so :code:`x` and :code:`y` are included in the range.
 
 .. code-block:: bash
 
@@ -92,7 +98,8 @@ Braces can be used to define ranges, :code:`{x..y}`. Note that ranges are inclus
 Parameter Expansion
 ^^^^^^^^^^^^^^^^^^^
 
-In shell scripts, the value of a parameter can be substituted into into a string using the :code:`${variable_name}` syntax.
+In shell scripts, the value of a parameter can be substituted into into a
+string using the :code:`${variable_name}` syntax.
 
 .. code:: console
 
@@ -100,7 +107,8 @@ In shell scripts, the value of a parameter can be substituted into into a string
    $ echo "${X}"
    Hello this is some text.
 
-Parameter expansions allows us to add characters inside the curly braces to change value that is substituted.
+Parameter expansions allows us to add characters inside the curly braces to
+change value that is substituted.
 
 :code:`${parameter:-word}`
     If parameter is unset or null, substitute :code:`word` instead.
@@ -117,7 +125,8 @@ Parameter expansions allows us to add characters inside the curly braces to chan
        Word
 
 :code:`${parameter:offset:length}`
-    Expands the substring of the value of :code:`parameter` that starts at :code:`offset` and has length `length`:
+    Expands the substring of the value of :code:`parameter` that starts at
+    :code:`offset` and has length `length`:
 
     .. code:: console
 
