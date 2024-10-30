@@ -18,7 +18,9 @@ Rewrite the sum as,
 
    (5 - 0) + (5 - 1) + (5 - 2) + (5 - 3) + (5 - 4) = 15.
 
-Notice that, :math:`5 - 1` is cancelled out by the :math:`-4` in :math:`(5 - 4)`. :math:`(5 - 2)` is cancelled out by :math:`-3` in :math:`(5 - 3)`. Therefore, the equation above can be simplified to,
+Notice that, :math:`5 - 1` is cancelled out by the :math:`-4` in
+:math:`(5 - 4)`. :math:`(5 - 2)` is cancelled out by :math:`-3` in
+:math:`(5 - 3)`. Therefore, the equation above can be simplified to,
 
 .. math::
 
@@ -36,21 +38,30 @@ This reduces down to,
 
    (6 - 3) + 6 + 6 + 6.
 
-The situation looks slightly different when the maximum number is even. Let us come up with a general rule for the sum when :math:`n` is odd. Consider the follow sum,
+The situation looks slightly different when the maximum number is even. Let us
+come up with a general rule for the sum when :math:`n` is odd. Consider the
+follow sum,
 
 .. math::
 
    (n - 0) + (n - 1) + (n - 2) + \dots + (n - (n - 1)).
 
-Since :math:`n` is odd, not including :math:`(n - 0)`, there are an even number of remaining terms since :math:`n - 1` must be even.
+Since :math:`n` is odd, not including :math:`(n - 0)`, there are an even number
+of remaining terms since :math:`n - 1` must be even.
 
-Notice that :math:`(n - 1)` is cancelled out by :math:`- (n - 1)` from :math:`(n - (n - 1))`. In fact all terms :math:`n - i` where :math:`i \leq (n - 1) / 2` will be cancelled out by its corresponding term in :math:`n - (n - i)` for :math:`i \gt (n - 1) / 2`. Let us prove this for the case where :math:`i = (n - 1) / 2`, which is the midpoint. In this case on the *left* side, we have,
+Notice that :math:`(n - 1)` is cancelled out by :math:`- (n - 1)` from
+:math:`(n - (n - 1))`. In fact all terms :math:`n - i` where
+:math:`i \leq (n - 1) / 2` will be cancelled out by its corresponding term in
+:math:`n - (n - i)` for :math:`i \gt (n - 1) / 2`. Let us prove this for the
+case where :math:`i = (n - 1) / 2`, which is the midpoint. In this case on the
+*left* side, we have,
 
 .. math::
 
    n - \frac{n - 1}{2} = \frac{n + 1}{2}.
 
-Its corresponding term on the right will be :math:`i = (n - 1) / 2 + 1`. Resulting in,
+Its corresponding term on the right will be :math:`i = (n - 1) / 2 + 1`.
+Resulting in,
 
 .. math::
 
@@ -62,19 +73,23 @@ The terms therefore cancel. Cancelling out all these terms leaves us with,
 
    n + \frac{n - 1}{2}n = \frac{n^2 - n + 2n}{n} = \frac{n(n + 1)}{2}
 
-Now let us consider the cases were :math:`n` is even. Again we have the same sum,
+Now let us consider the cases were :math:`n` is even. Again we have the same
+sum,
 
 .. math::
 
    (n - 0) + (n - 1) + (n - 2) + \dots + (n - (n - 1)).
 
-But if we ignore the first term there are an odd number of remaining terms meaning there will be one term left when we cancel everything out. The term that is left over will be,
+But if we ignore the first term there are an odd number of remaining terms
+meaning there will be one term left when we cancel everything out. The term
+that is left over will be,
 
 .. math::
 
    n - \left( \frac{n - 2}{2} + 1 \right).
 
-The fraction here is floored midpoint. Cancelling everything out again means that in the end we have,
+The fraction here is floored midpoint. Cancelling everything out again means
+that in the end we have,
 
 .. math::
 
@@ -97,7 +112,8 @@ In summary, the formula is,
 Simpler Proof
 -------------
 
-The proof above is more complicated than it needs to be and in fact there is a much simpler proof. Consider the following sum.
+The proof above is more complicated than it needs to be and in fact there is a
+much simpler proof. Consider the following sum.
 
 .. math::
 

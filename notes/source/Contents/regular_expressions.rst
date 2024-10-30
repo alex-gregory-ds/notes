@@ -2,13 +2,15 @@
 Regular Expressions
 ===================
 
-A regular expression (often shortened to regex) is a sequence of characters that can be used to search for patterns of text.
+A regular expression (often shortened to regex) is a sequence of characters
+that can be used to search for patterns of text.
 
 ^^^^^^^^^^^^^^^
 Regex in Python
 ^^^^^^^^^^^^^^^
 
-The python standard library has the :code:`re` module for working with regular expressions. This section provides a brief overview of some regex syntax.
+The python standard library has the :code:`re` module for working with regular
+expressions. This section provides a brief overview of some regex syntax.
 
 Regex strings are given the prefix :code:`r` before single or double quotes.
 
@@ -16,7 +18,8 @@ Regex strings are given the prefix :code:`r` before single or double quotes.
 
    pattern = r"Hello"
 
-The function :code:`re.match` can be used to search for regex patterns inside other strings.
+The function :code:`re.match` can be used to search for regex patterns inside
+other strings.
 
 .. code-block:: python
 
@@ -26,7 +29,10 @@ The function :code:`re.match` can be used to search for regex patterns inside ot
    >>> re.match(pattern, string)
    <re.Match object; span=(0, 5), match='Hello'>
 
-The :code:`span` attribute in the object returned from :code:`re.match` tells us the first 5 characters of :code:`string` matched :code:`pattern`. Casting the object to a boolean gives :code:`True` if there is a match and :code:`False` if there is not a match.
+The :code:`span` attribute in the object returned from :code:`re.match` tells
+us the first 5 characters of :code:`string` matched :code:`pattern`. Casting
+the object to a boolean gives :code:`True` if there is a match and
+:code:`False` if there is not a match.
 
 .. code-block:: python
 
@@ -35,7 +41,8 @@ The :code:`span` attribute in the object returned from :code:`re.match` tells us
    >>> bool(re.match(pattern, string))
    True
 
-Regex can be used to match more complicated patterns. The list below describes some of regex syntax.
+Regex can be used to match more complicated patterns. The list below describes
+some of regex syntax.
 
 :code:`.`
     Matches any single character other than the newline character (:code:`\n`).
@@ -170,7 +177,8 @@ Regex can be used to match more complicated patterns. The list below describes s
 Grep
 ^^^^
 
-Grep is a program common on most Unix-like systems. It is used for finding patterns in text. Suppose the file :code:`text.txt` contains the follow text.
+Grep is a program common on most Unix-like systems. It is used for finding
+patterns in text. Suppose the file :code:`text.txt` contains the follow text.
 
 .. code-block:: console
 

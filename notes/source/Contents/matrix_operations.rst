@@ -6,7 +6,8 @@ A short summary of the properties of some matrix operations.
 Transpose
 ---------
 
-Suppose :math:`\mathbf{A}` and :math:`\mathbf{B}` are matrices and :math:`\mathbf{x}` is a vector.
+Suppose :math:`\mathbf{A}` and :math:`\mathbf{B}` are matrices and
+:math:`\mathbf{x}` is a vector.
 
 * :math:`(\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T`
 * :math:`(\mathbf{A}^T)^T = \mathbf{A}`
@@ -18,7 +19,8 @@ Transpose Proofs
 
 * :math:`(\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T`
 
-Let :math:`\mathbf{A}_i` and :math:`\mathbf{B}_i` be the :math:`i`-th column of :math:`\mathbf{A}` and :math:`\mathbf{B}` respectively.
+Let :math:`\mathbf{A}_i` and :math:`\mathbf{B}_i` be the :math:`i`-th column of
+:math:`\mathbf{A}` and :math:`\mathbf{B}` respectively.
 
 .. math::
 

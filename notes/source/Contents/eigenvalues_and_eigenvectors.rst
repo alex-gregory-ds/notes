@@ -1,46 +1,60 @@
 Eigenvalues and Eigenvectors
 ============================
 
-For a square matrix :math:`A`, its eigenvectors are vectors :math:`x` such that,
+For a square matrix :math:`A`, its eigenvectors are vectors :math:`x` such
+that,
 
 .. math::
 
    Ax = \lambda x
 
-Where :math:`\lambda \in R` is an eigenvalue of :math:`x`. In other words, the eigenvectors of :math:`A` are vectors that when transformed by :math:`A` are only scaled by some factor :math:`\lambda` rather than, for example, changing direction.
+Where :math:`\lambda \in R` is an eigenvalue of :math:`x`. In other words, the
+eigenvectors of :math:`A` are vectors that when transformed by :math:`A` are
+only scaled by some factor :math:`\lambda` rather than, for example, changing
+direction.
 
 Finding Eigenvalues and Eigenvectors
 ------------------------------------
 
-In our equation above, there are two unknows: :math:`\lambda`, and :math:`x`. Rearanging, some of the terms, we get,
+In our equation above, there are two unknows: :math:`\lambda`, and :math:`x`.
+Rearanging, some of the terms, we get,
 
 .. math::
 
    (A - \lambda I) x = 0
 
-Where :math:`I` is the identity matrix. If :math:`A - \lambda I` is invertible then :math:`(A - \lambda I) ^ {-1} (A - \lambda I) x = (A - \lambda I) ^ {-1} 0 \implies x = 0`. Therefore, for :math:`x` to have a non-zero solution, :math:`A - \lambda I` cannot be invertible, and thus,
+Where :math:`I` is the identity matrix. If :math:`A - \lambda I` is invertible
+then :math:`(A - \lambda I) ^ {-1} (A - \lambda I) x = (A - \lambda I) ^ {-1} 0
+\implies x = 0`. Therefore, for :math:`x` to have a non-zero solution,
+:math:`A - \lambda I` cannot be invertible, and thus,
 
 .. math::
 
    \det (A - \lambda I) = 0
 
-This gives a formula to find the eigenvalues of :math:`A` which can then be substituted into :math:`(A - \lambda I) x = 0` to find the eigenvectors :math:`x`.
+This gives a formula to find the eigenvalues of :math:`A` which can then be
+substituted into :math:`(A - \lambda I) x = 0` to find the eigenvectors
+:math:`x`.
 
 Properties of Eigenvalues and Eigenvectors
 ------------------------------------------
 
 Several properties of eigenvalues and eigenvectors.
 
-* Squaring a square matrix :math:`A` squares its eigenvalues but its eigenvectors remain the same.
+* Squaring a square matrix :math:`A` squares its eigenvalues but its
+  eigenvectors remain the same.
 * The eigenvectors of a symmetric matrix are orthogonal. 
-* A square matrix :math:`\mathbf{A}` is invertible IFF its columns are linearly independent.
+* A square matrix :math:`\mathbf{A}` is invertible IFF its columns are linearly
+  independent.
 
 Properties of Eigenvalues and Eigenvectors (Proofs)
 ---------------------------------------------------
 
-* Squaring a square matrix :math:`A` squares its eigenvalues but its eigenvectors remain the same.
+* Squaring a square matrix :math:`A` squares its eigenvalues but its
+  eigenvectors remain the same.
 
-Suppose :math:`\mathbf{A}` has the eigenvector :math:`\mathbf{x}_i` and eigenvalue :math:`\lambda_i`.
+Suppose :math:`\mathbf{A}` has the eigenvector :math:`\mathbf{x}_i` and
+eigenvalue :math:`\lambda_i`.
 
 .. math::
 
@@ -48,11 +62,15 @@ Suppose :math:`\mathbf{A}` has the eigenvector :math:`\mathbf{x}_i` and eigenval
    \mathbf{A} \mathbf{A} \mathbf{x}_i = \lambda_i \mathbf{A} \mathbf{x}_i \\
    \mathbf{A}^2 \mathbf{x}_i = \lambda_i^2 \mathbf{\mathbf{x}}_i. \\
    
-Thus, :math:`\mathbf{x}_i` is an eigenvector of :math:`\mathbf{A}` and :math:`\mathbf{A}^2`. And :math:`\lambda_i` is an eigenvalue of :math:`\mathbf{A}` but :math:`\lambda_i^2` is an eigenvalue of :math:`\mathbf{A}^2`.
+Thus, :math:`\mathbf{x}_i` is an eigenvector of :math:`\mathbf{A}` and
+:math:`\mathbf{A}^2`. And :math:`\lambda_i` is an eigenvalue of
+:math:`\mathbf{A}` but :math:`\lambda_i^2` is an eigenvalue of
+:math:`\mathbf{A}^2`.
 
 * The eigenvectors of a symmetric matrix are orthogonal. 
 
-Suppose :math:`\mathbf{A}` is a two dimensional matrix with two eigenvectors and two distinct eigenvalues.
+Suppose :math:`\mathbf{A}` is a two dimensional matrix with two eigenvectors
+and two distinct eigenvalues.
 
 .. math::
 
@@ -75,12 +93,16 @@ Taking both equations from each other, we get,
    x_2^T A x_1 - x_2^T A x_1 & = (\lambda_2 - \lambda_1) x_2^T x_1^T \\
    0 & = (\lambda_2 - \lambda_1) x_2^T x_1^T
 
-Since :math:`\lambda_1` and :math:`\lambda_2` are distinct, :math:`(\lambda_2 - \lambda_1)` is non-zero, therefore, :math:`x_2^T x_1^T` must be zero. Thus, :math:`x_2` and :math:`x_1` are orthogonal.
+Since :math:`\lambda_1` and :math:`\lambda_2` are distinct,
+:math:`(\lambda_2 - \lambda_1)` is non-zero, therefore,
+:math:`x_2^T x_1^T` must be zero. Thus, :math:`x_2` and
+:math:`x_1` are orthogonal.
 
 The determinant of :math:`A` is the product of its eigenvalues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The eigenvalues :math:`\lambda_1, \lambda_2, \dots, \lambda_n`, are the roots of its characteristic polynomial.
+The eigenvalues :math:`\lambda_1, \lambda_2, \dots, \lambda_n`, are the roots
+of its characteristic polynomial.
 
 .. math::
 
@@ -95,7 +117,8 @@ Setting :math:`\lambda` to :math:`0`, we get,
 The trace of :math:`A` is equal to the sum of its eigenvalues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For this, we only prove for the :math:`2 \times 2` case. Let :math:`A` be the following matrix,
+For this, we only prove for the :math:`2 \times 2` case. Let :math:`A` be the
+following matrix,
 
 .. math::
 
@@ -125,7 +148,8 @@ Therefore,
 :math:`Ax = 0` has a non-trivial solution IFF the columns of :math:`A` are linearly independent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Suppose the columns of :math:`A` are linearly independent. Let the vectors :math:`v_1, v_2, \dots, v_n` be the columns of :math:`A`.
+Suppose the columns of :math:`A` are linearly independent. Let the vectors
+:math:`v_1, v_2, \dots, v_n` be the columns of :math:`A`.
 
 .. math::
 
@@ -137,7 +161,10 @@ This can be rewritten as,
 
    x_1 \mathbf{v}_1 + x_2 \mathbf{v}_2 + \dots + x_n \mathbf{v}_n = \mathbf{0}.
 
-Since the columns of :math:`A` are linearly independent, some column :math:`v_i` can be expressed as a combination of the other columns. Therefore, there must be solution to the equation above where some of the scalars :math:`x_1, x_2, \dots, x_n` are non-zero.
+Since the columns of :math:`A` are linearly independent, some column
+:math:`v_i` can be expressed as a combination of the other columns. Therefore,
+there must be solution to the equation above where some of the scalars
+:math:`x_1, x_2, \dots, x_n` are non-zero.
 
 :math:`Ax = 0` has a non-trivial solution IFF :math:`A` is invertible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

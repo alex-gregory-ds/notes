@@ -40,8 +40,6 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxcontrib.jquery',  # Needed to prevent JQuery errors in browser
     'nbsphinx',
@@ -76,7 +74,7 @@ pygments_style = None
 
 # This title defaults to 'Notes documentation'. Since this project is not a
 # documentation per, set it to an empty string.
-html_title = ""
+html_title = "Notes"
 
 # -- Options for HTML output -------------------------------------------------
 
