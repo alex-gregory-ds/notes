@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction</title>
+    <title>19. Introduction &#8212; Notes</title>
   
   
   
@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/f1_score';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary operators" href="generators.html" />
-    <link rel="prev" title="Information Content" href="Information_Content.html" />
+    <link rel="next" title="24. Binary operators" href="generators.html" />
+    <link rel="prev" title="18. Information Content" href="Information_Content.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,7 +122,7 @@
   
   
   
-    <p class="title logo__title"></p>
+    <p class="title logo__title">Notes</p>
   
 </a></div>
     
@@ -620,7 +620,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Introduction</li>
+    <li class="breadcrumb-item active" aria-current="page"><span...</li>
   </ul>
 </nav>
 </div>
@@ -638,7 +638,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="Introduction">
-<h1>Introduction<a class="headerlink" href="#Introduction" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Introduction<a class="headerlink" href="#Introduction" title="Link to this heading">#</a></h1>
 <p>This article covers:</p>
 <ul class="simple">
 <li><p>Precision</p></li>
@@ -647,7 +647,7 @@ document.write(`
 </ul>
 </section>
 <section id="Motivation">
-<h1>Motivation<a class="headerlink" href="#Motivation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Motivation<a class="headerlink" href="#Motivation" title="Link to this heading">#</a></h1>
 <p>Suppose we are tasked with detecting anomalies in the following dataset.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -734,7 +734,7 @@ Number of outliers found: 1
 <p>The model is 99.5% accuracy. But since this is an outlier detection problem, we know that outliers are going to be rare so have a model that can find the <em>not anomalous</em> points is not very useful.</p>
 <p>In fact, in this example, if our model simply predicted <em>not anomalous</em> all the time, then it would have an accuract of 99% since there are 200 data points and 2 anomalies. This highlights the limitations of using accuracy in some problems. What we can use instead is precision and recall.</p>
 <section id="Precision">
-<h2>Precision<a class="headerlink" href="#Precision" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Precision<a class="headerlink" href="#Precision" title="Link to this heading">#</a></h2>
 <p>Precision is a measure of the proportion of predicted positives that were actually true positives.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -797,7 +797,7 @@ Precision: 1.0
 <p>So, the precision higher than the accuracy. This metric still misses the fact that one of the true positives has been missed. This is where recall comes in.</p>
 </section>
 <section id="Recall">
-<h2>Recall<a class="headerlink" href="#Recall" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Recall<a class="headerlink" href="#Recall" title="Link to this heading">#</a></h2>
 <p>Recall is the proportion of actuall positives that were predicted to be positive. It involes true positives and false negatives.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -845,7 +845,7 @@ Precision: 1.0
 <p>Recall does not take into account false positives though which may be important. F1 score combines both precision and recall.</p>
 </section>
 <section id="F1-Score">
-<h2>F1 Score<a class="headerlink" href="#F1-Score" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>F1 Score<a class="headerlink" href="#F1-Score" title="Link to this heading">#</a></h2>
 <p>F1 score is the harmonic mean of precision and recall. We will discuss the harmonic mean later on but for now let create our own version of F1 score using the arithmetic mean (add up your numbers and divide by how many there are). So, the formula for our version of F1 score which we will call <span class="math notranslate nohighlight">\(\hat{F1}\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[\hat{F1} = \frac{\text{precision} + \text{recall}}{2}\]</div>
@@ -879,7 +879,7 @@ F1 hat 0.75
 </section>
 </section>
 <section id="id1">
-<h1>F1 Score<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>F1 Score<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>F1 score is a method for quantifying the performance of a model. It is typically used for binarcy classification but F1 score can be extended to multiclass problems as well.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1045,7 +1045,7 @@ true_pos: 44,  true_neg: 40,  false_pos: 10,  false_neg: 6
 </ul>
 </section>
 <section id="Precision-and-Recall">
-<h1>Precision and Recall<a class="headerlink" href="#Precision-and-Recall" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Precision and Recall<a class="headerlink" href="#Precision-and-Recall" title="Link to this heading">#</a></h1>
 <p>Precisions and recall is a way of comparing the actual results with the predicted results.</p>
 <div class="math notranslate nohighlight">
 \[\text{precision} = \frac{\text{true positive}}{\text{true positive} + \text{false positive}}, \quad
@@ -1087,7 +1087,7 @@ Precision: 0.8148148148148148,  Recall: 0.88
 <p>Precisions would be 1 if we had 0 false positives. Recall would be 1 if we had 0 false negatives.</p>
 </section>
 <section id="id2">
-<h1>F1 Score<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">23. </span>F1 Score<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
 <p>F1 score is the harmonic mean of precision and recall. Let us first recall the definition of harmonic mean. Suppose we have a sequence of numbers <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span>. The harmonic mean of this set of numbers is,</p>
 <div class="math notranslate nohighlight">
 \[\frac{n}{x_1^{-1} + x_2^{-1} + \dots + x_n^{-1}}\]</div>
@@ -1136,7 +1136,7 @@ F1 score: 0.8461538461538461
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Information Content</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Information Content</p>
       </div>
     </a>
     <a class="right-next"
@@ -1144,7 +1144,7 @@ F1 score: 0.8461538461538461
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Binary operators</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Binary operators</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1166,16 +1166,16 @@ F1 score: 0.8461538461538461
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Motivation">Motivation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Precision">Precision</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Recall">Recall</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#F1-Score">F1 Score</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Motivation">20. Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Precision">20.1. Precision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Recall">20.2. Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#F1-Score">20.3. F1 Score</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">F1 Score</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Precision-and-Recall">Precision and Recall</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">F1 Score</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21. F1 Score</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Precision-and-Recall">22. Precision and Recall</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">23. F1 Score</a></li>
 </ul>
 
   </nav></div>

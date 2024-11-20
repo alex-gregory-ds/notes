@@ -2,11 +2,21 @@
 Gambler's Ruin
 ==============
 
-Suppose we play a game where we start with £1. Each turn we flip a coin. If we get a heads, we gain £1 and if we get a tails, we lose £1. The goal of the game is to make £10. What is the probability we win (get a total of £10) versus going broke (end with £0).
+Suppose we play a game where we start with £1. Each turn we flip a coin. If we
+get a heads, we gain £1 and if we get a tails, we lose £1. The goal of the game
+is to make £10. What is the probability we win (get a total of £10) versus
+going broke (end with £0).
 
-To make the problem more general, suppose the probability of getting a heads is :math:`p` and the probability of getting a tails is :math:`1 - p = q`. Suppose also we start the game with :math:`i` pounds and the aim is to win :math:`N` pounds.
+To make the problem more general, suppose the probability of getting a heads is
+:math:`p` and the probability of getting a tails is :math:`1 - p = q`. Suppose
+also we start the game with :math:`i` pounds and the aim is to win :math:`N`
+pounds.
 
-So, the aim is to predict the probability of going bust or making :math:`N` pounds given we start the game with :math:`i` pounds. Let :math:`P_i` be the probability of winning having started with :math:`i` pounds. The outcome of the :math:`n`-th coin flip is not dependent on the :math:`n-1`-th coin flip. Therefore, we can say,
+So, the aim is to predict the probability of going bust or making :math:`N`
+pounds given we start the game with :math:`i` pounds. Let :math:`P_i` be the
+probability of winning having started with :math:`i` pounds. The outcome of the
+:math:`n`-th coin flip is not dependent on the :math:`n-1`-th coin flip.
+Therefore, we can say,
 
 .. math::
 
@@ -14,7 +24,8 @@ So, the aim is to predict the probability of going bust or making :math:`N` poun
        P_i = p P_{i + 1} + q P{i - 1}.
    \end{equation}
 
-Now, we can recursively calculated :math:`P_i`. Since :math:`p + q = 1`, we can rewrite this as,
+Now, we can recursively calculated :math:`P_i`. Since :math:`p + q = 1`, we can
+rewrite this as,
 
 .. math::
 
@@ -31,7 +42,8 @@ Rearranging this becomes,
        P_{i + 1} - P_i & = \frac{q}{p} (P_i - P_{i - 1}) \\
    \end{align}
 
-Using :math:`i = 1`, we have :math:`P_0 = 0` since it is impossible to win the game if we are already broke. Therefore, we get,
+Using :math:`i = 1`, we have :math:`P_0 = 0` since it is impossible to win the
+game if we are already broke. Therefore, we get,
 
 .. math::
 

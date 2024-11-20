@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Broadcasting in Numpy</title>
+    <title>27. Broadcasting in Numpy &#8212; Notes</title>
   
   
   
@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/numpy_broadcasting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pythagorean Means" href="pythagorean_means.html" />
-    <link rel="prev" title="Linear Regression" href="linear_regression.html" />
+    <link rel="next" title="28. Pythagorean Means" href="pythagorean_means.html" />
+    <link rel="prev" title="25. Linear Regression" href="linear_regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,7 +122,7 @@
   
   
   
-    <p class="title logo__title"></p>
+    <p class="title logo__title">Notes</p>
   
 </a></div>
     
@@ -620,7 +620,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Broadcasting...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span...</li>
   </ul>
 </nav>
 </div>
@@ -638,7 +638,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="Broadcasting-in-Numpy">
-<h1>Broadcasting in Numpy<a class="headerlink" href="#Broadcasting-in-Numpy" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">27. </span>Broadcasting in Numpy<a class="headerlink" href="#Broadcasting-in-Numpy" title="Link to this heading">#</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -653,7 +653,7 @@ document.write(`
 </div>
 </div>
 <section id="Taking-the-mean-from-each-row">
-<h2>Taking the mean from each row<a class="headerlink" href="#Taking-the-mean-from-each-row" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.1. </span>Taking the mean from each row<a class="headerlink" href="#Taking-the-mean-from-each-row" title="Link to this heading">#</a></h2>
 <p>If mean have a matrix of shape (2, 3). Using <code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code>, we can get the mean of each row as a vector with shape (2). In number, we cannot take the vector from the matrix as the shapes are not broadcastable. Numpy checks it two arrays are broadcastable by looking from the right-most dimension to the left. The arrays are broadcastable if:</p>
 <ol class="arabic simple">
 <li><p>The dimensions are equal, or</p></li>
@@ -693,7 +693,7 @@ operands could not be broadcast together with shapes (2,3) (2,)
 </div>
 </section>
 <section id="Taking-the-mean-from-each-column">
-<h2>Taking the mean from each column<a class="headerlink" href="#Taking-the-mean-from-each-column" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.2. </span>Taking the mean from each column<a class="headerlink" href="#Taking-the-mean-from-each-column" title="Link to this heading">#</a></h2>
 <p>In this case, if we find the mean of column and store then in a vector with shape (3,), this is broadcastable with original array since the right most dimensions are the same.</p>
 <p>What about the first dimension?</p>
 <p>If there are not the same number of dimensions, you can think of numpy filling the missing dimensions with ones.</p>
@@ -728,7 +728,7 @@ operands could not be broadcast together with shapes (2,3) (2,)
 </div>
 </section>
 <section id="Example-from-one-point-to-every-other-point">
-<h2>Example from one point to every other point<a class="headerlink" href="#Example-from-one-point-to-every-other-point" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.3. </span>Example from one point to every other point<a class="headerlink" href="#Example-from-one-point-to-every-other-point" title="Link to this heading">#</a></h2>
 <p>Suppose we want to find the euclidean distance from one point to every other point.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -812,7 +812,7 @@ array([[0.        , 1.        , 1.41421356],
 </div>
 </section>
 <section id="Visual-example">
-<h2>Visual example<a class="headerlink" href="#Visual-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.4. </span>Visual example<a class="headerlink" href="#Visual-example" title="Link to this heading">#</a></h2>
 <p>Here the goal is to end up with a matrix of zeros. Here is simple 2D example.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -910,7 +910,7 @@ array([[[0, 0],
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linear Regression</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Linear Regression</p>
       </div>
     </a>
     <a class="right-next"
@@ -918,7 +918,7 @@ array([[[0, 0],
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pythagorean Means</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Pythagorean Means</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -940,10 +940,10 @@ array([[[0, 0],
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-row">Taking the mean from each row</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-column">Taking the mean from each column</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Example-from-one-point-to-every-other-point">Example from one point to every other point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Visual-example">Visual example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-row">27.1. Taking the mean from each row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taking-the-mean-from-each-column">27.2. Taking the mean from each column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Example-from-one-point-to-every-other-point">27.3. Example from one point to every other point</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Visual-example">27.4. Visual example</a></li>
 </ul>
   </nav></div>
 

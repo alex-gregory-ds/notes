@@ -3,11 +3,17 @@ The Python Import System
 
     Main takeaways:
 
-    * Suppose we have a directory called :code:`root` with the following files: :code:`package/module.py`, and :code:`package/script.py`.
-    * From inside :code:`root`, running :code:`python3 package/script.py` will add :code:`package` to :code:`sys.path` meaning :code:`from package import module` will raise an import error in :code:`script.py`.
-    * From inside :code:`root`, running :code:`python3 -m package.script` will add :code:`root` to :code:`sys.path` meaning :code:`from package import module` will not raise an import error in :code:`script.py`
+    * Suppose we have a directory called :code:`root` with the following files:
+      :code:`package/module.py`, and :code:`package/script.py`.
+    * From inside :code:`root`, running :code:`python3 package/script.py` will
+      add :code:`package` to :code:`sys.path` meaning :code:`from package
+      import module` will raise an import error in :code:`script.py`.
+    * From inside :code:`root`, running :code:`python3 -m package.script` will
+      add :code:`root` to :code:`sys.path` meaning :code:`from package import
+      module` will not raise an import error in :code:`script.py`
 
-When importing a package or module, python searches for it on its :code:`sys.path`. Suppose we have the following project structure.
+When importing a package or module, python searches for it on its
+:code:`sys.path`. Suppose we have the following project structure.
 
 .. code::
 
@@ -41,7 +47,10 @@ Executing :code:`script.py` from :code:`root` gives us an import error.
        from package.directory import module
    ModuleNotFoundError: No module named 'package'
 
-Even though we are running the code from the :code:`root` directory which contains :code:`package`, we cannot import :code:`module` into :code:`script.py`. Let us print :code:`sys.path` at the top of :code:`script.py` and rerun the script.
+Even though we are running the code from the :code:`root` directory which
+contains :code:`package`, we cannot import :code:`module` into
+:code:`script.py`. Let us print :code:`sys.path` at the top of
+:code:`script.py` and rerun the script.
 
 .. code::
 
@@ -62,9 +71,13 @@ Running :code:`script.py`, we get.
        from package.directory import module
    ModuleNotFoundError: No module named 'package'
 
-The first element in the list points to our :code:`package` directory. This means that python will look for :code:`package` within the :code:`package` directory. We want it to look for :code:`package` for the :code:`root` directory.
+The first element in the list points to our :code:`package` directory. This
+means that python will look for :code:`package` within the :code:`package`
+directory. We want it to look for :code:`package` for the :code:`root`
+directory.
 
-This import error can also be solved by removing :code:`package` from the import path.
+This import error can also be solved by removing :code:`package` from the
+import path.
 
 .. code::
 
@@ -80,7 +93,9 @@ The code now runs successfully from :code:`root`.
    $ python3 package/script.py
    Print from module.py
 
-However, if we move :code:`script.py` into :code:`root` we will get the same import error again. For clarity, moving :code:`script.py` into :code:`root` means our file structure now looks like this.
+However, if we move :code:`script.py` into :code:`root` we will get the same
+import error again. For clarity, moving :code:`script.py` into :code:`root`
+means our file structure now looks like this.
 
 .. code::
 
@@ -99,9 +114,13 @@ Executing :code:`script.py` results in the import error.
        import module
    ModuleNotFoundError: No module named 'module'
 
-To get the script to run successfully, we would have to change our import from :code:`import module` to :code:`from package import module`.
+To get the script to run successfully, we would have to change our import from
+:code:`import module` to :code:`from package import module`.
 
-For simplicity, I want to be able to import :code:`package.module` into a script no matter where the script is in the :code:`root` directory. We will discuss three ways of doing this but first let us change our project structure slightly to include :code:`script1.py` and :code:`script2.py`.
+For simplicity, I want to be able to import :code:`package.module` into a
+script no matter where the script is in the :code:`root` directory. We will
+discuss three ways of doing this but first let us change our project structure
+slightly to include :code:`script1.py` and :code:`script2.py`.
 
 .. code::
 
@@ -127,7 +146,8 @@ Where :code:`script1.py` and :code:`script2.py` have just about the same code.
 
    module.print_module()
 
-The first script, :code:`script1.py`, runs successfully but :code:`script2.py` does not.
+The first script, :code:`script1.py`, runs successfully but :code:`script2.py`
+does not.
 
 .. code::
 
@@ -141,7 +161,8 @@ Now we will run through three ways of solving this issue.
 Running Scripts and Modules
 ---------------------------
 
-The :code:`-m` flag can be used to run our program as a module instead of a script. This will make both of :code:`script1.py` and :code:`script2.py` work. 
+The :code:`-m` flag can be used to run our program as a module instead of a
+script. This will make both of :code:`script1.py` and :code:`script2.py` work. 
 
 .. code::
 
@@ -150,7 +171,8 @@ The :code:`-m` flag can be used to run our program as a module instead of a scri
    $ python3 -m module.script2
    Print from module.py
 
-Let us run this experiment again but print :code:`sys.path` at the start of the scripts.
+Let us run this experiment again but print :code:`sys.path` at the start of the
+scripts.
 
 .. code::
 
@@ -179,7 +201,9 @@ Running the scripts gives us the following.
    ['/home/alex/root', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/home/alex/documents/notes/.venv/lib/python3.10/site-packages']
    Print from module.py
 
-Running the scripts with :code:`-m` flag adds the :code:`root` directory to :code:`sys.path`. If we :code:`cd` into :code:`package` and run :code:`script2.py` we get the familiar import error.
+Running the scripts with :code:`-m` flag adds the :code:`root` directory to
+:code:`sys.path`. If we :code:`cd` into :code:`package` and run
+:code:`script2.py` we get the familiar import error.
 
 .. code::
 
@@ -195,4 +219,6 @@ Running the scripts with :code:`-m` flag adds the :code:`root` directory to :cod
        from package import module
    ModuleNotFoundError: No module named 'package'
 
-So, as long as we run our scripts from :code:`root` with the :code:`-m` flag, we should be able to import :code:`package.module` since :code:`root` has been added to :code:`sys.path`.
+So, as long as we run our scripts from :code:`root` with the :code:`-m` flag,
+we should be able to import :code:`package.module` since :code:`root` has been
+added to :code:`sys.path`.
