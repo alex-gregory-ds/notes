@@ -136,3 +136,55 @@ change value that is substituted.
        $ echo "${X:1}"
        ello
 
+Single vs Double Quotes
+-----------------------
+
+Single quotes can be used to avoid treat characters literally.
+
+.. code:: console
+
+   $ x="a"
+   $ echo "x: ${x}"
+   x: a
+   $ echo 'x: ${x}'
+   x: ${x}
+
+Single vs Double Quotes in PS1
+------------------------------
+
+The :code:`PS1` variable can be changed to customise the command prompt.
+Unfortunately, single and double quotes behaviour slightly differently here.
+
+.. code:: console
+
+   $ PS1="$(pwd) $ "
+   /home/alex $ cd documents
+   /home/alex $ pwd
+   /home/alex/documents
+
+Above the :code:`PS1` is changed to show the working directory at the start of
+the prompt followed by a :code:`$`. Unfortunately, changing into the
+:code:`documents` directory does not update the prompt even :code:`pwd` shows
+that the directory has been changed.
+
+If single quotes are used instead of double quotes, we get the expected
+behaviour.
+
+.. code:: console
+
+   $ PS1='$(pwd) $ '
+   /home/alex $ cd documents
+   /home/alex/documents $ pwd
+   /home/alex/documents
+   /home/alex/documents $ ..
+   /home/alex $
+
+According to this stackoverflow thread
+https://stackoverflow.com/questions/23879159/how-can-this-ps1-variable-be-defined-in-single-quotes,
+this is special behaviour for the :code:`PS1` variable. Every time a new prompt
+is generated (for example by changing directory) using single quotes will
+expand the substitution. However, when double quotes are used, the substitution
+is expanded when :code:`PS1` is defined and thus will not update.
+
+Not also even though single quotes are used, the :code:`$`, :code:`(`, and
+:code:`)` are not treated literally.
