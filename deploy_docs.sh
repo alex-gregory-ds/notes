@@ -11,7 +11,7 @@ if [[ `git status --short --porcelain --untracked-files=no | grep -v 'docs/'` ]]
 fi
 
 cd notes
-make github
+make clean github
 cd ..
 
 # Commit all changes in the docs directory
