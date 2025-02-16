@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. The Python Import System &#8212; Notes</title>
+    <title>12. The Python Import System &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/import_system';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Matrix Operations" href="matrix_operations.html" />
-    <link rel="prev" title="9. Generators and Recursion" href="generators_and_recursion.html" />
+    <link rel="next" title="13. Matrix Operations" href="matrix_operations.html" />
+    <link rel="prev" title="11. Generators and Recursion" href="generators_and_recursion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,15 +155,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -174,8 +174,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -412,15 +426,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -431,8 +445,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -649,7 +677,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="the-python-import-system">
-<h1><span class="section-number">10. </span>The Python Import System<a class="headerlink" href="#the-python-import-system" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>The Python Import System<a class="headerlink" href="#the-python-import-system" title="Link to this heading">#</a></h1>
 <blockquote>
 <div><p>Main takeaways:</p>
 <ul class="simple">
@@ -780,7 +808,7 @@ python3: can&#39;t open file &#39;/home/alex/root/script2.py&#39;: [Errno 2] No 
 </div>
 <p>Now we will run through three ways of solving this issue.</p>
 <section id="running-scripts-and-modules">
-<h2><span class="section-number">10.1. </span>Running Scripts and Modules<a class="headerlink" href="#running-scripts-and-modules" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Running Scripts and Modules<a class="headerlink" href="#running-scripts-and-modules" title="Link to this heading">#</a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">-m</span></code> flag can be used to run our program as a module instead of a
 script. This will make both of <code class="code docutils literal notranslate"><span class="pre">script1.py</span></code> and <code class="code docutils literal notranslate"><span class="pre">script2.py</span></code> work.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m script1
@@ -852,7 +880,7 @@ added to <code class="code docutils literal notranslate"><span class="pre">sys.p
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Generators and Recursion</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Generators and Recursion</p>
       </div>
     </a>
     <a class="right-next"
@@ -860,7 +888,7 @@ added to <code class="code docutils literal notranslate"><span class="pre">sys.p
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Matrix Operations</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Matrix Operations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -882,7 +910,7 @@ added to <code class="code docutils literal notranslate"><span class="pre">sys.p
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-scripts-and-modules">10.1. Running Scripts and Modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-scripts-and-modules">12.1. Running Scripts and Modules</a></li>
 </ul>
   </nav></div>
 

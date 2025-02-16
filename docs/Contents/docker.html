@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Docker &#8212; Notes</title>
+    <title>6. Docker &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/docker';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Dockerfile" href="dockerfile.html" />
-    <link rel="prev" title="4. Decorators" href="decorators.html" />
+    <link rel="next" title="7. Dockerfile" href="dockerfile.html" />
+    <link rel="prev" title="5. Decorators" href="decorators.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,15 +155,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Docker
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -173,9 +173,23 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
+                        Docker
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -412,15 +426,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Docker
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -430,9 +444,23 @@ document.write(`
                 </button>
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
+                        Docker
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -649,10 +677,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="docker">
-<h1><span class="section-number">5. </span>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h1>
 <p>Some short notes on using docker to create reproducible dev environments.</p>
 <section id="what-is-a-docker-image">
-<h2><span class="section-number">5.1. </span>What is a Docker Image?<a class="headerlink" href="#what-is-a-docker-image" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>What is a Docker Image?<a class="headerlink" href="#what-is-a-docker-image" title="Link to this heading">#</a></h2>
 <p>A docker image can be thought of as a snapshot of a read-only virtual machine
 that contains everything needed to create a runnable virtual machine.</p>
 <p>Docker images come in all shapes and sizes and can be downloaded from Docker
@@ -679,13 +707,13 @@ Docker container from the images which is essentially a runnable virtual
 machine.</p>
 </section>
 <section id="docker-python-dev-environment">
-<h2><span class="section-number">5.2. </span>Docker Python Dev Environment<a class="headerlink" href="#docker-python-dev-environment" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Docker Python Dev Environment<a class="headerlink" href="#docker-python-dev-environment" title="Link to this heading">#</a></h2>
 <p>On Docker Hub there are a number of python images on Docker hub. The
 <code class="code docutils literal notranslate"><span class="pre">python:3.10-slim-buster</span></code> includes a minimal linux virtual machine with
 python already installed. In this section, we will discuss how to use this
 image to create a simple development environment.</p>
 <section id="tldr">
-<h3><span class="section-number">5.2.1. </span>TLDR<a class="headerlink" href="#tldr" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>TLDR<a class="headerlink" href="#tldr" title="Link to this heading">#</a></h3>
 <p>To create an interactive shell from the <code class="code docutils literal notranslate"><span class="pre">python:3.10-slim-buster</span></code> image,
 use the following command.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-itd<span class="w"> </span><span class="m">3</span>.10-slim-buster
@@ -707,7 +735,7 @@ interactive shell from which we can run python.</p>
 <p>In the next few sections, we explore the run command and its flags more deeply.</p>
 </section>
 <section id="explore-docker-run">
-<h3><span class="section-number">5.2.2. </span>Explore Docker Run<a class="headerlink" href="#explore-docker-run" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Explore Docker Run<a class="headerlink" href="#explore-docker-run" title="Link to this heading">#</a></h3>
 <p>Docker run lets you run a command in a new container <a class="reference internal" href="#drun" id="id1"><span>[DRUN]</span></a>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>IMAGE<span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span><span class="w"> </span><span class="o">[</span>ARG...<span class="o">]</span>
 </pre></div>
@@ -743,7 +771,7 @@ container running such that we can give input to the shell. We can do this
 using interactive mode.</p>
 </section>
 <section id="exlore-interactive-mode">
-<h3><span class="section-number">5.2.3. </span>Exlore Interactive Mode<a class="headerlink" href="#exlore-interactive-mode" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>Exlore Interactive Mode<a class="headerlink" href="#exlore-interactive-mode" title="Link to this heading">#</a></h3>
 <p>Interactive mode keeps the standard input (<code class="code docutils literal notranslate"><span class="pre">STDIN</span></code>) of a container open
 and allows us to execute commands in the container. Containers can be run in
 interactive mode by using the <code class="code docutils literal notranslate"><span class="pre">-i</span></code> or <code class="code docutils literal notranslate"><span class="pre">--interactive</span></code> flags.</p>
@@ -791,7 +819,7 @@ the container, we see the container also stopped. To prevent this, we run the
 container in detached mode.</p>
 </section>
 <section id="exlore-detached-mode">
-<h3><span class="section-number">5.2.4. </span>Exlore Detached Mode<a class="headerlink" href="#exlore-detached-mode" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.4. </span>Exlore Detached Mode<a class="headerlink" href="#exlore-detached-mode" title="Link to this heading">#</a></h3>
 <p>By default, <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> runs a container in foreground mode. This means
 that when the containers command has been executed, the container is stopped.
 We can run the container in the background by using the <code class="code docutils literal notranslate"><span class="pre">-d</span></code> flag.</p>
@@ -827,7 +855,7 @@ To stop the container, use the <code class="code docutils literal notranslate"><
 </section>
 </section>
 <section id="volumes">
-<h2><span class="section-number">5.3. </span>Volumes<a class="headerlink" href="#volumes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Volumes<a class="headerlink" href="#volumes" title="Link to this heading">#</a></h2>
 <p>Suppose you are are starting a project and you want to do your development
 inside a docker container. You could create a container like in the previous
 section and do everything inside the container. In particular you could store
@@ -921,7 +949,7 @@ inside the container are reflected on the host machine.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Decorators</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Decorators</p>
       </div>
     </a>
     <a class="right-next"
@@ -929,7 +957,7 @@ inside the container are reflected on the host machine.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Dockerfile</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Dockerfile</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -951,15 +979,15 @@ inside the container are reflected on the host machine.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-docker-image">5.1. What is a Docker Image?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-python-dev-environment">5.2. Docker Python Dev Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tldr">5.2.1. TLDR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-docker-run">5.2.2. Explore Docker Run</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exlore-interactive-mode">5.2.3. Exlore Interactive Mode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exlore-detached-mode">5.2.4. Exlore Detached Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-docker-image">6.1. What is a Docker Image?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-python-dev-environment">6.2. Docker Python Dev Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tldr">6.2.1. TLDR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-docker-run">6.2.2. Explore Docker Run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exlore-interactive-mode">6.2.3. Exlore Interactive Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exlore-detached-mode">6.2.4. Exlore Detached Mode</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volumes">5.3. Volumes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volumes">6.3. Volumes</a></li>
 </ul>
   </nav></div>
 

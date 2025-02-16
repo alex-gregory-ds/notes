@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. N-Queens &#8212; Notes</title>
+    <title>15. N-Queens &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/nqueens';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. R Squared" href="r_squared.html" />
-    <link rel="prev" title="12. Monads" href="monads.html" />
+    <link rel="next" title="16. R Squared" href="r_squared.html" />
+    <link rel="prev" title="14. Monads" href="monads.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,15 +155,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -174,8 +174,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -412,15 +426,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -431,8 +445,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -649,9 +677,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="n-queens">
-<h1><span class="section-number">13. </span>N-Queens<a class="headerlink" href="#n-queens" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>N-Queens<a class="headerlink" href="#n-queens" title="Link to this heading">#</a></h1>
 <section id="bitwise-operators-in-python">
-<h2><span class="section-number">13.1. </span>Bitwise Operators in Python<a class="headerlink" href="#bitwise-operators-in-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Bitwise Operators in Python<a class="headerlink" href="#bitwise-operators-in-python" title="Link to this heading">#</a></h2>
 <p>One can get the binary string for an integer using f-strings.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;1:b&quot;</span>
 <span class="go">1</span>
@@ -696,7 +724,7 @@ document.write(`
 </div>
 </section>
 <section id="solving-n-queens-in-a-functional-way">
-<h2><span class="section-number">13.2. </span>Solving N-Queens in a Functional Way<a class="headerlink" href="#solving-n-queens-in-a-functional-way" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Solving N-Queens in a Functional Way<a class="headerlink" href="#solving-n-queens-in-a-functional-way" title="Link to this heading">#</a></h2>
 <p>In the cpython testing suite, there is a class for solving the N-Queens problem
 called <code class="code docutils literal notranslate"><span class="pre">Queens</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Queens</span><span class="p">:</span>
@@ -757,7 +785,7 @@ each square. The columns/diagonals covered by each square are stored as a
 binary strings created in the <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code> list comprehension.</p>
 </section>
 <section id="representing-the-board-in-rowuses">
-<h2><span class="section-number">13.3. </span>Representing the board in <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code><a class="headerlink" href="#representing-the-board-in-rowuses" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Representing the board in <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code><a class="headerlink" href="#representing-the-board-in-rowuses" title="Link to this heading">#</a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code> variable is a list where each element represents the
 columns, NE-SW, and NW-SE diagonals that are covered by each square in the row.
 The coverage of each square is encoded in a binary string. Let us breakdown the
@@ -788,7 +816,7 @@ the first column is covered?</p>
 comprehension does.</p>
 </section>
 <section id="term-1-1-j">
-<h2><span class="section-number">13.4. </span>Term 1 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">j)</span></code><a class="headerlink" href="#term-1-1-j" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Term 1 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">j)</span></code><a class="headerlink" href="#term-1-1-j" title="Link to this heading">#</a></h2>
 <p>In the comment, it says the first term is for the column ordinal. In other
 words, the first term deals with representing the columns that are covered. Let
 us check the values of <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">j)</span></code> for the different values of <code class="code docutils literal notranslate"><span class="pre">j</span></code>.</p>
@@ -807,7 +835,7 @@ respectively. In the binary for the top left square, <code class="code docutils 
 1 on the right tells us this square covers the first column.</p>
 </section>
 <section id="term-2-1-n-i-j-n-1">
-<h2><span class="section-number">13.5. </span>Term 2 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">i-j</span> <span class="pre">+</span> <span class="pre">n-1)</span></code><a class="headerlink" href="#term-2-1-n-i-j-n-1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Term 2 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">i-j</span> <span class="pre">+</span> <span class="pre">n-1)</span></code><a class="headerlink" href="#term-2-1-n-i-j-n-1" title="Link to this heading">#</a></h2>
 <p>This term handles the NW-SE diagonals. Recall the comment about the NW-SE
 diagonals.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NW-SE diagonals: 2n-1 of these, i-j unique and invariant along</span>
@@ -899,7 +927,7 @@ means,</p>
 <code class="code docutils literal notranslate"><span class="pre">1</span></code> on the left represents the main diagonal being covered.</p>
 </section>
 <section id="term-3-1-n-2-n-1-i-j">
-<h2><span class="section-number">13.6. </span>Term 3 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">2*n-1</span> <span class="pre">+</span> <span class="pre">i+j))</span></code><a class="headerlink" href="#term-3-1-n-2-n-1-i-j" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Term 3 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">2*n-1</span> <span class="pre">+</span> <span class="pre">i+j))</span></code><a class="headerlink" href="#term-3-1-n-2-n-1-i-j" title="Link to this heading">#</a></h2>
 <p>Term 3 is very similar to term 2. This term covers the NE-SW diagonals. Recall
 the comment for these diagonals.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NE-SW diagonals: 2n-1 of these, i+j unique and invariant along</span>
@@ -944,7 +972,7 @@ about <code class="code docutils literal notranslate"><span class="pre">2*n-1</s
 from term 2.</p>
 </section>
 <section id="the-rowgen-method">
-<h2><span class="section-number">13.7. </span>The <code class="code docutils literal notranslate"><span class="pre">rowgen</span></code> Method<a class="headerlink" href="#the-rowgen-method" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.7. </span>The <code class="code docutils literal notranslate"><span class="pre">rowgen</span></code> Method<a class="headerlink" href="#the-rowgen-method" title="Link to this heading">#</a></h2>
 <p>Recall the <code class="code docutils literal notranslate"><span class="pre">rowgen</span></code> method.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rowgen</span><span class="p">(</span><span class="n">rowuses</span><span class="o">=</span><span class="n">rowuses</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">rangen</span><span class="p">:</span>
@@ -982,7 +1010,7 @@ covered by <code class="code docutils literal notranslate"><span class="pre">j</
 <p>The row generators for each row are stored in a list.</p>
 </section>
 <section id="finding-the-solutions">
-<h2><span class="section-number">13.8. </span>Finding the Solutions<a class="headerlink" href="#finding-the-solutions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.8. </span>Finding the Solutions<a class="headerlink" href="#finding-the-solutions" title="Link to this heading">#</a></h2>
 <p>Solutions are found in the <code class="code docutils literal notranslate"><span class="pre">solve</span></code> method. Recall the <code class="code docutils literal notranslate"><span class="pre">solve</span></code>
 method.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate solutions.</span>
@@ -1112,7 +1140,7 @@ method. Let us calculate the case for <code class="code docutils literal notrans
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Monads</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Monads</p>
       </div>
     </a>
     <a class="right-next"
@@ -1120,7 +1148,7 @@ method. Let us calculate the case for <code class="code docutils literal notrans
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>R Squared</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>R Squared</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1142,14 +1170,14 @@ method. Let us calculate the case for <code class="code docutils literal notrans
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise-operators-in-python">13.1. Bitwise Operators in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-n-queens-in-a-functional-way">13.2. Solving N-Queens in a Functional Way</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-board-in-rowuses">13.3. Representing the board in <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-1-1-j">13.4. Term 1 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">j)</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-2-1-n-i-j-n-1">13.5. Term 2 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">i-j</span> <span class="pre">+</span> <span class="pre">n-1)</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-3-1-n-2-n-1-i-j">13.6. Term 3 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">2*n-1</span> <span class="pre">+</span> <span class="pre">i+j))</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rowgen-method">13.7. The <code class="code docutils literal notranslate"><span class="pre">rowgen</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-solutions">13.8. Finding the Solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise-operators-in-python">15.1. Bitwise Operators in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-n-queens-in-a-functional-way">15.2. Solving N-Queens in a Functional Way</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-board-in-rowuses">15.3. Representing the board in <code class="code docutils literal notranslate"><span class="pre">rowuses</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-1-1-j">15.4. Term 1 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">j)</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-2-1-n-i-j-n-1">15.5. Term 2 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">i-j</span> <span class="pre">+</span> <span class="pre">n-1)</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-3-1-n-2-n-1-i-j">15.6. Term 3 <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">2*n-1</span> <span class="pre">+</span> <span class="pre">i+j))</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rowgen-method">15.7. The <code class="code docutils literal notranslate"><span class="pre">rowgen</span></code> Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-solutions">15.8. Finding the Solutions</a></li>
 </ul>
   </nav></div>
 

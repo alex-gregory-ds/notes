@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Eigenvalues and Eigenvectors &#8212; Notes</title>
+    <title>9. Eigenvalues and Eigenvectors &#8212; Notes</title>
   
   
   
@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/eigenvalues_and_eigenvectors';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Gambler’s Ruin" href="gamblers_ruin.html" />
-    <link rel="prev" title="6. Dockerfile" href="dockerfile.html" />
+    <link rel="next" title="10. Gambler’s Ruin" href="gamblers_ruin.html" />
+    <link rel="prev" title="8. Domain Generalisation" href="domain_generalisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,15 +157,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -176,8 +176,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -414,15 +428,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -433,8 +447,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -651,7 +679,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="eigenvalues-and-eigenvectors">
-<h1><span class="section-number">7. </span>Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h1>
 <p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, its eigenvectors are vectors <span class="math notranslate nohighlight">\(x\)</span> such
 that,</p>
 <div class="math notranslate nohighlight">
@@ -661,7 +689,7 @@ eigenvectors of <span class="math notranslate nohighlight">\(A\)</span> are vect
 only scaled by some factor <span class="math notranslate nohighlight">\(\lambda\)</span> rather than, for example, changing
 direction.</p>
 <section id="finding-eigenvalues-and-eigenvectors">
-<h2><span class="section-number">7.1. </span>Finding Eigenvalues and Eigenvectors<a class="headerlink" href="#finding-eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Finding Eigenvalues and Eigenvectors<a class="headerlink" href="#finding-eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h2>
 <p>In our equation above, there are two unknows: <span class="math notranslate nohighlight">\(\lambda\)</span>, and <span class="math notranslate nohighlight">\(x\)</span>.
 Rearanging, some of the terms, we get,</p>
 <div class="math notranslate nohighlight">
@@ -677,7 +705,7 @@ substituted into <span class="math notranslate nohighlight">\((A - \lambda I) x 
 <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </section>
 <section id="properties-of-eigenvalues-and-eigenvectors">
-<h2><span class="section-number">7.2. </span>Properties of Eigenvalues and Eigenvectors<a class="headerlink" href="#properties-of-eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Properties of Eigenvalues and Eigenvectors<a class="headerlink" href="#properties-of-eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h2>
 <p>Several properties of eigenvalues and eigenvectors.</p>
 <ul class="simple">
 <li><p>Squaring a square matrix <span class="math notranslate nohighlight">\(A\)</span> squares its eigenvalues but its
@@ -688,7 +716,7 @@ independent.</p></li>
 </ul>
 </section>
 <section id="properties-of-eigenvalues-and-eigenvectors-proofs">
-<h2><span class="section-number">7.3. </span>Properties of Eigenvalues and Eigenvectors (Proofs)<a class="headerlink" href="#properties-of-eigenvalues-and-eigenvectors-proofs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Properties of Eigenvalues and Eigenvectors (Proofs)<a class="headerlink" href="#properties-of-eigenvalues-and-eigenvectors-proofs" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Squaring a square matrix <span class="math notranslate nohighlight">\(A\)</span> squares its eigenvalues but its
 eigenvectors remain the same.</p></li>
@@ -726,7 +754,7 @@ x_2^T A x_1 &amp; = \lambda_2 x_2^T x_1. &amp; \quad \text{(Symmetric)}\\\end{sp
 <span class="math notranslate nohighlight">\(x_2^T x_1^T\)</span> must be zero. Thus, <span class="math notranslate nohighlight">\(x_2\)</span> and
 <span class="math notranslate nohighlight">\(x_1\)</span> are orthogonal.</p>
 <section id="the-determinant-of-a-is-the-product-of-its-eigenvalues">
-<h3><span class="section-number">7.3.1. </span>The determinant of <span class="math notranslate nohighlight">\(A\)</span> is the product of its eigenvalues<a class="headerlink" href="#the-determinant-of-a-is-the-product-of-its-eigenvalues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.1. </span>The determinant of <span class="math notranslate nohighlight">\(A\)</span> is the product of its eigenvalues<a class="headerlink" href="#the-determinant-of-a-is-the-product-of-its-eigenvalues" title="Link to this heading">#</a></h3>
 <p>The eigenvalues <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span>, are the roots
 of its characteristic polynomial.</p>
 <div class="math notranslate nohighlight">
@@ -736,7 +764,7 @@ of its characteristic polynomial.</p>
 \[\det (A) = \lambda_1 \lambda_2 \dots \lambda_n\]</div>
 </section>
 <section id="the-trace-of-a-is-equal-to-the-sum-of-its-eigenvalues">
-<h3><span class="section-number">7.3.2. </span>The trace of <span class="math notranslate nohighlight">\(A\)</span> is equal to the sum of its eigenvalues<a class="headerlink" href="#the-trace-of-a-is-equal-to-the-sum-of-its-eigenvalues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.2. </span>The trace of <span class="math notranslate nohighlight">\(A\)</span> is equal to the sum of its eigenvalues<a class="headerlink" href="#the-trace-of-a-is-equal-to-the-sum-of-its-eigenvalues" title="Link to this heading">#</a></h3>
 <p>For this, we only prove for the <span class="math notranslate nohighlight">\(2 \times 2\)</span> case. Let <span class="math notranslate nohighlight">\(A\)</span> be the
 following matrix,</p>
 <div class="math notranslate nohighlight">
@@ -755,7 +783,7 @@ following matrix,</p>
 \[\lambda_1 + \lambda_2 = a + d\]</div>
 </section>
 <section id="ax-0-has-a-non-trivial-solution-iff-the-columns-of-a-are-linearly-independent">
-<h3><span class="section-number">7.3.3. </span><span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent<a class="headerlink" href="#ax-0-has-a-non-trivial-solution-iff-the-columns-of-a-are-linearly-independent" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.3. </span><span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent<a class="headerlink" href="#ax-0-has-a-non-trivial-solution-iff-the-columns-of-a-are-linearly-independent" title="Link to this heading">#</a></h3>
 <p>Suppose the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent. Let the vectors
 <span class="math notranslate nohighlight">\(v_1, v_2, \dots, v_n\)</span> be the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -769,7 +797,7 @@ there must be solution to the equation above where some of the scalars
 <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span> are non-zero.</p>
 </section>
 <section id="ax-0-has-a-non-trivial-solution-iff-a-is-invertible">
-<h3><span class="section-number">7.3.4. </span><span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF <span class="math notranslate nohighlight">\(A\)</span> is invertible<a class="headerlink" href="#ax-0-has-a-non-trivial-solution-iff-a-is-invertible" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.4. </span><span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF <span class="math notranslate nohighlight">\(A\)</span> is invertible<a class="headerlink" href="#ax-0-has-a-non-trivial-solution-iff-a-is-invertible" title="Link to this heading">#</a></h3>
 <aside class="topic">
 <p class="topic-title">Theorem</p>
 <p>A square matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is invertible IFF its columns are linearly independent.</p>
@@ -828,12 +856,12 @@ there must be solution to the equation above where some of the scalars
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dockerfile.html"
+       href="domain_generalisation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Dockerfile</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Domain Generalisation</p>
       </div>
     </a>
     <a class="right-next"
@@ -841,7 +869,7 @@ there must be solution to the equation above where some of the scalars
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Gambler’s Ruin</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Gambler’s Ruin</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -863,13 +891,13 @@ there must be solution to the equation above where some of the scalars
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-eigenvalues-and-eigenvectors">7.1. Finding Eigenvalues and Eigenvectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-eigenvalues-and-eigenvectors">7.2. Properties of Eigenvalues and Eigenvectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-eigenvalues-and-eigenvectors-proofs">7.3. Properties of Eigenvalues and Eigenvectors (Proofs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-determinant-of-a-is-the-product-of-its-eigenvalues">7.3.1. The determinant of <span class="math notranslate nohighlight">\(A\)</span> is the product of its eigenvalues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trace-of-a-is-equal-to-the-sum-of-its-eigenvalues">7.3.2. The trace of <span class="math notranslate nohighlight">\(A\)</span> is equal to the sum of its eigenvalues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-0-has-a-non-trivial-solution-iff-the-columns-of-a-are-linearly-independent">7.3.3. <span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-0-has-a-non-trivial-solution-iff-a-is-invertible">7.3.4. <span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF <span class="math notranslate nohighlight">\(A\)</span> is invertible</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-eigenvalues-and-eigenvectors">9.1. Finding Eigenvalues and Eigenvectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-eigenvalues-and-eigenvectors">9.2. Properties of Eigenvalues and Eigenvectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-eigenvalues-and-eigenvectors-proofs">9.3. Properties of Eigenvalues and Eigenvectors (Proofs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-determinant-of-a-is-the-product-of-its-eigenvalues">9.3.1. The determinant of <span class="math notranslate nohighlight">\(A\)</span> is the product of its eigenvalues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trace-of-a-is-equal-to-the-sum-of-its-eigenvalues">9.3.2. The trace of <span class="math notranslate nohighlight">\(A\)</span> is equal to the sum of its eigenvalues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-0-has-a-non-trivial-solution-iff-the-columns-of-a-are-linearly-independent">9.3.3. <span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-0-has-a-non-trivial-solution-iff-a-is-invertible">9.3.4. <span class="math notranslate nohighlight">\(Ax = 0\)</span> has a non-trivial solution IFF <span class="math notranslate nohighlight">\(A\)</span> is invertible</a></li>
 </ul>
 </li>
 </ul>

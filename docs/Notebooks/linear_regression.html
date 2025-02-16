@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>25. Linear Regression &#8212; Notes</title>
+    <title>27. Linear Regression &#8212; Notes</title>
   
   
   
@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/linear_regression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="27. Broadcasting in Numpy" href="numpy_broadcasting.html" />
-    <link rel="prev" title="24. Binary operators" href="generators.html" />
+    <link rel="next" title="29. Broadcasting in Numpy" href="numpy_broadcasting.html" />
+    <link rel="prev" title="26. Binary operators" href="generators.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,15 +158,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Contents/decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="../Contents/causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Contents/docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="../Contents/decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -177,8 +177,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../Contents/docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="../Contents/dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../Contents/domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -415,15 +429,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Contents/decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="../Contents/causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../Contents/docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="../Contents/decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -434,8 +448,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../Contents/docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="../Contents/dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../Contents/domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -652,7 +680,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="Linear-Regression">
-<h1><span class="section-number">25. </span>Linear Regression<a class="headerlink" href="#Linear-Regression" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">27. </span>Linear Regression<a class="headerlink" href="#Linear-Regression" title="Link to this heading">#</a></h1>
 <p>Suppose we have a dependent variable <span class="math notranslate nohighlight">\(y\)</span> and dependent variables <span class="math notranslate nohighlight">\(x = (x_1, x_2, \dots, x_n)\)</span>. The general form for a linear regression models that predicts the dependent variable is,</p>
 <div class="math notranslate nohighlight">
 \[f(x) = b + w_1 x_1 + w_2 x_2 + \dots + w_n x_n.\]</div>
@@ -694,7 +722,7 @@ document.write(`
 <p>the matrix <span class="math notranslate nohighlight">\((X^T X) ^ {-1} X^T\)</span> is called the psuedoinverse.</p>
 </section>
 <section id="Simple-Linear-Example">
-<h1><span class="section-number">26. </span>Simple Linear Example<a class="headerlink" href="#Simple-Linear-Example" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">28. </span>Simple Linear Example<a class="headerlink" href="#Simple-Linear-Example" title="Link to this heading">#</a></h1>
 <p>Suppose we are trying to model a linear function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -791,7 +819,7 @@ array([0.98689721, 1.94516279])
 </div>
 <p>The first number is the intercept which was 1 and the second number is the gradient which was 2.</p>
 <section id="Fitting-our-model-to-a-more-complicated-function">
-<h2><span class="section-number">26.1. </span>Fitting our model to a more complicated function<a class="headerlink" href="#Fitting-our-model-to-a-more-complicated-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">28.1. </span>Fitting our model to a more complicated function<a class="headerlink" href="#Fitting-our-model-to-a-more-complicated-function" title="Link to this heading">#</a></h2>
 <p>Now let us fit the linear regression model to a sine function</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -885,7 +913,7 @@ array([0.98689721, 1.94516279])
 <p>The degree 4 model performs the best.</p>
 </section>
 <section id="Gradient-Descent">
-<h2><span class="section-number">26.2. </span>Gradient Descent<a class="headerlink" href="#Gradient-Descent" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">28.2. </span>Gradient Descent<a class="headerlink" href="#Gradient-Descent" title="Link to this heading">#</a></h2>
 <p>In the previous section we looked at finding an analytic solutions for the weights, <span class="math notranslate nohighlight">\(W\)</span>, of the model. Now we look at gradient descent which the weights by iteratively improving the guess for the weights.</p>
 <p>It does this by using a loss function, in this case mean squared error, that gives us a measure of how good the prediction is.</p>
 <div class="math notranslate nohighlight">
@@ -998,7 +1026,7 @@ Text(0.5, 0, &#39;Iteration&#39;)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">24. </span>Binary operators</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Binary operators</p>
       </div>
     </a>
     <a class="right-next"
@@ -1006,7 +1034,7 @@ Text(0.5, 0, &#39;Iteration&#39;)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Broadcasting in Numpy</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Broadcasting in Numpy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1028,10 +1056,10 @@ Text(0.5, 0, &#39;Iteration&#39;)
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">25. Linear Regression</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Simple-Linear-Example">26. Simple Linear Example</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Fitting-our-model-to-a-more-complicated-function">26.1. Fitting our model to a more complicated function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Gradient-Descent">26.2. Gradient Descent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">27. Linear Regression</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Simple-Linear-Example">28. Simple Linear Example</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Fitting-our-model-to-a-more-complicated-function">28.1. Fitting our model to a more complicated function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Gradient-Descent">28.2. Gradient Descent</a></li>
 </ul>
 </li>
 </ul>

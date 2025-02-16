@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9. Generators and Recursion &#8212; Notes</title>
+    <title>11. Generators and Recursion &#8212; Notes</title>
   
   
   
@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/generators_and_recursion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. The Python Import System" href="import_system.html" />
-    <link rel="prev" title="8. Gambler’s Ruin" href="gamblers_ruin.html" />
+    <link rel="next" title="12. The Python Import System" href="import_system.html" />
+    <link rel="prev" title="10. Gambler’s Ruin" href="gamblers_ruin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,15 +157,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -176,8 +176,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -414,15 +428,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -433,8 +447,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -651,7 +679,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="generators-and-recursion">
-<h1><span class="section-number">9. </span>Generators and Recursion<a class="headerlink" href="#generators-and-recursion" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Generators and Recursion<a class="headerlink" href="#generators-and-recursion" title="Link to this heading">#</a></h1>
 <p>Write a function to generate the length 2 combinations for the elements of a list.</p>
 <p>One way to think about this is as a matrix. Suppose we have a list
 <span class="math notranslate nohighlight">\([i_0, i_1, \dots, i_{n-1}]\)</span>. Write out each permutation of pairs (with
@@ -698,7 +726,7 @@ as we increase <code class="code docutils literal notranslate"><span class="pre"
 will talk about this later but for now we will discuss how we arrived at a
 solution for <code class="code docutils literal notranslate"><span class="pre">r=3</span></code> and potentially any value <code class="code docutils literal notranslate"><span class="pre">r</span></code>.</p>
 <section id="generating-combinations-of-length-3">
-<h2><span class="section-number">9.1. </span>Generating combinations of length 3<a class="headerlink" href="#generating-combinations-of-length-3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Generating combinations of length 3<a class="headerlink" href="#generating-combinations-of-length-3" title="Link to this heading">#</a></h2>
 <p>For generating the combinations of length 2, we were able to create a matrix of
 permutations and see that everything along the diagonal could be ignored and
 any combination below the diagonal was repeated above the diagonal. This let us
@@ -792,7 +820,7 @@ and so <code class="code docutils literal notranslate"><span class="pre">combina
 </div>
 </section>
 <section id="implementation-in-the-python-documentation">
-<h2><span class="section-number">9.2. </span>Implementation in the python documentation<a class="headerlink" href="#implementation-in-the-python-documentation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Implementation in the python documentation<a class="headerlink" href="#implementation-in-the-python-documentation" title="Link to this heading">#</a></h2>
 <p>In the Python documentation
 (<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations">https://docs.python.org/3/library/itertools.html#itertools.combinations</a>), they
 present a simplified version of their algorithm to generate combinations that
@@ -839,7 +867,7 @@ quicker. I especially like using <code class="code docutils literal notranslate"
 something like <code class="code docutils literal notranslate"><span class="pre">range(r</span> <span class="pre">-</span> <span class="pre">1,</span> <span class="pre">-1,</span> <span class="pre">-1)</span></code>. The former is much easier to read.</p>
 </section>
 <section id="solving-sudoku">
-<h2><span class="section-number">9.3. </span>Solving Sudoku<a class="headerlink" href="#solving-sudoku" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Solving Sudoku<a class="headerlink" href="#solving-sudoku" title="Link to this heading">#</a></h2>
 <p>Here is an algorithm for solving sudoku that is inspired by the python
 implementation of combinations in that it does not use recursive functions.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># main.py</span>
@@ -976,7 +1004,7 @@ implementation of combinations in that it does not use recursive functions.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Gambler’s Ruin</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Gambler’s Ruin</p>
       </div>
     </a>
     <a class="right-next"
@@ -984,7 +1012,7 @@ implementation of combinations in that it does not use recursive functions.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>The Python Import System</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>The Python Import System</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1006,9 +1034,9 @@ implementation of combinations in that it does not use recursive functions.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-combinations-of-length-3">9.1. Generating combinations of length 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-the-python-documentation">9.2. Implementation in the python documentation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-sudoku">9.3. Solving Sudoku</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-combinations-of-length-3">11.1. Generating combinations of length 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-the-python-documentation">11.2. Implementation in the python documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-sudoku">11.3. Solving Sudoku</a></li>
 </ul>
   </nav></div>
 

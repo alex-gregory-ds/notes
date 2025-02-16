@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>16. Shannon Entropy &#8212; Notes</title>
+    <title>18. Shannon Entropy &#8212; Notes</title>
   
   
   
@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/shannon_entropy';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="17. Terminal Commands" href="terminal_commands.html" />
-    <link rel="prev" title="15. Regular Expressions" href="regular_expressions.html" />
+    <link rel="next" title="19. Terminal Commands" href="terminal_commands.html" />
+    <link rel="prev" title="17. Regular Expressions" href="regular_expressions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,15 +157,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -176,8 +176,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -414,15 +428,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -433,8 +447,22 @@ document.write(`
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="dockerfile.html">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -651,7 +679,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="shannon-entropy">
-<h1><span class="section-number">16. </span>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Shannon Entropy<a class="headerlink" href="#shannon-entropy" title="Link to this heading">#</a></h1>
 <p>Shannon entropy can be used to measure the uncertainty in a probability
 distribution.</p>
 <p>From this should on whenever we refer to <em>entropy</em> we are referring to <em>shannon
@@ -659,7 +687,7 @@ entropy</em> unless stated otherwise.</p>
 <p>Shannon introduced this concept of entropy in his paper <em>A Mathematical Theory
 of Communication</em> <a class="reference internal" href="bibliography.html#shan48" id="id1"><span>[Shan48]</span></a></p>
 <section id="intuitive-explanation-of-uncertainty">
-<h2><span class="section-number">16.1. </span>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Intuitive Explanation of Uncertainty<a class="headerlink" href="#intuitive-explanation-of-uncertainty" title="Link to this heading">#</a></h2>
 <p>Suppose we have three random variables,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -680,14 +708,14 @@ than we are about <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
 <p>Entropy is a way of quantifying this uncertainty.</p>
 </section>
 <section id="formula-for-entropy">
-<h2><span class="section-number">16.2. </span>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Formula for Entropy<a class="headerlink" href="#formula-for-entropy" title="Link to this heading">#</a></h2>
 <p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{ x_1, x_2, \dots, x_n \}\)</span> where
 <span class="math notranslate nohighlight">\(P(X = x_i) = p_i\)</span>. The shannon entropy of <span class="math notranslate nohighlight">\(X\)</span> is,</p>
 <div class="math notranslate nohighlight">
 \[H(X) = \sum_{i = 0}^{n} p_i \log p_i.\]</div>
 </section>
 <section id="example-coin-toss">
-<h2><span class="section-number">16.3. </span>Example: Coin Toss<a class="headerlink" href="#example-coin-toss" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Example: Coin Toss<a class="headerlink" href="#example-coin-toss" title="Link to this heading">#</a></h2>
 <p>Suppose we flip a coin. The probability of getting a heads is <span class="math notranslate nohighlight">\(0.5\)</span>. The
 entropy for this random variable is,</p>
 <div class="math notranslate nohighlight">
@@ -699,7 +727,7 @@ consider we ask one binary questions: Is the coin heads. This is enough to
 encode all the outcomes of the experiment.</p>
 </section>
 <section id="example-a-random-variable-with-more-outcomes">
-<h2><span class="section-number">16.4. </span>Example: A random variable with more outcomes<a class="headerlink" href="#example-a-random-variable-with-more-outcomes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>Example: A random variable with more outcomes<a class="headerlink" href="#example-a-random-variable-with-more-outcomes" title="Link to this heading">#</a></h2>
 <p>Suppose we have a random variable <span class="math notranslate nohighlight">\(X = \{a, b, c, d\}\)</span> such that each
 event is equally likely to happen. In this case,</p>
 <div class="math notranslate nohighlight">
@@ -725,7 +753,7 @@ the binary questions: “Is <span class="math notranslate nohighlight">\(X = a\)
 expected number of binary questions needed to determine <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 <section id="axioms-use-to-derive-entropy">
-<h2><span class="section-number">16.5. </span>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Axioms Use to Derive Entropy<a class="headerlink" href="#axioms-use-to-derive-entropy" title="Link to this heading">#</a></h2>
 <p>In Shannon’s paper, presents three axioms that a measure of a uncertainty
 should follow and then shows the only function that satisfies these axioms is
 the function above. The axioms are as follows:</p>
@@ -750,7 +778,7 @@ list. The choices and probabilities are shown in the figure below.</p>
 \[H(\frac{1}{3}, \frac{1}{3}, \frac{1}{6}) = H(\frac{3}{5}, \frac{2}{5}) + \frac{3}{5} H(\frac{2}{3}, \frac{1}{3}) + \frac{2}{5} H(\frac{1}{2}, \frac{1}{2})\]</div>
 </section>
 <section id="properties-of-entropy">
-<h2><span class="section-number">16.6. </span>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.6. </span>Properties of Entropy<a class="headerlink" href="#properties-of-entropy" title="Link to this heading">#</a></h2>
 <p>Shannon derives a number of properties, some are listed here.</p>
 <p>a. <span class="math notranslate nohighlight">\(H = 0\)</span> if and only if <span class="math notranslate nohighlight">\(p_i = 1\)</span> and all other probabilities are
 <span class="math notranslate nohighlight">\(0\)</span>.</p>
@@ -782,10 +810,10 @@ necessarily independent. The conditional probability is defined as,</p></li>
 \[H_{x_i}(Y) = - \sum_{i, j} p_{x_i, y_j} \log p_{y_i \vert x_i}\]</div>
 </section>
 <section id="appendix-entropy-property-proofs">
-<h2><span class="section-number">16.7. </span>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.7. </span>Appendix: Entropy Property Proofs<a class="headerlink" href="#appendix-entropy-property-proofs" title="Link to this heading">#</a></h2>
 <p>Proofs of the properties defined above.</p>
 <section id="property-a">
-<h3><span class="section-number">16.7.1. </span>Property A<a class="headerlink" href="#property-a" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.7.1. </span>Property A<a class="headerlink" href="#property-a" title="Link to this heading">#</a></h3>
 <p>Suppose we probabilities <span class="math notranslate nohighlight">\(p = {p_0, p_1, \dots, p_{n_1}}\)</span> where
 <span class="math notranslate nohighlight">\(p_i = 1\)</span> and the rest of the probabilities are <span class="math notranslate nohighlight">\(0\)</span>. For <span class="math notranslate nohighlight">\(i\)</span>
 we have,</p>
@@ -797,7 +825,7 @@ we have,</p>
 <p>So every term in <span class="math notranslate nohighlight">\(H\)</span> is zero so <span class="math notranslate nohighlight">\(H = 0\)</span>.</p>
 </section>
 <section id="property-b">
-<h3><span class="section-number">16.7.2. </span>Property B<a class="headerlink" href="#property-b" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.7.2. </span>Property B<a class="headerlink" href="#property-b" title="Link to this heading">#</a></h3>
 <p>This proof is taken from here
 <a class="reference external" href="https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function">https://math.stackexchange.com/questions/3579001/prove-the-maximum-value-of-entropy-function</a>.</p>
 <p>Using Jensen’s Inequality,</p>
@@ -812,7 +840,7 @@ we have,</p>
 <p>Which is the upper bound.</p>
 </section>
 <section id="property-c">
-<h3><span class="section-number">16.7.3. </span>Property C<a class="headerlink" href="#property-c" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.7.3. </span>Property C<a class="headerlink" href="#property-c" title="Link to this heading">#</a></h3>
 <p>This proof is taken from
 <a class="reference external" href="https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro">https://math.stackexchange.com/questions/4153125/shannons-proof-that-joint-entropy-is-less-or-equal-to-the-sum-of-marginal-entro</a>.</p>
 <p>Shannon entropy is,</p>
@@ -851,7 +879,7 @@ Substituting this into the entropy formula, we get,</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Regular Expressions</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Regular Expressions</p>
       </div>
     </a>
     <a class="right-next"
@@ -859,7 +887,7 @@ Substituting this into the entropy formula, we get,</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Terminal Commands</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Terminal Commands</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -881,16 +909,16 @@ Substituting this into the entropy formula, we get,</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">16.1. Intuitive Explanation of Uncertainty</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-for-entropy">16.2. Formula for Entropy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-coin-toss">16.3. Example: Coin Toss</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-random-variable-with-more-outcomes">16.4. Example: A random variable with more outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">16.5. Axioms Use to Derive Entropy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-entropy">16.6. Properties of Entropy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-entropy-property-proofs">16.7. Appendix: Entropy Property Proofs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-a">16.7.1. Property A</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-b">16.7.2. Property B</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-c">16.7.3. Property C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-explanation-of-uncertainty">18.1. Intuitive Explanation of Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-for-entropy">18.2. Formula for Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-coin-toss">18.3. Example: Coin Toss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-random-variable-with-more-outcomes">18.4. Example: A random variable with more outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-use-to-derive-entropy">18.5. Axioms Use to Derive Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-entropy">18.6. Properties of Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-entropy-property-proofs">18.7. Appendix: Entropy Property Proofs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-a">18.7.1. Property A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-b">18.7.2. Property B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-c">18.7.3. Property C</a></li>
 </ul>
 </li>
 </ul>

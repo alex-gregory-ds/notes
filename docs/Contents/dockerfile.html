@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Dockerfile &#8212; Notes</title>
+    <title>7. Dockerfile &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/dockerfile';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Eigenvalues and Eigenvectors" href="eigenvalues_and_eigenvectors.html" />
-    <link rel="prev" title="5. Docker" href="docker.html" />
+    <link rel="next" title="8. Domain Generalisation" href="domain_generalisation.html" />
+    <link rel="prev" title="6. Docker" href="docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,15 +155,15 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -173,9 +173,23 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link dropdown-item nav-internal" href="#">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -412,15 +426,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="decorators.html">
-                        Decorators
+                      <a class="nav-link nav-internal" href="causal_inference.html">
+                        Causality vs Correlation
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="docker.html">
-                        Docker
+                      <a class="nav-link nav-internal" href="decorators.html">
+                        Decorators
                       </a>
                     </li>
                 
@@ -430,9 +444,23 @@ document.write(`
                 </button>
                 <ul id="pst-nav-more-links-2" class="dropdown-menu">
                     
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="docker.html">
+                        Docker
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link dropdown-item nav-internal" href="#">
                         Dockerfile
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                        Domain Generalisation
                       </a>
                     </li>
                 
@@ -649,11 +677,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="dockerfile">
-<h1><span class="section-number">6. </span>Dockerfile<a class="headerlink" href="#dockerfile" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Dockerfile<a class="headerlink" href="#dockerfile" title="Link to this heading">#</a></h1>
 <p>A <code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code> is used to write instructions to build an image.</p>
 <p>A <code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code> must start with a <code class="code docutils literal notranslate"><span class="pre">FROM</span></code> instruction</p>
 <section id="environment-variables">
-<h2><span class="section-number">6.1. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h2>
 <p>Environment variables are declared with the <code class="code docutils literal notranslate"><span class="pre">ENV</span></code> statement. Environment
 variables are initialised and referred to using the following syntax.</p>
 <div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">ENV</span><span class="w"> </span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>
@@ -664,7 +692,7 @@ variables are initialised and referred to using the following syntax.</p>
 <p>Curly braces are optional when referring to an environment variable.</p>
 </section>
 <section id="creating-users">
-<h2><span class="section-number">6.2. </span>Creating Users<a class="headerlink" href="#creating-users" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Creating Users<a class="headerlink" href="#creating-users" title="Link to this heading">#</a></h2>
 <p>Usually, it is recommended to execute commands in a docker container as the
 root user. Creating and managing users can differ between operating systems, so
 for the time being, we limit ourselves to Linux.</p>
@@ -698,15 +726,15 @@ for the time being, we limit ourselves to Linux.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Docker</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Docker</p>
       </div>
     </a>
     <a class="right-next"
-       href="eigenvalues_and_eigenvectors.html"
+       href="domain_generalisation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Eigenvalues and Eigenvectors</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Domain Generalisation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -728,8 +756,8 @@ for the time being, we limit ourselves to Linux.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">6.1. Environment Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-users">6.2. Creating Users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">7.1. Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-users">7.2. Creating Users</a></li>
 </ul>
   </nav></div>
 

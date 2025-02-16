@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. Monads &#8212; Notes</title>
+    <title>8. Domain Generalisation &#8212; Notes</title>
   
   
   
@@ -42,11 +42,13 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/monads';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/domain_generalisation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. N-Queens" href="nqueens.html" />
-    <link rel="prev" title="13. Matrix Operations" href="matrix_operations.html" />
+    <link rel="next" title="9. Eigenvalues and Eigenvectors" href="eigenvalues_and_eigenvectors.html" />
+    <link rel="prev" title="7. Dockerfile" href="dockerfile.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,8 +189,8 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
                         Domain Generalisation
                       </a>
                     </li>
@@ -229,8 +231,8 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link dropdown-item nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="monads.html">
                         Monads
                       </a>
                     </li>
@@ -458,8 +460,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="domain_generalisation.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
                         Domain Generalisation
                       </a>
                     </li>
@@ -500,8 +502,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link dropdown-item nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="monads.html">
                         Monads
                       </a>
                     </li>
@@ -676,38 +678,81 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="monads">
-<h1><span class="section-number">14. </span>Monads<a class="headerlink" href="#monads" title="Link to this heading">#</a></h1>
-<p>I am going to explain the monads by an example. Suppose we want to have some
-dataset that we want to train a machine learning on. To get good performance
-with the model, the dataset requires several preprocessing steps. We are not
-certain which order the preprocessing steps should happen to get the best
-performance and we are not certain of the best hyper parameters at each step.</p>
-<p>We need a way to make the preprocessing pipeline highly configurable without
-having to rewrite the steps of the pipeline each time. Monads one way to
-organise these pipelines.</p>
-<section id="a-basic-monad">
-<h2><span class="section-number">14.1. </span>A Basic Monad<a class="headerlink" href="#a-basic-monad" title="Link to this heading">#</a></h2>
-<p>A monad is a class where each method of the class returns a new instance of the
-class. This allows functions to be easily chained together.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BasicMonad</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-
-    <span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-
-    <span class="k">def</span> <span class="nf">take_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
-
-    <span class="k">def</span> <span class="nf">multiply_by_two</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
-</pre></div>
+  <section id="domain-generalisation">
+<h1><span class="section-number">8. </span>Domain Generalisation<a class="headerlink" href="#domain-generalisation" title="Link to this heading">#</a></h1>
+<p>This covers some causal approaches to domain generalisation.</p>
+<section id="probable-domain-generalization-via-quantile-risk-minimization">
+<h2><span class="section-number">8.1. </span>Probable Domain Generalization via Quantile Risk Minimization<a class="headerlink" href="#probable-domain-generalization-via-quantile-risk-minimization" title="Link to this heading">#</a></h2>
+<p>This is a brief summary of the paper <em>Probable Domain Generalization via
+Quantile Risk Minimization</em> <span id="id1">[<a class="reference internal" href="#id8" title="Cian Eastwood, Alexander Robey, Shashank Singh, Julius Von Kügelgen, Hamed Hassani, George J Pappas, and Bernhard Schölkopf. Probable domain generalization via quantile risk minimization. Advances in Neural Information Processing Systems, 35:17340–17358, 2022.">ERS+22</a>]</span>.</p>
+<p>For a machine model to generalise to difference domains, it must perform well
+across domains that it has not seen in its training set. For example, a model
+train to classify medical images must perform well on images from hospitals
+that are not in its training set. Machine learning usually relies on the IID
+assumption that the test data will be sampled from the same distribution as the
+training data, in reality this assumption is rarely met.</p>
+<p>Typically, machine learning optimises for good average performance across all
+domains.Suppose we have a set of <span class="math notranslate nohighlight">\(n\)</span> environments <span class="math notranslate nohighlight">\(e_{\text{all}} = \{e_1, e_2,
+\dots, e_n\}\)</span> that contain data points <span class="math notranslate nohighlight">\((X_i^{e_j}, Y_i^{e_j})\)</span>. Let
+<span class="math notranslate nohighlight">\(R(f)^{e_j}\)</span> be the risk of using function <span class="math notranslate nohighlight">\(f\)</span> in domain
+<span class="math notranslate nohighlight">\(e_j\)</span>. Risk could be something simple like mean squared error. The
+average-case problem is formulated as follows:</p>
+<div class="math notranslate nohighlight">
+\[\min_{f \in F} \mathbb{E}_{e \sim \mathbb{Q}} R^e(f)\]</div>
+<p>Models the perform well on average lack robustness i.e. they can can perform
+poorly on a large subset of environments. This has lead to some optimising for
+the worst-case scenario where the function that performs the best on the
+“hardest” environment is chosen.</p>
+<div class="math notranslate nohighlight">
+\[\min_{f \in F} \max_{e \in e_{\text{all}}} R^e(f)\]</div>
+<p>Optimising for the worst-case scenario can lead to models that are too
+conservative especially if the harder environments are rare or unlikely.
+<span id="id2">Eastwood <em>et al.</em> [<a class="reference internal" href="#id8" title="Cian Eastwood, Alexander Robey, Shashank Singh, Julius Von Kügelgen, Hamed Hassani, George J Pappas, and Bernhard Schölkopf. Probable domain generalization via quantile risk minimization. Advances in Neural Information Processing Systems, 35:17340–17358, 2022.">ERS+22</a>]</span> acknowledge this by including the distribution
+of environments in their optimisation.</p>
+<div class="math notranslate nohighlight">
+\[\min_{f \in F} \underset{e \in \mathbb{Q}}{\text{ess sup }} R^e(f)
+\quad \text{where} \quad
+\underset{e \in \mathbb{Q}}{\text{ess sup }} R^e(f)
+= \inf \{ t \geq 0: \Pr_{e \sim \mathbb{Q}} \{ R^e(f) \leq t \} = 1 \}\]</div>
+<p>This optimisation uses the essential supremum from measure theory. Optimising
+for the value of <span class="math notranslate nohighlight">\(t\)</span> such the risk across all domains is <strong>always</strong> less
+than or equal to <span class="math notranslate nohighlight">\(t\)</span> may still be too conservative.
+<span id="id3">Eastwood <em>et al.</em> [<a class="reference internal" href="#id8" title="Cian Eastwood, Alexander Robey, Shashank Singh, Julius Von Kügelgen, Hamed Hassani, George J Pappas, and Bernhard Schölkopf. Probable domain generalization via quantile risk minimization. Advances in Neural Information Processing Systems, 35:17340–17358, 2022.">ERS+22</a>]</span> relax this by optimising so the risk is less
+than equal to <span class="math notranslate nohighlight">\(t\)</span> with probability <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\min_{f \in F, t \in \mathbb{R}} \quad \text{subject to} \quad \Pr_{e \sim \mathbb{Q}} \{ R^e(f) \leq t \} \geq \alpha\]</div>
+<p>Below is a diagram of what this optimisation may look like.</p>
+<a class="reference internal image-reference" href="../_images/ess_sup.png"><img alt="../_images/ess_sup.png" src="../_images/ess_sup.png" style="width: 400px;" /></a>
+<p>The distribution of environments <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span> in most situations is
+impossible to determine. However, for each function <span class="math notranslate nohighlight">\(f \in F\)</span> this
+creates a distribution <span class="math notranslate nohighlight">\(R^e(f)\)</span> for each environment <span class="math notranslate nohighlight">\(e \sim
+\mathbb{Q}\)</span>, we call this distribution <span class="math notranslate nohighlight">\(\mathbb{T}_f\)</span>. To this end, the
+optimisation problem can be rewritten as:</p>
+<div class="math notranslate nohighlight">
+\[\min_{f \in F} F^{-1}_{\mathbb{T}_f}(\alpha)
+\quad \text{where} \quad
+F_{\mathbb{T}_f}^{-1}(\alpha) = \inf \{ t \in \mathbb{R} : \Pr_{R \sim \mathbb{T_f} } \{R \leq t \} \geq \alpha \}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(F_{\mathbb{T_f}^{-1}}(\alpha)\)</span> is the inverse CDF of the risk distribution <span class="math notranslate nohighlight">\(\mathbb{T}_f\)</span></p>
+<div class="docutils container" id="id4">
+<div role="list" class="citation-list">
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ERS+22<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>)</span>
+<p>Cian Eastwood, Alexander Robey, Shashank Singh, Julius Von Kügelgen, Hamed Hassani, George J Pappas, and Bernhard Schölkopf. Probable domain generalization via quantile risk minimization. <em>Advances in Neural Information Processing Systems</em>, 35:17340–17358, 2022.</p>
 </div>
-<p>An example of using the monad:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BasicMonad</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_one</span><span class="p">()</span><span class="o">.</span><span class="n">add_one</span><span class="p">()</span><span class="o">.</span><span class="n">multiply_by_two</span><span class="p">()</span><span class="o">.</span><span class="n">x</span>
-<span class="go">6</span>
-</pre></div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>EK19<span class="fn-bracket">]</span></span>
+<p>Amit Sharm Emre Kiciman. <em>Causal Reasoning: Fundamentals and Machine Learning Applications</em>. 2019.</p>
+</div>
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Pea09<span class="fn-bracket">]</span></span>
+<p>Judea Pearl. <em>Causality: Models, Reasoning and Inference</em>. Cambridge University Press, USA, 2nd edition, 2009. ISBN 052189560X.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Raw23<span class="fn-bracket">]</span></span>
+<p>David Rawlinson. An introduction to causal inference with python – making accurate estimates of cause and effect from. https://www.youtube.com/watch?v=ilpSZiDjdv0, May 2023.</p>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -723,20 +768,20 @@ class. This allows functions to be easily chained together.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="matrix_operations.html"
+       href="dockerfile.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Matrix Operations</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Dockerfile</p>
       </div>
     </a>
     <a class="right-next"
-       href="nqueens.html"
+       href="eigenvalues_and_eigenvectors.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>N-Queens</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Eigenvalues and Eigenvectors</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -758,14 +803,14 @@ class. This allows functions to be easily chained together.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-monad">14.1. A Basic Monad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probable-domain-generalization-via-quantile-risk-minimization">8.1. Probable Domain Generalization via Quantile Risk Minimization</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/Contents/monads.rst.txt">
+    <a href="../_sources/Contents/domain_generalisation.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
