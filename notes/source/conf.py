@@ -43,7 +43,9 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinxcontrib.jquery',  # Needed to prevent JQuery errors in browser
     'nbsphinx',
+    'sphinxcontrib.bibtex',
 ]
+bibtex_bibfiles = ['references.bib']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
