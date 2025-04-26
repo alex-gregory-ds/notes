@@ -679,36 +679,106 @@ document.write(`
   <section id="regular-expressions">
 <h1><span class="section-number">17. </span>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h1>
 <p>A regular expression (often shortened to regex) is a sequence of characters
-that can be used to search for patterns of text.</p>
+that can be used to search for patterns of text. Regexes appear all over the
+place. This article covers some of the basic syntax.</p>
 <section id="regex-in-python">
 <h2><span class="section-number">17.1. </span>Regex in Python<a class="headerlink" href="#regex-in-python" title="Link to this heading">#</a></h2>
 <p>The python standard library has the <code class="code docutils literal notranslate"><span class="pre">re</span></code> module for working with regular
-expressions. This section provides a brief overview of some regex syntax.</p>
-<p>Regex strings are given the prefix <code class="code docutils literal notranslate"><span class="pre">r</span></code> before single or double quotes.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Hello&quot;</span>
-</pre></div>
-</div>
-<p>The function <code class="code docutils literal notranslate"><span class="pre">re.match</span></code> can be used to search for regex patterns inside
-other strings.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Hello&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+expressions. <code class="code docutils literal notranslate"><span class="pre">re.match</span></code> finds patterns in text strings.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="go">&lt;re.Match object; span=(0, 5), match=&#39;Hello&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">span</span><span class="p">()</span>
+<span class="go">(0, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;ll&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="go">&lt;re.Match object; span=(2, 4), match=&#39;ll&#39;&gt;</span>
 </pre></div>
 </div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">span</span></code> attribute in the object returned from <code class="code docutils literal notranslate"><span class="pre">re.match</span></code> tells
-us the first 5 characters of <code class="code docutils literal notranslate"><span class="pre">string</span></code> matched <code class="code docutils literal notranslate"><span class="pre">pattern</span></code>. Casting
-the object to a boolean gives <code class="code docutils literal notranslate"><span class="pre">True</span></code> if there is a match and
-<code class="code docutils literal notranslate"><span class="pre">False</span></code> if there is not a match.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Hello&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">))</span>
-<span class="go">True</span>
+<p>If the pattern is present in the text, <code class="code docutils literal notranslate"><span class="pre">re.search</span></code> returns a
+<code class="code docutils literal notranslate"><span class="pre">re.Match</span></code> object. You can retrieve the start and end point of the match
+using the <code class="code docutils literal notranslate"><span class="pre">span</span></code> method. If the pattern is not present in the string,
+<code class="code docutils literal notranslate"><span class="pre">re.search</span></code> returns <code class="code docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Random&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Random&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+<span class="go">None</span>
 </pre></div>
 </div>
-<p>Regex can be used to match more complicated patterns. The list below describes
-some of regex syntax.</p>
+<p>Regex provides a rich syntax for matching complex patterns. For example,
+<code class="code docutils literal notranslate"><span class="pre">+</span></code> matches to one or more repetition of the preceding character.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;l+&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+<span class="go">&lt;re.Match object; span=(2, 4), match=&#39;ll&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;l+&quot;</span><span class="p">,</span> <span class="s2">&quot;Helllo, World&quot;</span><span class="p">)</span>
+<span class="go">&lt;re.Match object; span=(2, 5), match=&#39;lll&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;l+&quot;</span><span class="p">,</span> <span class="s2">&quot;Hellllo, World&quot;</span><span class="p">)</span>
+<span class="go">&lt;re.Match object; span=(2, 6), match=&#39;llll&#39;&gt;</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">re.search</span></code> does not match the second <code class="code docutils literal notranslate"><span class="pre">l</span></code></p>
+<p>The second <code class="code docutils literal notranslate"><span class="pre">l</span></code> in <code class="code docutils literal notranslate"><span class="pre">World</span></code> is not matched because <code class="code docutils literal notranslate"><span class="pre">re.search</span></code>
+only matches the first instance of the pattern. <code class="code docutils literal notranslate"><span class="pre">re.finall</span></code> matches all
+instances of the pattern and returns the matches in a list.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;l+&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+<span class="go">[&#39;ll&#39;, &#39;l&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="quantifiers">
+<h2><span class="section-number">17.2. </span>Quantifiers<a class="headerlink" href="#quantifiers" title="Link to this heading">#</a></h2>
+<p>Quantifiers specify how many instanstances of a character or group must be
+present for a match to be found.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantifier</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Matches zero or more repetitions of the preceding character.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Matches one or more repetitions of the preceding character.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>Matches zero or one repetitions of the preceding character.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">{n}</span></code></p></td>
+<td><p>Matches exactly <code class="code docutils literal notranslate"><span class="pre">n</span></code> repetitions of the preceding character.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">{n,}</span></code></p></td>
+<td><p>Matches at least <code class="code docutils literal notranslate"><span class="pre">n</span></code> repetitions of the preceding character.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">{n,m}</span></code></p></td>
+<td><p>Matches between <code class="code docutils literal notranslate"><span class="pre">n</span></code> and <code class="code docutils literal notranslate"><span class="pre">m</span></code> repetitions of the preceding
+character.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Below are examples of each quantifier.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, Mel, Ankle&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;el+&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Mel, eat&quot;</span><span class="p">)</span>
+<span class="go">[&#39;ell&#39;, &#39;el&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;el?&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Mel, eat&quot;</span><span class="p">)</span>
+<span class="go">[&#39;el&#39;, &#39;el&#39;, &#39;e&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;el*&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Mel, eat&quot;</span><span class="p">)</span>
+<span class="go">[&#39;ell&#39;, &#39;el&#39;, &#39;e&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;el</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Mel, eat&quot;</span><span class="p">)</span>
+<span class="go">[&#39;ell&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;el{1,}&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Mel, eat&quot;</span><span class="p">)</span>
+<span class="go">[&#39;ell&#39;, &#39;el&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="regex-syntax">
+<h2><span class="section-number">17.3. </span>Regex Syntax<a class="headerlink" href="#regex-syntax" title="Link to this heading">#</a></h2>
 <dl>
 <dt><code class="code docutils literal notranslate"><span class="pre">.</span></code></dt><dd><p>Matches any single character other than the newline character (<code class="code docutils literal notranslate"><span class="pre">n</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;H.llo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">))</span>
@@ -821,9 +891,8 @@ some of regex syntax.</p>
 </div>
 </dd>
 </dl>
-</section>
 <section id="grep">
-<h2><span class="section-number">17.2. </span>Grep<a class="headerlink" href="#grep" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">17.3.1. </span>Grep<a class="headerlink" href="#grep" title="Link to this heading">#</a></h3>
 <p>Grep is a program common on most Unix-like systems. It is used for finding
 patterns in text. Suppose the file <code class="code docutils literal notranslate"><span class="pre">text.txt</span></code> contains the follow text.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Line 1</span>
@@ -853,7 +922,7 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
 </pre></div>
 </div>
 <section id="grep-multiple-files">
-<h3><span class="section-number">17.2.1. </span>Grep Multiple Files<a class="headerlink" href="#grep-multiple-files" title="Link to this heading">#</a></h3>
+<h4><span class="section-number">17.3.1.1. </span>Grep Multiple Files<a class="headerlink" href="#grep-multiple-files" title="Link to this heading">#</a></h4>
 <p>Suppose we have the following directory structure.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">directory</span>
 <span class="go">   file1.txt</span>
@@ -885,6 +954,7 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
 <span class="go">file2.txt:Line 2 in file2</span>
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 </section>
@@ -936,8 +1006,12 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">17.1. Regex in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">17.2. Grep</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">17.2.1. Grep Multiple Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifiers">17.2. Quantifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-syntax">17.3. Regex Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">17.3.1. Grep</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">17.3.1.1. Grep Multiple Files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
