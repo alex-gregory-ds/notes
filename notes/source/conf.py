@@ -41,6 +41,7 @@ release = ''
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.doctest',
     'sphinxcontrib.jquery',  # Needed to prevent JQuery errors in browser
     'nbsphinx',
     'sphinxcontrib.bibtex',
