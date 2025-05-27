@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Regular Expressions &#8212; Notes</title>
+    <title>18. Regular Expressions &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/regular_expressions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Shannon Entropy" href="shannon_entropy.html" />
-    <link rel="prev" title="16. R Squared" href="r_squared.html" />
+    <link rel="next" title="19. Shannon Entropy" href="shannon_entropy.html" />
+    <link rel="prev" title="17. R Squared" href="r_squared.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,6 +218,13 @@
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="import_system.html">
                         The Python Import System
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
                       </a>
                     </li>
                 
@@ -494,6 +501,13 @@ document.write(`
                 
 
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="matrix_operations.html">
                         Matrix Operations
                       </a>
@@ -677,12 +691,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="regular-expressions">
-<h1><span class="section-number">17. </span>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h1>
 <p>A regular expression (often shortened to regex) is a sequence of characters
 that can be used to search for patterns of text. Regexes appear all over the
 place. This article covers some of the basic syntax.</p>
 <section id="regex-in-python">
-<h2><span class="section-number">17.1. </span>Regex in Python<a class="headerlink" href="#regex-in-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Regex in Python<a class="headerlink" href="#regex-in-python" title="Link to this heading">#</a></h2>
 <p>The python standard library has the <code class="code docutils literal notranslate"><span class="pre">re</span></code> module for working with regular
 expressions. <code class="code docutils literal notranslate"><span class="pre">re.match</span></code> finds patterns in text strings.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
@@ -730,7 +744,7 @@ instances of the pattern and returns the matches in a list.</p>
 </div>
 </section>
 <section id="quantifiers">
-<h2><span class="section-number">17.2. </span>Quantifiers<a class="headerlink" href="#quantifiers" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Quantifiers<a class="headerlink" href="#quantifiers" title="Link to this heading">#</a></h2>
 <p>Quantifiers specify how many instanstances of a character or group must be
 present for a match to be found.</p>
 <table class="table">
@@ -778,7 +792,7 @@ character.</p></td>
 </div>
 </section>
 <section id="regex-syntax">
-<h2><span class="section-number">17.3. </span>Regex Syntax<a class="headerlink" href="#regex-syntax" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Regex Syntax<a class="headerlink" href="#regex-syntax" title="Link to this heading">#</a></h2>
 <dl>
 <dt><code class="code docutils literal notranslate"><span class="pre">.</span></code></dt><dd><p>Matches any single character other than the newline character (<code class="code docutils literal notranslate"><span class="pre">n</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;H.llo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">))</span>
@@ -892,7 +906,7 @@ character.</p></td>
 </dd>
 </dl>
 <section id="grep">
-<h3><span class="section-number">17.3.1. </span>Grep<a class="headerlink" href="#grep" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.3.1. </span>Grep<a class="headerlink" href="#grep" title="Link to this heading">#</a></h3>
 <p>Grep is a program common on most Unix-like systems. It is used for finding
 patterns in text. Suppose the file <code class="code docutils literal notranslate"><span class="pre">text.txt</span></code> contains the follow text.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Line 1</span>
@@ -922,7 +936,7 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
 </pre></div>
 </div>
 <section id="grep-multiple-files">
-<h4><span class="section-number">17.3.1.1. </span>Grep Multiple Files<a class="headerlink" href="#grep-multiple-files" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">18.3.1.1. </span>Grep Multiple Files<a class="headerlink" href="#grep-multiple-files" title="Link to this heading">#</a></h4>
 <p>Suppose we have the following directory structure.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">directory</span>
 <span class="go">   file1.txt</span>
@@ -975,7 +989,7 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>R Squared</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>R Squared</p>
       </div>
     </a>
     <a class="right-next"
@@ -983,7 +997,7 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Shannon Entropy</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Shannon Entropy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1005,11 +1019,11 @@ patterns in text. Suppose the file <code class="code docutils literal notranslat
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">17.1. Regex in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifiers">17.2. Quantifiers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-syntax">17.3. Regex Syntax</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">17.3.1. Grep</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">17.3.1.1. Grep Multiple Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">18.1. Regex in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifiers">18.2. Quantifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-syntax">18.3. Regex Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grep">18.3.1. Grep</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-multiple-files">18.3.1.1. Grep Multiple Files</a></li>
 </ul>
 </li>
 </ul>

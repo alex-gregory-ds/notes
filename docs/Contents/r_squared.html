@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>16. R Squared &#8212; Notes</title>
+    <title>17. R Squared &#8212; Notes</title>
   
   
   
@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/r_squared';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="17. Regular Expressions" href="regular_expressions.html" />
-    <link rel="prev" title="15. N-Queens" href="nqueens.html" />
+    <link rel="next" title="18. Regular Expressions" href="regular_expressions.html" />
+    <link rel="prev" title="16. N-Queens" href="nqueens.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -220,6 +220,13 @@
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="import_system.html">
                         The Python Import System
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
                       </a>
                     </li>
                 
@@ -496,6 +503,13 @@ document.write(`
                 
 
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="matrix_operations.html">
                         Matrix Operations
                       </a>
@@ -679,10 +693,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="r-squared">
-<h1><span class="section-number">16. </span>R Squared<a class="headerlink" href="#r-squared" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>R Squared<a class="headerlink" href="#r-squared" title="Link to this heading">#</a></h1>
 <p>R-Squared is a goodness of fit measure for regression models.</p>
 <section id="definition">
-<h2><span class="section-number">16.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(f\)</span> be a regression model trained on
 <span class="math notranslate nohighlight">\(X = \{ X_1, X_2, \dots, X_n \}\)</span> to predict
 <span class="math notranslate nohighlight">\(y = \{ y_1, y_2, \dots, y_n \}\)</span>. The formula for r-squared is,</p>
@@ -700,7 +714,7 @@ the mean of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 \[TSS = \sum_{i = 0}^{n} (y_i - \bar{y})^2.\]</div>
 </section>
 <section id="interpretation">
-<h2><span class="section-number">16.2. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
 <p>TSS can be thought of as the total error if we used the mean of <span class="math notranslate nohighlight">\(y\)</span> as
 our model. Whereas RSS is the total error using our actual model. The ratio
 <span class="math notranslate nohighlight">\(RSS / TSS\)</span> tells how much better (or worse) the model <span class="math notranslate nohighlight">\(f\)</span> is
@@ -728,7 +742,7 @@ compared to just using the mean <span class="math notranslate nohighlight">\(\ba
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>N-Queens</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>N-Queens</p>
       </div>
     </a>
     <a class="right-next"
@@ -736,7 +750,7 @@ compared to just using the mean <span class="math notranslate nohighlight">\(\ba
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Regular Expressions</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Regular Expressions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -758,8 +772,8 @@ compared to just using the mean <span class="math notranslate nohighlight">\(\ba
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">16.1. Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">16.2. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">17.1. Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">17.2. Interpretation</a></li>
 </ul>
   </nav></div>
 

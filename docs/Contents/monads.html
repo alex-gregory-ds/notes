@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. Monads &#8212; Notes</title>
+    <title>15. Monads &#8212; Notes</title>
   
   
   
@@ -45,8 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Contents/monads';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. N-Queens" href="nqueens.html" />
-    <link rel="prev" title="13. Matrix Operations" href="matrix_operations.html" />
+    <link rel="next" title="16. N-Queens" href="nqueens.html" />
+    <link rel="prev" title="14. Matrix Operations" href="matrix_operations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,6 +218,13 @@
                     <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="import_system.html">
                         The Python Import System
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
                       </a>
                     </li>
                 
@@ -494,6 +501,13 @@ document.write(`
                 
 
                     <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="linux.html">
+                        Linux
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link dropdown-item nav-internal" href="matrix_operations.html">
                         Matrix Operations
                       </a>
@@ -677,7 +691,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="monads">
-<h1><span class="section-number">14. </span>Monads<a class="headerlink" href="#monads" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Monads<a class="headerlink" href="#monads" title="Link to this heading">#</a></h1>
 <p>I am going to explain the monads by an example. Suppose we want to have some
 dataset that we want to train a machine learning on. To get good performance
 with the model, the dataset requires several preprocessing steps. We are not
@@ -687,7 +701,7 @@ performance and we are not certain of the best hyper parameters at each step.</p
 having to rewrite the steps of the pipeline each time. Monads one way to
 organise these pipelines.</p>
 <section id="a-basic-monad">
-<h2><span class="section-number">14.1. </span>A Basic Monad<a class="headerlink" href="#a-basic-monad" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>A Basic Monad<a class="headerlink" href="#a-basic-monad" title="Link to this heading">#</a></h2>
 <p>A monad is a class where each method of the class returns a new instance of the
 class. This allows functions to be easily chained together.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BasicMonad</span>
@@ -728,7 +742,7 @@ class. This allows functions to be easily chained together.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Matrix Operations</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Matrix Operations</p>
       </div>
     </a>
     <a class="right-next"
@@ -736,7 +750,7 @@ class. This allows functions to be easily chained together.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>N-Queens</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>N-Queens</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -758,7 +772,7 @@ class. This allows functions to be easily chained together.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-monad">14.1. A Basic Monad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-monad">15.1. A Basic Monad</a></li>
 </ul>
   </nav></div>
 
