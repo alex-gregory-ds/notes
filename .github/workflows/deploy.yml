@@ -23,6 +23,6 @@ jobs:
       run: |
         git checkout --orphan gh-pages
         git rm -rf .
-        mv notes/build .
+        mv notes/build docs
         git add build
         git commit -v "Add built docs"
