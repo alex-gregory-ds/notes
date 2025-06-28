@@ -25,4 +25,4 @@ jobs:
         git rm -rf .
         mv notes/build docs
         git add docs
-        git commit -v "Add built docs"
+        git commit -m "Add built docs"
