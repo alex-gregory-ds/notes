@@ -20,22 +20,12 @@ jobs:
         cd notes
         make clean html
         cd ..
-        mv notes/build/html docs
-    - name: Store build as an artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: docs
-        path: docs
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/artifact-build'
-    needs: build
-    steps:
     - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/artifact-build'
       uses: peaceiris/actions-gh-pages@v3
       with:
         publish_branch: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs
+        publish_dir: notes/build/html
         force_orphan: true
 
