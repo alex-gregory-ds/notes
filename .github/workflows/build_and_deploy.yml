@@ -28,7 +28,7 @@ jobs:
         path: docs
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/artifact-build'
     needs: build
     steps:
     - name: Deploy to GitHub Pages
