@@ -1,6 +1,6 @@
 # Notes
 
-A simple sphinx static site for my personal notes.
+A simple sphinx static site for my personal notes https://alex-gregory-ds.github.io/notes/.
 
 # Install
 
