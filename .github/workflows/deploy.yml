@@ -1,7 +1,8 @@
 name: Deploy to GitHub Pages
 on: [push]
+
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -19,6 +20,11 @@ jobs:
         cd notes
         make clean html
         cd ..
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.head_red == 'main'
+    needs: deploy
+    steps:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
