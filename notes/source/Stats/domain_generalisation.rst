@@ -77,5 +77,3 @@ optimisation problem can be rewritten as:
 
 Here, :math:`F_{\mathbb{T_f}^{-1}}(\alpha)` is the inverse CDF of the risk distribution :math:`\mathbb{T}_f`
 
-.. bibliography::
-
