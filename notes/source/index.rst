@@ -9,11 +9,11 @@ Notes
 .. toctree::
    :maxdepth: 1
    :caption: Table of Contents
-   :numbered:
    :glob:
 
-   Contents/*
-   Notebooks/*
+   Maths/index
+   Stats/index
+   Programming/index
 
 Indices and tables
 ==================

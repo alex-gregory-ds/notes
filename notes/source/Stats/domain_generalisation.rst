@@ -60,8 +60,8 @@ than equal to :math:`t` with probability :math:`\alpha`.
 
 Below is a diagram of what this optimisation may look like.
 
-.. image:: Images/ess_sup.png
-   :width: 400
+.. .. image:: Images/ess_sup.png
+..    :width: 400
 
 The distribution of environments :math:`\mathbb{Q}` in most situations is
 impossible to determine. However, for each function :math:`f \in F` this
@@ -78,4 +78,4 @@ optimisation problem can be rewritten as:
 Here, :math:`F_{\mathbb{T_f}^{-1}}(\alpha)` is the inverse CDF of the risk distribution :math:`\mathbb{T}_f`
 
 .. bibliography::
-   :cited:
+
