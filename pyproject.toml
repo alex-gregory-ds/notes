@@ -12,7 +12,6 @@ readme = "README.md"
 dependencies = [
     "sphinx",
     "pydata-sphinx-theme",
-    "nbsphinx",  # For rendering jupyter notebooks
     "pre-commit",
     "sphinxcontrib-jquery",
     "plotly",
