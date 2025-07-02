@@ -185,3 +185,8 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath",
+]
