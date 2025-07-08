@@ -45,6 +45,7 @@ extensions = [
     'sphinxcontrib.jquery',  # Needed to prevent JQuery errors in browser
     'sphinxcontrib.bibtex',
     'myst_nb',
+    'sphinx_proof',
 ]
 bibtex_bibfiles = ['references.bib']
 

@@ -17,6 +17,7 @@ dependencies = [
     "plotly",
     "sphinxcontrib-bibtex",
     "myst-nb",
+    "sphinx-proof",
 ]
 version = "0.0.1"
 
