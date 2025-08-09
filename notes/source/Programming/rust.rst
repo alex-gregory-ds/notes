@@ -65,3 +65,85 @@ not provided. Rust has rules for which data type it defaults to.
    let c1 = true; // bool
    let c2 = false; // bool
 
+Statements and Expressions
+--------------------------
+
+Statements are instructions that perform some action and do not return a value.
+Expressions evaluate to a resultant value. Here are some examples:
+
+.. code:: rust
+
+   // The line below is a statement but the 2 is an expression that evaluates to
+   // the value 2.
+   let x = 2;
+
+   // The curly brackets part is an expression because it evaluates to 4
+   let y = {
+        let x = 3;
+        x + 1  // This is equivalent to 'return x + 1'
+   }
+
+Expressions do not include semicolons at the end of the line.
+
+Ownership and Borrowing
+-----------------------
+
+Rust's ownership system has two fundamental rules:
+
+* Each value has single owner.
+* When the owner goes out of scope, the value is dropped.
+
+In the following example, we create a string on the heap and assign it to
+:code:`x`. We then assign :code:`y` to :code:`x`.
+
+.. code:: rust
+
+   // main.rs
+   fn main() {
+       let x = String::from("Hello, world");
+       let y = x;  // Ownership of 'x' is given to y
+
+       // 'x' no longer owns 'hello world' so the following is invalid
+       println!("{}", x);  // ERROR: Borrow of moved value 'x'
+   }
+
+In rust, a value can be owned by only one thing at a time, so :code:`x` and
+:code:`y` cannot both own :code:`Hello, world`.
+
+Ownership is also changed when a variable is passed to a function. In the next
+example, we create a simple function to print a line of text and pass a
+variable to that function.
+
+.. code:: rust
+
+   fn print_text(line: String) {
+       println!("The is from 'print_text': {}", line);
+   }
+
+   fn main() {
+       let x = String::from("Hello, world");
+       print_text(x);
+       println!("{}", x);  // ERROR: Borrow of moved value 'x'
+   }
+
+When :code:`x` is passed to the function :code:`print_text`, the function is
+given ownership of :code:`x`. To allow :code:`x` to be used after
+:code:`print_text` has finished, use the :code:`&` symbol to let
+:code:`print_text` **borrow** :code:`x` rather than own it as shown in the
+example below:
+
+.. code:: rust
+
+   fn print_text(line: &String) {
+       println!("The is from 'print_text': {}", line);
+   }
+
+   fn main() {
+       let x = String::from("Hello, world");
+       print_text(&x);
+       println!("{}", x);
+   }
+
+The :code:`&` allows the :code:`print_text` to temporarily borrow :code:`x`
+then give it back after the function has finished.
+
