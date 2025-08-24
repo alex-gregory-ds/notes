@@ -85,34 +85,39 @@ Expressions evaluate to a resultant value. Here are some examples:
 
 Expressions do not include semicolons at the end of the line.
 
-Ownership and Borrowing
------------------------
+Rust's Ownership Model
+----------------------
 
 Rust's ownership system has two fundamental rules:
 
 * Each value has single owner.
 * When the owner goes out of scope, the value is dropped.
 
+The following examples demonstrate rust's ownership system in practice.
+
+Example: Giving Ownership
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 In the following example, we create a string on the heap and assign it to
 :code:`x`. We then assign :code:`y` to :code:`x`.
 
 .. code:: rust
 
-   // main.rs
-   fn main() {
-       let x = String::from("Hello, world");
-       let y = x;  // Ownership of 'x' is given to y
+   let x = String::from("Hello, world");
+   let y = x;  // Ownership of 'x' is given to 'y'
 
-       // 'x' no longer owns 'hello world' so the following is invalid
-       println!("{}", x);  // ERROR: Borrow of moved value 'x'
-   }
+   // 'x' no longer owns 'hello world' so the following is invalid
+   println!("{}", x);  // ERROR: Borrow of moved value 'x'
 
 In rust, a value can be owned by only one thing at a time, so :code:`x` and
 :code:`y` cannot both own :code:`Hello, world`.
 
-Ownership is also changed when a variable is passed to a function. In the next
-example, we create a simple function to print a line of text and pass a
-variable to that function.
+Example: Functions take Ownership
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When a variable is directly passed to a function, ownership of data is given to
+the function.  In the next example, we create a simple function to print a line
+of text and pass a variable to that function.
 
 .. code:: rust
 
@@ -126,24 +131,25 @@ variable to that function.
        println!("{}", x);  // ERROR: Borrow of moved value 'x'
    }
 
-When :code:`x` is passed to the function :code:`print_text`, the function is
-given ownership of :code:`x`. To allow :code:`x` to be used after
-:code:`print_text` has finished, use the :code:`&` symbol to let
-:code:`print_text` **borrow** :code:`x` rather than own it as shown in the
-example below:
+When :code:`x` is passed to :code:`print_text`, it is given ownership of
+:code:`x` so it cannot be used again.
+
+Example: Looping over a list Gives up its Ownership
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the code example below, we loop over a list of strings. After this loop, the
+original variable assigned to the variable now longer has onwership of the data.
 
 .. code:: rust
 
-   fn print_text(line: &String) {
-       println!("The is from 'print_text': {}", line);
-   }
-
    fn main() {
-       let x = String::from("Hello, world");
-       print_text(&x);
-       println!("{}", x);
+       let lines = [
+          String::from("Line 1"), String::from("Line 2"), String::from("Line 3")
+       ]
+       for line in lines {
+       }
+       println!("{:?}", lines);  // ERROR: Borrow of moved value of 'lines'
    }
 
-The :code:`&` allows the :code:`print_text` to temporarily borrow :code:`x`
-then give it back after the function has finished.
-
+In the for loop, the ownership of each item in :code:`lines` is given to the
+variable :code:`line`.
